@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head> 
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+</h:head>
+
+<h:body style="background: #F2F2F2; margin: 0px">
+	<table style="-webkit-border-radius: 10px; background: white"
+		width="1024" align="center" cellpadding="0px" cellspacing="0px">
+		<tr>
+			<td style="width: 100%; height: 100px" colspan="2"><p:panel
+					style="border : none">
+					<ui:include src="/topo.xhtml" />
+				</p:panel></td>
+		</tr>
+
+		<tr>
+			
+			<td align="center" style="width: 100%;" colspan="2"><h:form>
+					
+					<p:toolbar style="width: 97%;" >
+
+						<p:toolbarGroup align="right">							
+							<p:menuButton value="Opções">
+								<p:menuitem value="Sair" url="http://www.primefaces.org" />
+							</p:menuButton>
+						</p:toolbarGroup>
+					</p:toolbar>
+				</h:form></td>
+		</tr>
+
+		<tr>
+			<td style="vertical-align: text-top; width: 100px"><p:panel
+					style="border : none">
+					<ui:include src="/menu.xhtml" />
+				</p:panel></td>
+			<td style="width: 100%"><p:panel style="border : none">
+					<ui:insert name="corpo" />
+				</p:panel></td>
+		</tr>
+
+		<tr>
+			<td style="width: 100%; height: 70px" colspan="2">
+				<p:separator style="width: 97%;" /> 
+					<p:panel style="border : none">
+						<ui:insert name="rodape" />
+					</p:panel>
+				</td>
+		</tr>
+
+	</table>
+
+	<p:growl id="messages" showDetail="true" sticky="true"
+		globalOnly="false" />
+
+</h:body>
+
+
+</html>

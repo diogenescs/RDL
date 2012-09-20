@@ -1,0 +1,21 @@
+@CHARSET "ISO-8859-1";
+
+.messageErro {
+	color: red;
+	font-size: 10px;
+	margin-left: 8px;
+}
+
+.colunaDireita {
+	text-align: right;
+}
+
+
+.colunaEsquerda {
+	text-align: left;
+}
+
+
+.ui-widget {
+	font-size: 12px;
+}

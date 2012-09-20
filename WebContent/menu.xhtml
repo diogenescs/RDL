@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+	
+		<p:tieredMenu  style="width:170px" >
+			<p:menuitem value="Inicio" url="/index.jsf" />
+			<p:submenu label="Cadastro" >
+				<p:menuitem value="Categoria" url="/categoria_edit.jsf" />
+			</p:submenu>
+
+			
+			<p:separator /> 
+			<p:submenu label="Outros">
+				<p:menuitem value="Sair"
+					url="http://google.com.br"/>
+			</p:submenu>
+
+		</p:tieredMenu >
+
+</ui:composition>
+</html>

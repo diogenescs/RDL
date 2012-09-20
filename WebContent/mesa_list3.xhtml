@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/template/template_principal.xhtml">
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<ui:define name="corpo">
+
+		<p:panel style="width : 700px">
+			<h:form>
+				<h:outputLabel style="font-weight: bold;" value="Lista de Mesas" />
+				<p:separator />
+
+				<p:fieldset legend="Pesquisar" toggleable="true" toggleSpeed="500"
+					collapsed="false">
+					<h:panelGrid columns="3">
+						<h:outputLabel value="Id" for="id" />
+						<h:outputLabel value="Descrição" for="desc" />
+						<h:outputLabel value="Qntd. Lugares" for="qtd" />
+
+						<p:inputText id="id" value="#{mesaListMB2.beanPesquisa.id}"
+							size="10" converter="LongNullConverter">
+						</p:inputText>
+						<p:inputText id="desc"
+							value="#{mesaListMB2.beanPesquisa.descricao}" size="45" />
+						<h:panelGroup>
+							<p:inputText id="qtd" converter="LongNullConverter"
+								value="#{mesaListMB2.beanPesquisa.qtdLugares}" size="10">
+							</p:inputText>
+							<p:spacer />
+							<p:commandButton id="btnPesquisar" value="Pesquisar"
+								action="#{mesaListMB2.buscar}" ajax="false" />
+						</h:panelGroup>
+					</h:panelGrid>
+				</p:fieldset>
+				<br />
+				<p:dataTable id="dataTable" var="mesa"
+					emptyMessage="Nenhum registro encontrado"
+					value="#{mesaListMB2.resultList}">
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Id" />
+						</f:facet>
+						<h:outputLabel value="#{mesa.id}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Descrição" />
+						</f:facet>
+						<h:outputLabel value="#{mesa.descricao}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Qtd. Lugares" />
+						</f:facet>
+						<h:outputLabel value="#{mesa.qtdLugares}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Ativo" />
+						</f:facet>
+						<p:selectBooleanCheckbox value="#{mesa.ativo}" disabled="true" />
+					</p:column>
+				</p:dataTable>
+				<br />
+				<p:commandButton id="btnNova" value="Nova Mesa"
+					action="#{mesaListMB2.nova}" ajax="false" />
+			</h:form>
+		</p:panel>
+	</ui:define>
+
+</ui:composition>
+</html>
