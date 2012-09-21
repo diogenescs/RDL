@@ -12,23 +12,27 @@
 		<h:form>
 			
 			<p:panel style="width : 550px">
-				<h:outputLabel style="font-weight: bold;" value="Nova categoria" />
+				<h:outputLabel style="font-weight: bold;" value="Nova forma de pagamento" />
 				<p:separator />
-				<h:panelGrid columns="2">  
+				<h:panelGrid columns="3">  
 
 					<p:outputLabel value="Id" for="textId" />
-					<p:inputText value="#{categoriaMb.categoria.id}" id="textId"
+					<p:inputText value="#{formaDePgtoMb.formaDePgto.id}" id="textId"
 						disabled="true" />
 
 					<p:outputLabel value="Descrição" for="textDesc" />
-					<p:inputText value="#{categoriaMb.categoria.descricao}"
+					<p:inputText value="#{formaDePgtoMb.formaDePgto.descricao}"
 						id="textDesc" required="true" requiredMessage="Campo obrigatório" />
+						
+					<p:outputLabel value="Sigla" for="textDesc" />
+					<p:inputText value="#{formaDePgtoMb.formaDePgto.sigla}"
+						id="textDesc" required="true" requiredMessage="Campo obrigatório" />	
 
 					<p:commandButton id="btnCancelar" value="Cancelar"
-						action="#{categoriaMb.cancelar}" ajax="false" immediate="true"/>
+						action="#{formaDePgtoMb.cancelar}" ajax="false" immediate="true"/>
 
 					<p:commandButton id="btnInserir" value="Salvar"
-						action="#{categoriaMb.salvar}" ajax="false" />
+						action="#{formaDePgtoMb.salvar}" ajax="false" />
 				</h:panelGrid>
 
 			</p:panel>

@@ -5,20 +5,51 @@
    <PROCESS-ITEM-OUTPUT ID="editarCategoria::#categoria_edit.xhtml"
     NAME="output" PATH="/categoria_edit.xhtml"
     TARGET="rules:#categoria_edit.xhtml" TITLE="editarCategoria" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:*:2" PATH="*" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:*:2" NAME="item" PATH="*" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="listaCategoria::#categoria_list.xhtml"
-    NAME="output" PATH="/categoria_list.xhtml"
-    TARGET="rules:#categoria_list.xhtml" TITLE="listaCategoria" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="novaCategoria::#categoria_edit.xhtml"
-    NAME="output1" PATH="/categoria_edit.xhtml"
-    TARGET="rules:#categoria_edit.xhtml" TITLE="novaCategoria" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editarProjeto::#projeto_edit.xhtml"
+    NAME="output1" PATH="/projeto_edit.xhtml"
+    TARGET="rules:#projeto_edit.xhtml" TITLE="editarProjeto" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editarFormaDePgto::#forma_de_pgto_edit.xhtml" NAME="output2"
+    PATH="/forma_de_pgto_edit.xhtml"
+    TARGET="rules:#forma_de_pgto_edit.xhtml" TITLE="editarFormaDePgto" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#categoria_list.xhtml"
   PATH="/categoria_list.xhtml" SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#categoria_edit.xhtml"
   PATH="/categoria_edit.xhtml" SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:1" PATH="*" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:1" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listaCategoria::#categoria_list.xhtml"
+    NAME="output" PATH="/categoria_list.xhtml"
+    TARGET="rules:#categoria_list.xhtml" TITLE="listaCategoria" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listaFormaDePgto::#forma_de_pgto_list.xhtml"
+    NAME="output1" PATH="/forma_de_pgto_list.xhtml"
+    TARGET="rules:#forma_de_pgto_list.xhtml" TITLE="listaFormaDePgto" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listaProjeto::#projeto_list.xhtml"
+    NAME="output4" PATH="/projeto_list.xhtml"
+    TARGET="rules:#projeto_list.xhtml" TITLE="listaProjeto" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#projeto_list.xhtml"
+  PATH="/projeto_list.xhtml" SHAPE="272,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#projeto_edit.xhtml"
+  PATH="/projeto_edit.xhtml" SHAPE="416,64,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#forma_de_pgto_list.xhtml"
+  PATH="/forma_de_pgto_list.xhtml" SHAPE="568,112,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#forma_de_pgto_edit.xhtml"
+  PATH="/forma_de_pgto_edit.xhtml" SHAPE="384,184,50,25" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:2" PATH="*" SHAPE="32,369,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:2" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="novaCategoria::#categoria_edit.xhtml"
+    NAME="output" PATH="/categoria_edit.xhtml"
+    TARGET="rules:#categoria_edit.xhtml" TITLE="novaCategoria" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="novoProjeto::#projeto_edit.xhtml"
+    NAME="output1" PATH="/projeto_edit.xhtml"
+    TARGET="rules:#projeto_edit.xhtml" TITLE="novoProjeto" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="novaFormaDePgto::#forma_de_pgto_edit.xhtml"
+    NAME="output2" PATH="/forma_de_pgto_edit.xhtml"
+    TARGET="rules:#forma_de_pgto_edit.xhtml" TITLE="novaFormaDePgto" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

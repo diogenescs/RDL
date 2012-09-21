@@ -1,5 +1,7 @@
 package br.com.unifacs.bo;
 
+import java.util.List;
+
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.ProjetoDao;
 import br.com.unifacs.model.Projeto;
@@ -50,6 +52,14 @@ public class ProjetoBoImpl implements ProjetoBo {
 			throw new BoException(e, "Erro ao excluir registro");
 		}
 
+	}
+
+	public List<Projeto> obterTodos() {
+		return dao.obterTodos();
+	}
+
+	public Projeto obter(Integer id) {
+		return dao.obter(id);
 	}
 
 }

@@ -9,6 +9,16 @@
    <to-view-id>/categoria_edit.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
+  <navigation-case>
+   <from-outcome>editarProjeto</from-outcome>
+   <to-view-id>/projeto_edit.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+   <navigation-case>
+   <from-outcome>editarFormaDePgto</from-outcome>
+   <to-view-id>/forma_de_pgto_edit.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
  </navigation-rule>
  <navigation-rule>
   <from-view-id>*</from-view-id>
@@ -17,9 +27,50 @@
    <to-view-id>/categoria_list.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
+   <navigation-case>
+   <from-outcome>listaFormaDePgto</from-outcome>
+   <to-view-id>/forma_de_pgto_list.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+   <navigation-case>
+   <from-outcome>listaProjeto</from-outcome>
+   <to-view-id>/projeto_list.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+   </navigation-rule>
+   <navigation-rule>
+   <from-view-id>*</from-view-id>
   <navigation-case>
    <from-outcome>novaCategoria</from-outcome>
    <to-view-id>/categoria_edit.xhtml</to-view-id>
   </navigation-case>
- </navigation-rule>
+  <navigation-case>
+   <from-outcome>novoProjeto</from-outcome>
+   <to-view-id>/projeto_edit.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>novaFormaDePgto</from-outcome>
+   <to-view-id>/forma_de_pgto_edit.xhtml</to-view-id>
+  </navigation-case>
+  </navigation-rule>
 </faces-config>
+ 
+  <!-- <from-view-id>*</from-view-id>
+  <navigation-case>
+   <from-outcome>editarProjeto</from-outcome>
+   <to-view-id>/projeto_edit.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
+ <navigation-rule>
+  <from-view-id>*</from-view-id>
+  <navigation-case>
+   <from-outcome>listaProjeto</from-outcome>
+   <to-view-id>/projeto_list.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>novoProjeto</from-outcome>
+   <to-view-id>/projeto_edit.xhtml</to-view-id>
+  </navigation-case> -->
+

@@ -6,7 +6,6 @@ public class ProjetoDao extends GenericDaoJpa<Projeto, Integer>{
 
 	public ProjetoDao() {
 		super(Projeto.class);
-		// TODO Auto-generated constructor stub
 	}
 
 }

@@ -12,23 +12,23 @@
 		<h:form>
 			
 			<p:panel style="width : 550px">
-				<h:outputLabel style="font-weight: bold;" value="Nova categoria" />
+				<h:outputLabel style="font-weight: bold;" value="Novo projeto" />
 				<p:separator />
 				<h:panelGrid columns="2">  
 
 					<p:outputLabel value="Id" for="textId" />
-					<p:inputText value="#{categoriaMb.categoria.id}" id="textId"
+					<p:inputText value="#{projetoMb.projeto.id}" id="textId"
 						disabled="true" />
 
 					<p:outputLabel value="Descrição" for="textDesc" />
-					<p:inputText value="#{categoriaMb.categoria.descricao}"
+					<p:inputText value="#{projetoMb.projeto.descricao}"
 						id="textDesc" required="true" requiredMessage="Campo obrigatório" />
 
 					<p:commandButton id="btnCancelar" value="Cancelar"
-						action="#{categoriaMb.cancelar}" ajax="false" immediate="true"/>
+						action="#{projetoMb.cancelar}" ajax="false" immediate="true"/>
 
 					<p:commandButton id="btnInserir" value="Salvar"
-						action="#{categoriaMb.salvar}" ajax="false" />
+						action="#{projetoMb.salvar}" ajax="false" />
 				</h:panelGrid>
 
 			</p:panel>

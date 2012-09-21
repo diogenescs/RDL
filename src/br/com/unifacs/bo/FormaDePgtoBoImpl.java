@@ -1,5 +1,7 @@
 package br.com.unifacs.bo;
 
+import java.util.List;
+
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.FormaDePgtoDao;
 import br.com.unifacs.model.FormaDePgto;
@@ -50,6 +52,14 @@ public class FormaDePgtoBoImpl implements FormaDePgtoBo {
 			throw new BoException(e, "Erro ao excluir registro");
 		}
 
+	}
+
+	public List<FormaDePgto> obterTodos() {
+		return dao.obterTodos();
+	}
+
+	public FormaDePgto obter(Integer id) {
+		return dao.obter(id);
 	}
 
 }

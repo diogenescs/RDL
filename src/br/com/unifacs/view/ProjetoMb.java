@@ -6,51 +6,54 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext; 
 import br.com.unifacs.bo.BoException;
 import br.com.unifacs.bo.CategoriaBo;
 import br.com.unifacs.bo.CategoriaBoImpl;
+import br.com.unifacs.bo.ProjetoBo;
+import br.com.unifacs.bo.ProjetoBoImpl;
 import br.com.unifacs.model.Categoria;
+import br.com.unifacs.model.Projeto;
 
-@ManagedBean(name="categoriaMb")
+@ManagedBean(name="projetoMb")
 @SessionScoped
-public class CategoriaMb {
+public class ProjetoMb {
 	
-	private CategoriaBo bo;
-	private Categoria categoria;
-	private List<Categoria> categorias; 
+	private ProjetoBo bo;
+	private Projeto projeto;
+	private List<Projeto> projetos; 
 	
-	public CategoriaMb() {
-		this.categoria = new Categoria();
-		this.bo = new CategoriaBoImpl();
-		this.setCategorias(this.bo.obterTodos()); 
+	public ProjetoMb() {
+		this.projeto = new Projeto();
+		this.bo = new ProjetoBoImpl();
+		this.setProjetos(this.bo.obterTodos()); 
 	}
 	
 	public void atualizar(ActionEvent actionEvent){
-		this.setCategorias(this.bo.obterTodos()); 	
+		this.setProjetos(this.bo.obterTodos()); 	
 	}
 	
 	public String novo(){
-		this.categoria = new Categoria();
-		return "novaCategoria";
+		this.projeto = new Projeto();
+		return "novoProjeto";
 	}
 	
 	public String editar(){ 
-		if(this.categoria == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione uma categoria", null));
+		if(this.projeto == null){
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um pprojeto", null));
 			return null;
 		}else{
-			return "editarCategoria";
+			return "editarProjeto";
 		}
 	} 
 	
 	public String excluir(){ 
-		if(this.categoria == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione uma categoria", null));
+		if(this.projeto == null){
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um projeto", null));
 		}else{
 			try {
-				this.bo.excluir(categoria);
+				this.bo.excluir(projeto);
 				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Item excluído com sucesso!", null));
 				atualizar(null);
 			} catch (BoException e) { 
@@ -64,7 +67,7 @@ public class CategoriaMb {
 	
 	public String salvar(){
 		try {
-			bo.salvar(categoria);
+			bo.salvar(projeto);
 			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Operação realizada com sucesso!", "teste"));
 			atualizar(null);
 		} catch (BoException e) {
@@ -72,33 +75,33 @@ public class CategoriaMb {
 			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
 		}
 		
-		return "listaCategoria";
+		return "listaProjeto";
 	}
 	
 	public String cancelar(){
 		atualizar(null);
-		return "listaCategoria";
+		return "listaProjeto";
 	}
 	
 	/**
-	 * @return the categoria
+	 * @return the projeto
 	 */
-	public Categoria getCategoria() {
-		return categoria;
+	public Projeto getProjeto() {
+		return projeto;
 	}
 	/**
-	 * @param categoria the categoria to set
+	 * @param projeto the projeto to set
 	 */
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
+	public void setProjeto(Projeto projeto) {
+		this.projeto = projeto;
 	}
 
-	public List<Categoria> getCategorias() {
-		return categorias;
+	public List<Projeto> getProjetos() {
+		return projetos;
 	}
 
-	public void setCategorias(List<Categoria> categorias) {
-		this.categorias = categorias;
+	public void setProjetos(List<Projeto> projetos) {
+		this.projetos = projetos;
 	}
 	
 	

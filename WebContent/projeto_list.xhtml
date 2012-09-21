@@ -10,27 +10,27 @@
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo">
 		<h:form>
-			<h:outputLabel align="right" style="font-weight: bold;" value="Lista de categorias" />
+			<h:outputLabel  style="font-weight: bold;" value="Lista de projetos"  />
 			<p:commandButton id="btnAtualizar" value="Atualizar"
-					actionListener="#{categoriaMb.atualizar}" ajax="false" />
+					actionListener="#{projetoMb.atualizar}" ajax="false" align="right;"/>
 				<p:separator />
  
-				<p:dataTable id="dataTable" var="categoria"
+				<p:dataTable id="dataTable" var="projeto"
 					emptyMessage="Nenhum registro encontrado"
-					value="#{categoriaMb.categorias}">
+					value="#{projetoMb.projetos}">
 
 					<p:column>
 						<f:facet name="header">
 							<h:outputLabel value="Id" />
 						</f:facet>
-						<h:outputLabel value="#{categoria.id}" />
+						<h:outputLabel value="#{projeto.id}" />
 					</p:column>
 
 					<p:column>
 						<f:facet name="header">
 							<h:outputLabel value="Descrição" />
 						</f:facet>
-						<h:outputLabel value="#{categoria.descricao}" />
+						<h:outputLabel value="#{projeto.descricao}" />
 					</p:column>
 
 					<p:column>
@@ -38,8 +38,8 @@
 							<h:outputLabel value="Editar" />
 						</f:facet>
 						<p:commandButton id="btnEditar" value="Editar"
-							action="#{categoriaMb.editar}" ajax="false" >
-							<f:setPropertyActionListener target="#{categoriaMb.categoria}" value="#{categoria}"/>
+							action="#{projetoMb.editar}" ajax="false" >
+							<f:setPropertyActionListener target="#{projetoMb.projeto}" value="#{projeto}"/>
 						</p:commandButton>
 						
 					</p:column>
@@ -49,14 +49,14 @@
 							<h:outputLabel value="Excluir" />
 						</f:facet>
 						<p:commandButton id="btnExcluir" value="Excluir"
-							action="#{categoriaMb.excluir}" ajax="false" >
-							<f:setPropertyActionListener target="#{categoriaMb.categoria}" value="#{categoria}"/>
+							action="#{projetoMb.excluir}" ajax="false" >
+							<f:setPropertyActionListener target="#{projetoMb.projeto}" value="#{projeto}"/>
 						</p:commandButton>
 					</p:column>
 				</p:dataTable>
 				<br />
-				<p:commandButton id="btnNova" value="Nova categoria"
-					action="#{categoriaMb.novo}" ajax="false" />
+				<p:commandButton id="btnNova" value="Novo projeto"
+					action="#{projetoMb.novo}" ajax="false" />
 			
 		</h:form>
 
