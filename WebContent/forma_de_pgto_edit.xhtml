@@ -11,10 +11,10 @@
 	<ui:define name="corpo">
 		<h:form>
 			
-			<p:panel style="width : 550px">
+			<p:panel style="width : 700px">
 				<h:outputLabel style="font-weight: bold;" value="Nova forma de pagamento" />
 				<p:separator />
-				<h:panelGrid columns="3">  
+				<h:panelGrid columns="2">  
 
 					<p:outputLabel value="Id" for="textId" />
 					<p:inputText value="#{formaDePgtoMb.formaDePgto.id}" id="textId"
@@ -26,7 +26,7 @@
 						
 					<p:outputLabel value="Sigla" for="textDesc" />
 					<p:inputText value="#{formaDePgtoMb.formaDePgto.sigla}"
-						id="textDesc" required="true" requiredMessage="Campo obrigatório" />	
+						id="textSigla" required="true" requiredMessage="Campo obrigatório" />
 
 					<p:commandButton id="btnCancelar" value="Cancelar"
 						action="#{formaDePgtoMb.cancelar}" ajax="false" immediate="true"/>

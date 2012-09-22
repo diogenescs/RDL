@@ -1,5 +1,7 @@
 package br.com.unifacs.bo;
 
+import java.util.List;
+
 import br.com.unifacs.dao.ContatoDao;
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.model.Contato;
@@ -49,6 +51,14 @@ public class ContatoBoImpl implements ContatoBo {
 			e.printStackTrace();
 			throw new BoException(e, "Erro ao excluir registro");
 		}
+	}
+
+	public List<Contato> obterTodos() {
+		return dao.obterTodos();
+	}
+
+	public Contato obter(Integer id) {
+		return dao.obter(id);
 	}
 
 }

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/template/template_principal.xhtml">
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<ui:define name="corpo">
+		<h:form>
+			
+			<p:panel style="width : 700px">
+				<h:outputLabel style="font-weight: bold;" value="Novo contato" />
+				<p:separator />
+				<h:panelGrid columns="2">  
+
+					 <p:outputLabel value="Id" for="textId" />
+					<p:inputText value="#{contatoMb.contato.id}" id="textId"
+						disabled="true" />
+
+					<p:outputLabel value="Nome" for="textNome" />
+					<p:inputText value="#{contatoMb.contato.nome}"
+						id="textNome" required="true" requiredMessage="Campo obrigatório" />
+						
+					<p:outputLabel value="Endereco" for="textEnd" />
+					<p:inputText value="#{contatoMb.contato.endereco}"
+						id="textEnd" required="true" requiredMessage="Campo obrigatório" />
+						
+					<p:outputLabel value="Cidade" for="textCidade" />
+					<p:inputText value="#{contatoMb.contato.cidade}"
+					id="textCidade" required="true" requiredMessage="Campo obrigatório" />
+					
+					<p:outputLabel value="Estado" for="textEstado" />
+					<p:inputText value="#{contatoMb.contato.estado}"
+					id="textEstado" required="true" requiredMessage="Campo obrigatório" />
+					
+					<p:outputLabel value="Email" for="textEmail" />
+					<p:inputText value="#{contatoMb.contato.email}"
+					id="textEmail" required="true" requiredMessage="Campo obrigatório" />
+					
+					<p:outputLabel value="Tel fixo" for="textTelFixo" />
+					<p:inputText value="#{contatoMb.contato.telFixo}"
+					id="textTelFixo" required="false"  />
+					
+					<p:outputLabel value="Tel movel" for="textTelMovel" />
+					<p:inputText value="#{contatoMb.contato.telMovel}"
+					id="textTelMovel" required="true" requiredMessage="Campo obrigatório" />
+					
+					<p:outputLabel value="Num. Doc." for="textNumDoc" />
+					<p:inputText value="#{contatoMb.contato.numDoc}"
+					id="textNumDoc" required="false" />
+						
+					<p:outputLabel value="Outras informacoes" for="textInfo" />
+					<p:inputText value="#{contatoMb.contato.infoAdicionais}"
+					id="textInfo" required="false" />
+					
+					<p:commandButton id="btnCancelar" value="Cancelar"
+						action="#{contatoMb.cancelar}" ajax="false" immediate="true"/>
+
+					<p:commandButton id="btnInserir" value="Salvar"
+						action="#{contatoMb.salvar}" ajax="false" />
+				</h:panelGrid>
+
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>

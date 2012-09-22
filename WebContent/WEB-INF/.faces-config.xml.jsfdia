@@ -12,6 +12,10 @@
     ID="editarFormaDePgto::#forma_de_pgto_edit.xhtml" NAME="output2"
     PATH="/forma_de_pgto_edit.xhtml"
     TARGET="rules:#forma_de_pgto_edit.xhtml" TITLE="editarFormaDePgto" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="visualizarContato::#contato_visualizacao.xhtml" NAME="output3"
+    PATH="/contato_visualizacao.xhtml"
+    TARGET="rules:#contato_visualizacao.xhtml" TITLE="visualizarContato" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#categoria_list.xhtml"
@@ -29,6 +33,9 @@
    <PROCESS-ITEM-OUTPUT ID="listaProjeto::#projeto_list.xhtml"
     NAME="output4" PATH="/projeto_list.xhtml"
     TARGET="rules:#projeto_list.xhtml" TITLE="listaProjeto" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listaContato::#contato_list.xhtml"
+    NAME="output2" PATH="/contato_list.xhtml"
+    TARGET="rules:#contato_list.xhtml" TITLE="listaContato" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#projeto_list.xhtml"
@@ -50,6 +57,15 @@
    <PROCESS-ITEM-OUTPUT ID="novaFormaDePgto::#forma_de_pgto_edit.xhtml"
     NAME="output2" PATH="/forma_de_pgto_edit.xhtml"
     TARGET="rules:#forma_de_pgto_edit.xhtml" TITLE="novaFormaDePgto" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="novoContato::#contato_edit.xhtml"
+    NAME="output3" PATH="/contato_edit.xhtml"
+    TARGET="rules:#contato_edit.xhtml" TITLE="novoContato" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#contato_list.xhtml"
+  PATH="/contato_list.xhtml" SHAPE="288,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#contato_edit.xhtml"
+  PATH="/contato_edit.xhtml" SHAPE="288,529,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#contato_visualizacao.xhtml"
+  PATH="/contato_visualizacao.xhtml" SHAPE="288,600,50,25" model-entity="JSFProcessGroup"/>
 </PROCESS>

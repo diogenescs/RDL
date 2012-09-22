@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets">  
+
+
+<ui:composition template="/template/template_principal.xhtml">
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<ui:define name="corpo">
+		<h:form>
+			<h:outputLabel align="right" style="font-weight: bold;" value="Lista de contatos" />
+			 <p:commandButton id="btnAtualizar" value="Atualizar"
+					actionListener="#{contatoMb.atualizar}" ajax="false" /> 
+				<p:separator />
+ 
+				<p:dataTable id="dataTable" var="contato"
+					emptyMessage="Nenhum registro encontrado"
+					value="#{contatoMb.contatos}">
+
+					 <p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Id" />
+						</f:facet>
+						<h:outputLabel value="#{contato.id}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Nome" />
+						</f:facet>
+						<h:outputLabel value="#{contato.nome}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Email" />
+						</f:facet>
+						<h:outputLabel value="#{contato.email}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Tel Movel" />
+						</f:facet>
+						<h:outputLabel value="#{contato.telMovel}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Editar" />
+						</f:facet>
+						<p:commandButton id="btnEditar" value="Editar"
+							action="#{contatoMb.editar}" ajax="false" >
+							<f:setPropertyActionListener target="#{contatoMb.contato}" value="#{contato}"/>
+						</p:commandButton>
+						
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Excluir" />
+						</f:facet>
+						<p:commandButton id="btnExcluir" value="Excluir"
+							action="#{contatoMb.excluir}" ajax="false" >
+							<f:setPropertyActionListener target="#{contatoMb.contato}" value="#{contato}"/>
+						</p:commandButton>
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Visualizar" />
+						</f:facet>
+						<p:commandButton id="btnVisualizar" value="Visualizar"
+							action="#{contatoMb.getContato}" ajax="false" >
+							<f:setPropertyActionListener target="#{contatoMb.contato}" value="#{contato}"/>
+						</p:commandButton>
+						
+					</p:column>
+				</p:dataTable>
+				<br />
+				<p:commandButton id="btnNova" value="Novo contato"
+					action="#{contatoMb.novo}" ajax="false" />
+			
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>
