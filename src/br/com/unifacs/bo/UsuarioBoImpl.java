@@ -1,5 +1,7 @@
 package br.com.unifacs.bo;
 
+import java.util.List;
+
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.UsuarioDao;
 import br.com.unifacs.model.Usuario;
@@ -51,6 +53,14 @@ public class UsuarioBoImpl implements UsuarioBo{
 		}
 	
 		
+	}
+
+	public Usuario obter(Integer id) {
+		return dao.obter(id);
+	}
+
+	public List<Usuario> obterTodos() {
+		return dao.obterTodos();
 	}
 
 }

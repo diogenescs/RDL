@@ -1,5 +1,7 @@
 package br.com.unifacs.bo;
 
+import java.util.List;
+
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.UsuarioPojetoDao;
 import br.com.unifacs.model.UsuarioProjeto;
@@ -51,6 +53,15 @@ public class UsuarioPojetoBoImpl implements UsuarioProjetoBo {
 		}
 	
 
+	}
+
+	public UsuarioProjeto obter(Integer id) {
+		return dao.obter(id);
+	}
+
+	public List<UsuarioProjeto> obterTodos() {
+		// TODO Auto-generated method stub
+		return dao.obterTodos();
 	}
 
 }

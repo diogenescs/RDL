@@ -64,8 +64,8 @@ public class GenericDaoJpa<T, PK extends Serializable> implements GenericDao<T, 
 		
 	}
 	public T obter(PK id) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager entitymanager = JpaUtil.getEntityManager();
+		return (T) entitymanager.find(tipoModel, id);
 	}
 
 	public List<T> obterTodos() {

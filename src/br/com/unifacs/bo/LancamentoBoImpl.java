@@ -1,7 +1,10 @@
 package br.com.unifacs.bo;
 
+import java.util.List;
+
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.LancamentoDao;
+import br.com.unifacs.model.Categoria;
 import br.com.unifacs.model.Lancamento;
 
 public class LancamentoBoImpl implements LancamentoBo {
@@ -52,5 +55,15 @@ public class LancamentoBoImpl implements LancamentoBo {
 		}
 
 	}
+	
+	public List<Lancamento> obterTodos() {
+		return dao.obterTodos();
+	}
+
+
+	public Lancamento obter(Integer id) {
+		return dao.obter(id);
+	}
+	
 
 }

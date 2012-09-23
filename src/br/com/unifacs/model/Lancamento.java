@@ -66,6 +66,12 @@ public class Lancamento implements Serializable {
 	private Contato contato;
 
     public Lancamento() {
+    	this.categoria = new Categoria();
+    	this.frequencia = new Frequencia();
+    	this.contato = new Contato();
+    	this.formaDePgto = new FormaDePgto();
+    	setDespesa("S");
+    	setAutomatico("S");
     }
 
 	public int getId() {

@@ -1,5 +1,7 @@
 package br.com.unifacs.bo;
 
+import java.util.List;
+
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.FrequenciaDao;
 import br.com.unifacs.model.Frequencia;
@@ -51,6 +53,16 @@ public class FrequenciaBoImpl implements FrequenciaBo {
 		}
 	
 
+	}
+
+	public List<Frequencia> obterTodos() {
+		// TODO Auto-generated method stub
+		return this.dao.obterTodos();
+	}
+
+	public Frequencia obter(Integer pk) {
+		// TODO Auto-generated method stub
+		return this.dao.obter(pk);
 	}
 
 }
