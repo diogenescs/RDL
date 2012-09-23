@@ -57,15 +57,28 @@
    <PROCESS-ITEM-OUTPUT ID="novaFormaDePgto::#forma_de_pgto_edit.xhtml"
     NAME="output2" PATH="/forma_de_pgto_edit.xhtml"
     TARGET="rules:#forma_de_pgto_edit.xhtml" TITLE="novaFormaDePgto" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="novoContato::#contato_edit.xhtml"
+<<<<<<< .mine   <PROCESS-ITEM-OUTPUT ID="novaFrequencia::#frequencia_edit.xhtml"
+    NAME="output3" PATH="/frequencia_edit.xhtml"
+    TARGET="rules:#frequencia_edit.xhtml" TITLE="novaFrequencia" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editarFrequencia::#frequencia_edit.xhtml"
+    NAME="output4" PATH="/frequencia_edit.xhtml"
+    TARGET="rules:#frequencia_edit.xhtml" TITLE="editarFrequencia" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listaFrequencia::#frequencia_list.xhtml"
+    NAME="output5" PATH="/frequencia_list.xhtml"
+    TARGET="rules:#frequencia_list.xhtml" TITLE="listaFrequencia" model-entity="JSFProcessItemOutput"/>
+=======   <PROCESS-ITEM-OUTPUT ID="novoContato::#contato_edit.xhtml"
     NAME="output3" PATH="/contato_edit.xhtml"
     TARGET="rules:#contato_edit.xhtml" TITLE="novoContato" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
+>>>>>>> .theirs  </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#contato_list.xhtml"
+<<<<<<< .mine <PROCESS-ITEM NAME="rules:#frequencia_edit.xhtml"
+  PATH="/frequencia_edit.xhtml" SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#frequencia_list.xhtml"
+  PATH="/frequencia_list.xhtml" SHAPE="304,769,0,0" model-entity="JSFProcessGroup"/>
+======= <PROCESS-ITEM NAME="rules:#contato_list.xhtml"
   PATH="/contato_list.xhtml" SHAPE="368,424,50,25" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#contato_edit.xhtml"
   PATH="/contato_edit.xhtml" SHAPE="384,288,50,25" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#contato_visualizacao.xhtml"
   PATH="/contato_visualizacao.xhtml" SHAPE="360,368,50,25" model-entity="JSFProcessGroup"/>
-</PROCESS>
+>>>>>>> .theirs</PROCESS>
