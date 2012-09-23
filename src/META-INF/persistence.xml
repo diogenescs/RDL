@@ -12,12 +12,19 @@
 		<class>br.com.unifacs.model.UsuarioProjeto</class>
 		
 		<properties>
-			<property name="hibernate.connection.username" value="root"/>
+<<<<<<< .mine			<property name="hibernate.connection.username" value="root"/>
+			<property name="hibernate.connection.password" value=""/>		
+			<!--<property name="hibernate.connection.username" value="projeto"/>
+			<property name="hibernate.connection.password" value="projeto"/> -->
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+			 <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/rdl"/>
+			<!--<property name="hibernate.connection.url" value="jdbc:mysql://monteiromenezes.sytes.net:3306/projeto"/>	 -->		
+=======			<property name="hibernate.connection.username" value="root"/>
 			<property name="hibernate.connection.password" value=""/>
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/> 
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/projeto"/>
 			<!-- <property name="hibernate.connection.url" value="jdbc:mysql://monteiromenezes.sytes.net:3306/projeto"/>	 -->		
-			<property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+>>>>>>> .theirs			<property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
 			<property name="hibernate.show_sql" value="true"/>
 			<!--  
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
