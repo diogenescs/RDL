@@ -10,6 +10,11 @@
    <redirect/>
   </navigation-case>
   <navigation-case>
+   <from-outcome>editarContato</from-outcome>
+   <to-view-id>/contato_edit.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
    <from-outcome>editarProjeto</from-outcome>
    <to-view-id>/projeto_edit.xhtml</to-view-id>
    <redirect/>

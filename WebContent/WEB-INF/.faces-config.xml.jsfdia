@@ -5,9 +5,9 @@
    <PROCESS-ITEM-OUTPUT ID="editarCategoria::#categoria_edit.xhtml"
     NAME="output" PATH="/categoria_edit.xhtml"
     TARGET="rules:#categoria_edit.xhtml" TITLE="editarCategoria" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="editarProjeto::#projeto_edit.xhtml"
-    NAME="output1" PATH="/projeto_edit.xhtml"
-    TARGET="rules:#projeto_edit.xhtml" TITLE="editarProjeto" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editarContato::#contato_edit.xhtml"
+    NAME="output1" PATH="/contato_edit.xhtml"
+    TARGET="rules:#contato_edit.xhtml" TITLE="editarContato" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="editarFormaDePgto::#forma_de_pgto_edit.xhtml" NAME="output2"
     PATH="/forma_de_pgto_edit.xhtml"
@@ -63,9 +63,9 @@
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#contato_list.xhtml"
-  PATH="/contato_list.xhtml" SHAPE="288,705,0,0" model-entity="JSFProcessGroup"/>
+  PATH="/contato_list.xhtml" SHAPE="368,424,50,25" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#contato_edit.xhtml"
-  PATH="/contato_edit.xhtml" SHAPE="288,529,0,0" model-entity="JSFProcessGroup"/>
+  PATH="/contato_edit.xhtml" SHAPE="384,288,50,25" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#contato_visualizacao.xhtml"
-  PATH="/contato_visualizacao.xhtml" SHAPE="288,600,50,25" model-entity="JSFProcessGroup"/>
+  PATH="/contato_visualizacao.xhtml" SHAPE="360,368,50,25" model-entity="JSFProcessGroup"/>
 </PROCESS>

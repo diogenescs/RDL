@@ -11,8 +11,7 @@
 	<ui:define name="corpo">
 		<h:form>
 			<h:outputLabel align="right" style="font-weight: bold;" value="Lista de contatos" />
-			 <p:commandButton id="btnAtualizar" value="Atualizar"
-					actionListener="#{contatoMb.atualizar}" ajax="false" /> 
+			
 				<p:separator />
  
 				<p:dataTable id="dataTable" var="contato"
@@ -73,7 +72,7 @@
 							<h:outputLabel value="Visualizar" />
 						</f:facet>
 						<p:commandButton id="btnVisualizar" value="Visualizar"
-							action="#{contatoMb.getContato}" ajax="false" >
+							action="#{contatoMb.visualizar}" ajax="false" >
 							<f:setPropertyActionListener target="#{contatoMb.contato}" value="#{contato}"/>
 						</p:commandButton>
 						

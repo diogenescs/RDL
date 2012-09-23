@@ -45,6 +45,15 @@ public class ContatoMb {
 		}
 	} 
 	
+	public String visualizar(){ 
+		if(this.contato == null){
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um contato", null));
+			return null;
+		}else{
+			return "visualizarContato";
+		}
+	} 
+	
 	public String excluir(){ 
 		if(this.contato == null){
 			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um contato", null));

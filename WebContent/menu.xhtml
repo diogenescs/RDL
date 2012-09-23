@@ -7,7 +7,9 @@
 <ui:composition>
 	
 		<p:tieredMenu  style="width:170px" >
-			<p:menuitem value="Inicio" url="/index.jsf" />
+			<p:submenu label="Inicio" >
+				<p:menuitem value="Grafico de lancamentos" url="/graficosLancamentos.jsf" />
+			</p:submenu>
 			<p:separator /> 
 			<p:submenu label="Cadastro" >
 				<p:menuitem value="Projetos" url="/projeto_list.jsf" />
@@ -19,17 +21,17 @@
 			<p:separator /> 
 			<p:submenu label="Lançamentos">
 				<p:menuitem value="Receitas e Despesas" url="/categoria_edit.jsf" />
-				<p:menuitem value="Ultimos lançamentos" url="/categoria_edit.jsf" />
-				<p:menuitem value="Lançamentos futuros" url="/categoria_edit.jsf" />
-				<p:menuitem value="Histórico" url="/categoria_edit.jsf" />
+				<p:menuitem value="Ultimos lançamentos" url="/pagina_construcao.jsf" />
+				<p:menuitem value="Lançamentos futuros" url="/pagina_construcao.jsf" />
+				<p:menuitem value="Histórico" url="/pagina_construcao.jsf" />
 			</p:submenu>
 			
 			<p:separator /> 
 			<p:submenu label="Suporte">
-				<p:menuitem value="Usuário" url="/categoria_edit.jsf" />
-				<p:menuitem value="Config. Usuário" url="/categoria_edit.jsf" />
-				<p:menuitem value="Config. Notificações" url="/categoria_edit.jsf" />
-				<p:menuitem value="Log do sistema" url="/categoria_edit.jsf" />
+				<p:menuitem value="Usuário" url="/pagina_construcao.jsf" />
+				<p:menuitem value="Config. Usuário" url="/pagina_construcao.jsf" />
+				<p:menuitem value="Config. Notificações" url="/pagina_construcao.jsf" />
+				<p:menuitem value="Log do sistema" url="/pagina_construcao.jsf" />
 			</p:submenu>
 			
 			<p:separator /> 

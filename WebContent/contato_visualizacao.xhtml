@@ -11,56 +11,55 @@
 	<ui:define name="corpo">
 		<h:form>
 			
-			<p:panel style="width : 700px">
-				<h:outputLabel style="font-weight: bold;" value="Novo contato" />
+			<p:panel style="width : 750px">
+				<h:outputLabel style="font-weight: bold;" value="Dados do contato" />
 				<p:separator />
-				<h:panelGrid columns="2">  
+				<h:panelGrid columns="4">  
 
 					 <p:outputLabel value="Id" for="textId" />
-					<p:inputText value="#{contatoMb.contato.id}" id="textId"
+					<p:inputText style="width : 50px;" value="#{contatoMb.contato.id}" id="textId"
 						disabled="true" />
 
 					<p:outputLabel value="Nome" for="textNome" />
-					<p:inputText value="#{contatoMb.contato.nome}"
-						id="textNome" required="true" requiredMessage="Campo obrigatório" />
+					<p:inputText style="width : 250px;" value="#{contatoMb.contato.nome}"
+						id="textNome" disabled="true" />
 						
 					<p:outputLabel value="Endereco" for="textEnd" />
-					<p:inputText value="#{contatoMb.contato.endereco}"
-						id="textEnd" required="true" requiredMessage="Campo obrigatório" />
+					<p:inputText style="width : 250px;" value="#{contatoMb.contato.endereco}"
+						id="textEnd" disabled="true" />
 						
 					<p:outputLabel value="Cidade" for="textCidade" />
-					<p:inputText value="#{contatoMb.contato.cidade}"
-					id="textCidade" required="true" requiredMessage="Campo obrigatório" />
+					<p:inputText style="width : 250px;" value="#{contatoMb.contato.cidade}"
+					id="textCidade" disabled="true" />
 					
 					<p:outputLabel value="Estado" for="textEstado" />
-					<p:inputText value="#{contatoMb.contato.estado}"
-					id="textEstado" required="true" requiredMessage="Campo obrigatório" />
+					<p:inputText style="width : 250px;"  value="#{contatoMb.contato.estado}"
+					id="textEstado" disabled="true"/>
 					
 					<p:outputLabel value="Email" for="textEmail" />
-					<p:inputText value="#{contatoMb.contato.email}"
-					id="textEmail" required="true" requiredMessage="Campo obrigatório" />
+					<p:inputText style="width : 250px;" value="#{contatoMb.contato.email}"
+					id="textEmail" disabled="true" />
 					
 					<p:outputLabel value="Tel fixo" for="textTelFixo" />
-					<p:inputText value="#{contatoMb.contato.telFixo}"
-					id="textTelFixo" required="false"  />
+					<p:inputText style="width : 250px;" value="#{contatoMb.contato.telFixo}"
+					id="textTelFixo" disabled="true"  />
 					
 					<p:outputLabel value="Tel movel" for="textTelMovel" />
-					<p:inputText value="#{contatoMb.contato.telMovel}"
-					id="textTelMovel" required="true" requiredMessage="Campo obrigatório" />
+					<p:inputText style="width : 250px;" value="#{contatoMb.contato.telMovel}"
+					id="textTelMovel" disabled="true" />
 					
-					<p:outputLabel value="Num. Doc." for="textNumDoc" />
-					<p:inputText value="#{contatoMb.contato.numDoc}"
-					id="textNumDoc" required="false" />
+					<p:outputLabel value="CPF/CNPJ" for="textNumDoc" />
+					<p:inputText style="width : 250px;" value="#{contatoMb.contato.numDoc}"
+					id="textNumDoc" disabled="true" />
 						
 					<p:outputLabel value="Outras informacoes" for="textInfo" />
-					<p:inputText value="#{contatoMb.contato.infoAdicionais}"
-					id="textInfo" required="false" />
+					<p:inputText style="width : 250px;" value="#{contatoMb.contato.infoAdicionais}"
+					id="textInfo" disabled="true" />
 					
-					<p:commandButton id="btnCancelar" value="Cancelar"
+					<p:commandButton id="btnVoltar" value="Voltar"
 						action="#{contatoMb.cancelar}" ajax="false" immediate="true"/>
 
-					<p:commandButton id="btnInserir" value="Salvar"
-						action="#{contatoMb.salvar}" ajax="false" />
+						 
 				</h:panelGrid>
 
 			</p:panel>
