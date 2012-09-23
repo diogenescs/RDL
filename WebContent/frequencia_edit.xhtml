@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/template/template_principal.xhtml">
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<ui:define name="corpo">
+		<h:form>
+			
+			<p:panel style="width : 550px">
+				<h:outputLabel style="font-weight: bold;" value="Nova frequência" />
+				<p:separator />
+				<h:panelGrid columns="2">  
+
+					<p:outputLabel value="Id" for="textId" />
+					<p:inputText value="#{frequenciaMb.frequencia.id}" id="textId"
+						disabled="true" />
+
+					<p:outputLabel value="Descrição" for="textDesc" />
+					<p:inputText value="#{frequenciaMb.frequencia.descricao}"
+						id="textDesc" required="true" requiredMessage="Campo obrigatório" />
+
+					<p:commandButton id="btnCancelar" value="Cancelar"
+						action="#{frequenciaMb.cancelar}" ajax="false" immediate="true"/>
+
+					<p:commandButton id="btnInserir" value="Salvar"
+						action="#{frequenciaMb.salvar}" ajax="false" />
+				</h:panelGrid>
+
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>

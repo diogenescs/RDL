@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets">  
+
+
+<ui:composition template="/template/template_principal.xhtml">
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<ui:define name="corpo">
+		<h:form>
+			<h:outputLabel align="right" style="font-weight: bold;" value="Lista de Frequência" />
+			<p:commandButton id="btnAtualizar" value="Atualizar"
+					actionListener="#{frequenciaMb.atualizar}" ajax="false" />
+				<p:separator />
+ 
+				<p:dataTable id="dataTable" var="frequencia"
+					emptyMessage="Nenhum registro encontrado"
+					value="#{frequenciaMb.frequencias}">
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Id" />
+						</f:facet>
+						<h:outputLabel value="#{frequencia.id}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Descrição" />
+						</f:facet>
+						<h:outputLabel value="#{frequencia.descricao}" />
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Editar" />
+						</f:facet>
+						<p:commandButton id="btnEditar" value="Editar"
+							action="#{frequenciaMb.editar}" ajax="false" >
+							<f:setPropertyActionListener target="#{frequenciaMb.frequencia}" value="#{frequencia}"/>
+						</p:commandButton>
+						
+					</p:column>
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Excluir" />
+						</f:facet>
+						<p:commandButton id="btnExcluir" value="Excluir"
+							action="#{frequenciaMb.excluir}" ajax="false" >
+							<f:setPropertyActionListener target="#{frequenciaMb.frequencia}" value="#{frequencia}"/>
+						</p:commandButton>
+					</p:column>
+				</p:dataTable>
+				<br />
+				<p:commandButton id="btnNova" value="Nova frequencia"
+					action="#{frequenciaMb.novo}" ajax="false" />
+			
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>
