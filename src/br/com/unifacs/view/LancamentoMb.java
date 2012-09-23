@@ -15,7 +15,6 @@ import br.com.unifacs.bo.FormaDePgtoBoImpl;
 import br.com.unifacs.bo.FrequenciaBoImpl;
 import br.com.unifacs.bo.LancamentoBo;
 import br.com.unifacs.bo.LancamentoBoImpl;
-import br.com.unifacs.bo.UsuarioBoImpl;
 import br.com.unifacs.bo.UsuarioPojetoBoImpl;
 import br.com.unifacs.model.Categoria;
 import br.com.unifacs.model.Contato;
@@ -38,7 +37,16 @@ public class LancamentoMb {
 	
 	public void atualizar(ActionEvent actionEvent){
 		this.setLancamentos(this.bo.obterTodos()); 	
-	}	
+	}
+	
+	public String visualizar(){ 
+		if(this.lancamento == null){
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um lancamento", null));
+			return null;
+		}else{
+			return "visualizarLancamento";
+		}
+	} 
 
 	public List<Lancamento> getLancamentos() {
 		return lancamentos;

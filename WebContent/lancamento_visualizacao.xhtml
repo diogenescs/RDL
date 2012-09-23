@@ -12,7 +12,7 @@
 		<h:form>
 			
 			<p:panel style="width : 550px">
-				<h:outputLabel style="font-weight: bold;" value="Novo Lançamento" />
+				<h:outputLabel style="font-weight: bold;" value="Dados do lancamento" />
 				<p:separator />
 				<h:panelGrid columns="2">  
 
@@ -20,87 +20,85 @@
 					<p:inputText value="#{lancamentoMb.lancamento.id}" id="textId" disabled="true" />
 					
 					<p:outputLabel value="Descrição" for="textDesc" />
-					<p:inputText value="#{lancamentoMb.lancamento.nome}" id="textDesc" required="true" requiredMessage="Descricao é campo obrigatório"/>					
+					<p:inputText value="#{lancamentoMb.lancamento.nome}" id="textDesc" disabled="true"/>					
 
 					<p:outputLabel value="Categoria" for="textCat" />
-					<p:selectOneMenu value="#{lancamentoMb.lancamento.categoria.id}" id="textCat">
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.categoria.id}" id="textCat" disabled="true">
             			<f:selectItem itemLabel="Selecione" itemValue="" />  
             			<f:selectItems value="#{categoriaMb.categorias}" var="cat" itemLabel="#{cat.descricao}" itemValue="#{cat.id}" />						
 					</p:selectOneMenu>
 										
 					<p:outputLabel value="Data de Vencimento" for="textDataVcto" />
-					<p:calendar value="#{lancamentoMb.lancamento.dataVcto}" id="textDataVcto" required="true" requiredMessage="Campo obrigatório"/>
+					<p:calendar value="#{lancamentoMb.lancamento.dataVcto}" id="textDataVcto" disabled="true"/>
 
 					<p:outputLabel value="Data de Pagamento" for="textDataPgto" />
-					<p:calendar value="#{lancamentoMb.lancamento.dataPgto}" id="textDataPgto" required="true" requiredMessage="Campo obrigatório"/>
+					<p:calendar value="#{lancamentoMb.lancamento.dataPgto}" id="textDataPgto" disabled="true"/>
 					
 					<p:outputLabel value="Valor de Vencimento" for="textValorVcto" />
-					<p:inputText value="#{lancamentoMb.lancamento.valorVcto}" id="textValorVcto" required="true" requiredMessage="Campo obrigatório" converterMessage="Digite um valor váliro">
+					<p:inputText value="#{lancamentoMb.lancamento.valorVcto}" id="textValorVcto" disabled="true">
 						<f:convertNumber currencyCode="BRL"/>
 					</p:inputText>
 					
 					<p:outputLabel value="Valor de Pago" for="textValorPg" />
-					<p:inputText value="#{lancamentoMb.lancamento.valorPgto}" id="textValorPg" required="true" requiredMessage="Campo obrigatório" converterMessage="Digite um valor váliro">
+					<p:inputText value="#{lancamentoMb.lancamento.valorPgto}" id="textValorPg" disabled="true">
 						<f:convertNumber currencyCode="BRL"/>
 					</p:inputText>	
 					
 					<p:outputLabel value="Contato" for="textContato" />
-					<p:selectOneMenu value="#{lancamentoMb.lancamento.contato.id}" id="textContato">
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.contato.id}" id="textContato" disabled="true">
             			<f:selectItem itemLabel="Selecione" itemValue="" />  
             			<f:selectItems value="#{contatoMb.contatos}" var="contato" itemLabel="#{contato.nome}" itemValue="#{contato.id}"/>						
 					</p:selectOneMenu>																			
 					
 					<p:outputLabel value="Despesa" for="textDesp" />
-					<p:selectOneMenu value="#{lancamentoMb.lancamento.despesa}" id="textDesp" required="true" requiredMessage="Campo obrigatório">
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.despesa}" id="textDesp"  disabled="true">
             			<f:selectItem itemLabel="Selecione" itemValue="" />  						
             			<f:selectItem itemLabel="SIM" itemValue="S" />  
             			<f:selectItem itemLabel="NÂO" itemValue="N" />              			            			
 					</p:selectOneMenu>
 					
 					<p:outputLabel value="Automático" for="textAuto" />
-					<p:selectOneMenu value="#{lancamentoMb.lancamento.automatico}" id="textAuto" required="true" requiredMessage="Campo obrigatório">
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.automatico}" id="textAuto" disabled="true">
             			<f:selectItem itemLabel="Selecione" itemValue="" />  						
             			<f:selectItem itemLabel="SIM" itemValue="S" />  
             			<f:selectItem itemLabel="NÂO" itemValue="N" />              			            			
 					</p:selectOneMenu>											
 					
 					<p:outputLabel value="Notificação" for="textNote" />
-					<p:selectOneMenu value="#{lancamentoMb.lancamento.notificacao}" id="textNote" required="true" requiredMessage="Campo obrigatório">
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.notificacao}" id="textNote" disabled="true">
             			<f:selectItem itemLabel="Selecione" itemValue="" />  						
             			<f:selectItem itemLabel="SIM" itemValue="S" />  
             			<f:selectItem itemLabel="NÂO" itemValue="N" />              			            			
 					</p:selectOneMenu>
 					
 					<p:outputLabel value="Realizado" for="textReal" />
-					<p:selectOneMenu value="#{lancamentoMb.lancamento.realizado}" id="textReal" required="true" requiredMessage="Campo obrigatório">
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.realizado}" id="textReal" disabled="true">
             			<f:selectItem itemLabel="Selecione" itemValue="" />  						
             			<f:selectItem itemLabel="SIM" itemValue="S" />  
             			<f:selectItem itemLabel="NÂO" itemValue="N" />              			            			
 					</p:selectOneMenu>	
 					
 					<p:outputLabel value="Número de Parcelas" for="textNumPar" />
-					<p:inputText value="#{lancamentoMb.lancamento.numParcelas}" id="textNumPar" converterMessage="Utilize apenas números.">
+					<p:inputText value="#{lancamentoMb.lancamento.numParcelas}" id="textNumPar" disabled="true">
 						<f:convertNumber integerOnly="true" minIntegerDigits="1"/>
 					</p:inputText>		
 					
 					<p:outputLabel value="Frequência" for="textFreq" />
-					<p:selectOneMenu value="#{lancamentoMb.lancamento.frequencia.id}" id="textFreq" required="true" requiredMessage="Campo obrigatório">
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.frequencia.id}" id="textFreq" disabled="true">
             			<f:selectItem itemLabel="Selecione" itemValue="" />  
             			<f:selectItems value="#{frequenciaMb.frequencias}" var="freq" itemLabel="#{freq.descricao}" itemValue="#{freq.id}" />						
 					</p:selectOneMenu>
 					
 					<p:outputLabel value="Forma de Pagamento" for="textFormPtgo" />
-					<p:selectOneMenu value="#{lancamentoMb.lancamento.formaDePgto.id}" id="textFormPtgo" required="true" requiredMessage="Campo obrigatório">
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.formaDePgto.id}" id="textFormPtgo" disabled="true">
             			<f:selectItem itemLabel="Selecione" itemValue="" />  
             			<f:selectItems value="#{formaDePgtoMb.formaDePgtos}" var="formPgto" itemLabel="#{formPgto.descricao}" itemValue="#{formPgto.id}" />						
 					</p:selectOneMenu>
 																																			
 					
-					<p:commandButton id="btnCancelar" value="Cancelar"
+					<p:commandButton id="btnVoltar" value="Voltar"
 						action="#{lancamentoMb.cancelar}" ajax="false" immediate="true"/>
 
-					<p:commandButton id="btnInserir" value="Salvar"
-						action="#{lancamentoMb.salvar}" ajax="false" />
 				</h:panelGrid>
 
 			</p:panel>

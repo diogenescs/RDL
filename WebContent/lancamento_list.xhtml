@@ -11,8 +11,7 @@
 	<ui:define name="corpo">
 		<h:form>
 			<h:outputLabel align="right" style="font-weight: bold;" value="Lista de Lancamentos" />
-			<p:commandButton id="btnAtualizar" value="Atualizar"
-					actionListener="#{lancamentoMb.atualizar}" ajax="false" />
+			
 				<p:separator />
  
 				<p:dataTable id="dataTable" var="lancamento"
@@ -52,6 +51,16 @@
 							action="#{lancamentoMb.excluir}" ajax="false" >
 							<f:setPropertyActionListener target="#{lancamentoMb.lancamento}" value="#{lancamento}"/>
 						</p:commandButton>
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Visualizar" />
+						</f:facet>
+						<p:commandButton id="btnVisualizar" value="Visualizar"
+							action="#{lancamentoMb.visualizar}" ajax="false" >
+							<f:setPropertyActionListener target="#{lancamentoMb.lancamento}" value="#{lancamento}"/>
+						</p:commandButton>
+						
 					</p:column>
 				</p:dataTable>
 				<br />
