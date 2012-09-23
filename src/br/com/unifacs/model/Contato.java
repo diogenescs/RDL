@@ -35,7 +35,6 @@ public class Contato implements Serializable {
 
 	private String telMovel;
 
-	private int tipoDoc;
 
 	//bi-directional many-to-one association to Lancamento
 	@OneToMany(mappedBy="contato")
@@ -124,13 +123,6 @@ public class Contato implements Serializable {
 		this.telMovel = telMovel;
 	}
 
-	public int getTipoDoc() {
-		return this.tipoDoc;
-	}
-
-	public void setTipoDoc(int tipoDoc) {
-		this.tipoDoc = tipoDoc;
-	}
 
 	public Set<Lancamento> getLancamentos() {
 		return this.lancamentos;

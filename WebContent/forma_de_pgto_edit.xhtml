@@ -22,11 +22,11 @@
 
 					<p:outputLabel value="Descrição" for="textDesc" />
 					<p:inputText value="#{formaDePgtoMb.formaDePgto.descricao}"
-						id="textDesc" required="true" requiredMessage="Campo obrigatório" />
+						id="textDesc" required="true" requiredMessage="Descricao é campo obrigatório" />
 						
 					<p:outputLabel value="Sigla" for="textDesc" />
 					<p:inputText value="#{formaDePgtoMb.formaDePgto.sigla}"
-						id="textSigla" required="true" requiredMessage="Campo obrigatório" />
+						id="textSigla" />
 
 					<p:commandButton id="btnCancelar" value="Cancelar"
 						action="#{formaDePgtoMb.cancelar}" ajax="false" immediate="true"/>

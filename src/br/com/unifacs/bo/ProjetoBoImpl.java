@@ -2,6 +2,8 @@ package br.com.unifacs.bo;
 
 import java.util.List;
 
+import org.hibernate.exception.ConstraintViolationException;
+
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.ProjetoDao;
 import br.com.unifacs.model.Projeto;
@@ -23,7 +25,7 @@ public class ProjetoBoImpl implements ProjetoBo {
 		//VALIDAÇÕES
 		try {
 			dao.inserir(projeto);
-		} catch (DaoException e) {
+		}catch (DaoException e) {
 			e.printStackTrace();
 			throw new BoException(e, "Erro ao inserir registro: #13"+e.getMessage());
 		}
