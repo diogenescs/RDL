@@ -5,17 +5,20 @@
    <PROCESS-ITEM-OUTPUT ID="editarCategoria::#categoria_edit.xhtml"
     NAME="output" PATH="/categoria_edit.xhtml"
     TARGET="rules:#categoria_edit.xhtml" TITLE="editarCategoria" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editarLancamento::#lancamento_edit.xhtml"
+    NAME="output1" PATH="/lancamento_edit.xhtml"
+    TARGET="rules:#lancamento_edit.xhtml" TITLE="editarLancamento" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="editarContato::#contato_edit.xhtml"
-    NAME="output1" PATH="/contato_edit.xhtml"
+    NAME="output2" PATH="/contato_edit.xhtml"
     TARGET="rules:#contato_edit.xhtml" TITLE="editarContato" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editarFrequencia::#frequencia_edit.xhtml"
+    NAME="output3" PATH="/frequencia_edit.xhtml"
+    TARGET="rules:#frequencia_edit.xhtml" TITLE="editarFrequencia" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="editarFormaDePgto::#forma_de_pgto_edit.xhtml" NAME="output2"
-    PATH="/forma_de_pgto_edit.xhtml"
-    TARGET="rules:#forma_de_pgto_edit.xhtml" TITLE="editarFormaDePgto" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT
-    ID="visualizarContato::#contato_visualizacao.xhtml" NAME="output3"
-    PATH="/contato_visualizacao.xhtml"
-    TARGET="rules:#contato_visualizacao.xhtml" TITLE="visualizarContato" model-entity="JSFProcessItemOutput"/>
+    ID="visualizarLancamento::#lancamento_visualizacao.xhtml"
+    NAME="output4" PATH="/lancamento_visualizacao.xhtml"
+    TARGET="rules:#lancamento_visualizacao.xhtml"
+    TITLE="visualizarLancamento" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#categoria_list.xhtml"
@@ -27,15 +30,15 @@
    <PROCESS-ITEM-OUTPUT ID="listaCategoria::#categoria_list.xhtml"
     NAME="output" PATH="/categoria_list.xhtml"
     TARGET="rules:#categoria_list.xhtml" TITLE="listaCategoria" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="listaFormaDePgto::#forma_de_pgto_list.xhtml"
-    NAME="output1" PATH="/forma_de_pgto_list.xhtml"
-    TARGET="rules:#forma_de_pgto_list.xhtml" TITLE="listaFormaDePgto" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listaFrequencia::#frequencia_list.xhtml"
+    NAME="output1" PATH="/frequencia_list.xhtml"
+    TARGET="rules:#frequencia_list.xhtml" TITLE="listaFrequencia" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listaLancamento::#lancamento_list.xhtml"
+    NAME="output2" PATH="/lancamento_list.xhtml"
+    TARGET="rules:#lancamento_list.xhtml" TITLE="listaLancamento" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="listaProjeto::#projeto_list.xhtml"
     NAME="output4" PATH="/projeto_list.xhtml"
     TARGET="rules:#projeto_list.xhtml" TITLE="listaProjeto" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="listaContato::#contato_list.xhtml"
-    NAME="output2" PATH="/contato_list.xhtml"
-    TARGET="rules:#contato_list.xhtml" TITLE="listaContato" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#projeto_list.xhtml"
@@ -51,34 +54,37 @@
    <PROCESS-ITEM-OUTPUT ID="novaCategoria::#categoria_edit.xhtml"
     NAME="output" PATH="/categoria_edit.xhtml"
     TARGET="rules:#categoria_edit.xhtml" TITLE="novaCategoria" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="novaFrequencia::#frequencia_edit.xhtml"
+    NAME="output3" PATH="/frequencia_edit.xhtml"
+    TARGET="rules:#frequencia_edit.xhtml" TITLE="novaFrequencia" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="novoLancamento::#lancamento_edit.xhtml"
+    NAME="output7" PATH="/lancamento_edit.xhtml"
+    TARGET="rules:#lancamento_edit.xhtml" TITLE="novoLancamento" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="novoProjeto::#projeto_edit.xhtml"
     NAME="output1" PATH="/projeto_edit.xhtml"
     TARGET="rules:#projeto_edit.xhtml" TITLE="novoProjeto" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="novaFormaDePgto::#forma_de_pgto_edit.xhtml"
     NAME="output2" PATH="/forma_de_pgto_edit.xhtml"
     TARGET="rules:#forma_de_pgto_edit.xhtml" TITLE="novaFormaDePgto" model-entity="JSFProcessItemOutput"/>
-<<<<<<< .mine   <PROCESS-ITEM-OUTPUT ID="novaFrequencia::#frequencia_edit.xhtml"
-    NAME="output3" PATH="/frequencia_edit.xhtml"
-    TARGET="rules:#frequencia_edit.xhtml" TITLE="novaFrequencia" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="editarFrequencia::#frequencia_edit.xhtml"
-    NAME="output4" PATH="/frequencia_edit.xhtml"
-    TARGET="rules:#frequencia_edit.xhtml" TITLE="editarFrequencia" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="listaFrequencia::#frequencia_list.xhtml"
-    NAME="output5" PATH="/frequencia_list.xhtml"
-    TARGET="rules:#frequencia_list.xhtml" TITLE="listaFrequencia" model-entity="JSFProcessItemOutput"/>
-=======   <PROCESS-ITEM-OUTPUT ID="novoContato::#contato_edit.xhtml"
-    NAME="output3" PATH="/contato_edit.xhtml"
+   <PROCESS-ITEM-OUTPUT ID="novoContato::#contato_edit.xhtml"
+    NAME="output6" PATH="/contato_edit.xhtml"
     TARGET="rules:#contato_edit.xhtml" TITLE="novoContato" model-entity="JSFProcessItemOutput"/>
->>>>>>> .theirs  </PROCESS-ITEM>
+  </PROCESS-ITEM>
  </PROCESS-ITEM>
-<<<<<<< .mine <PROCESS-ITEM NAME="rules:#frequencia_edit.xhtml"
+ <PROCESS-ITEM NAME="rules:#frequencia_edit.xhtml"
   PATH="/frequencia_edit.xhtml" SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#frequencia_list.xhtml"
   PATH="/frequencia_list.xhtml" SHAPE="304,769,0,0" model-entity="JSFProcessGroup"/>
-======= <PROCESS-ITEM NAME="rules:#contato_list.xhtml"
-  PATH="/contato_list.xhtml" SHAPE="368,424,50,25" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#contato_edit.xhtml"
-  PATH="/contato_edit.xhtml" SHAPE="384,288,50,25" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#contato_visualizacao.xhtml"
-  PATH="/contato_visualizacao.xhtml" SHAPE="360,368,50,25" model-entity="JSFProcessGroup"/>
->>>>>>> .theirs</PROCESS>
+  PATH="/contato_visualizacao.xhtml" SHAPE="304,977,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#contato_list.xhtml"
+  PATH="/contato_list.xhtml" SHAPE="288,1201,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#contato_edit.xhtml"
+  PATH="/contato_edit.xhtml" SHAPE="304,561,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#lancamento_edit.xhtml"
+  PATH="/lancamento_edit.xhtml" SHAPE="304,561,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#lancamento_list.xhtml"
+  PATH="/lancamento_list.xhtml" SHAPE="304,561,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#lancamento_visualizacao.xhtml"
+  PATH="/lancamento_visualizacao.xhtml" SHAPE="304,593,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

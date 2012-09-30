@@ -9,6 +9,10 @@
    <to-view-id>/categoria_edit.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
+    <navigation-case>
+  	<from-outcome>editarLancamento</from-outcome>
+  	<to-view-id>/lancamento_edit.xhtml</to-view-id>
+  </navigation-case>
   <navigation-case>
    <from-outcome>editarContato</from-outcome>
    <to-view-id>/contato_edit.xhtml</to-view-id>
@@ -20,6 +24,10 @@
    <redirect/>
   </navigation-case>
    <navigation-case>
+  	<from-outcome>editarFrequencia</from-outcome>
+  	<to-view-id>/frequencia_edit.xhtml</to-view-id>
+  </navigation-case>
+   <navigation-case>
    <from-outcome>editarFormaDePgto</from-outcome>
    <to-view-id>/forma_de_pgto_edit.xhtml</to-view-id>
    <redirect/>
@@ -27,6 +35,11 @@
   <navigation-case>
    <from-outcome>visualizarContato</from-outcome>
    <to-view-id>/contato_visualizacao.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+   <navigation-case>
+   <from-outcome>visualizarLancamento</from-outcome>
+   <to-view-id>/lancamento_visualizacao.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
  </navigation-rule>
@@ -37,6 +50,14 @@
    <to-view-id>/categoria_list.xhtml</to-view-id>
    <redirect/>
   </navigation-case>
+  <navigation-case>
+  	<from-outcome>listaFrequencia</from-outcome>
+  	<to-view-id>/frequencia_list.xhtml</to-view-id>
+  </navigation-case> 
+  <navigation-case>
+  	<from-outcome>listaLancamento</from-outcome>
+  	<to-view-id>/lancamento_list.xhtml</to-view-id>
+  </navigation-case> 
    <navigation-case>
    <from-outcome>listaFormaDePgto</from-outcome>
    <to-view-id>/forma_de_pgto_list.xhtml</to-view-id>
@@ -59,6 +80,14 @@
    <from-outcome>novaCategoria</from-outcome>
    <to-view-id>/categoria_edit.xhtml</to-view-id>
   </navigation-case>
+    <navigation-case>
+  	<from-outcome>novaFrequencia</from-outcome>
+  	<to-view-id>/frequencia_edit.xhtml</to-view-id>
+  </navigation-case>
+   <navigation-case>
+  	<from-outcome>novoLancamento</from-outcome>
+  	<to-view-id>/lancamento_edit.xhtml</to-view-id>
+  </navigation-case>
   <navigation-case>
    <from-outcome>novoProjeto</from-outcome>
    <to-view-id>/projeto_edit.xhtml</to-view-id>
@@ -67,43 +96,9 @@
    <from-outcome>novaFormaDePgto</from-outcome>
    <to-view-id>/forma_de_pgto_edit.xhtml</to-view-id>
   </navigation-case>
-<<<<<<< .mine  
   <navigation-case>
-  	<from-outcome>novaFrequencia</from-outcome>
-  	<to-view-id>/frequencia_edit.xhtml</to-view-id>
-  </navigation-case>
-  <navigation-case>
-  	<from-outcome>editarFrequencia</from-outcome>
-  	<to-view-id>/frequencia_edit.xhtml</to-view-id>
-  </navigation-case>  
-  <navigation-case>
-  	<from-outcome>listaFrequencia</from-outcome>
-  	<to-view-id>/frequencia_list.xhtml</to-view-id>
-  </navigation-case>    
-  </navigation-rule>	
-=======  <navigation-case>
    <from-outcome>novoContato</from-outcome>
    <to-view-id>/contato_edit.xhtml</to-view-id>
   </navigation-case>
   </navigation-rule>
->>>>>>> .theirs</faces-config>
- 
-  <!-- <from-view-id>*</from-view-id>
-  <navigation-case>
-   <from-outcome>editarProjeto</from-outcome>
-   <to-view-id>/projeto_edit.xhtml</to-view-id>
-   <redirect/>
-  </navigation-case>
- </navigation-rule>
- <navigation-rule>
-  <from-view-id>*</from-view-id>
-  <navigation-case>
-   <from-outcome>listaProjeto</from-outcome>
-   <to-view-id>/projeto_list.xhtml</to-view-id>
-   <redirect/>
-  </navigation-case>
-  <navigation-case>
-   <from-outcome>novoProjeto</from-outcome>
-   <to-view-id>/projeto_edit.xhtml</to-view-id>
-  </navigation-case> -->
-
+</faces-config>

@@ -6,12 +6,10 @@
 	xmlns:p="http://primefaces.org/ui">
 
 
-<ui:composition template="/template/template_principal.xhtml">
+<ui:composition template="/template/template_default.xhtml">
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo">
 		<h:form>
-			
-			<p:panel style="width : 550px">
 				<h:outputLabel style="font-weight: bold;" value="Novo Lançamento" />
 				<p:separator />
 				<h:panelGrid columns="2">  
@@ -103,7 +101,6 @@
 						action="#{lancamentoMb.salvar}" ajax="false" />
 				</h:panelGrid>
 
-			</p:panel>
 		</h:form>
 
 	</ui:define>

@@ -6,7 +6,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">  
 
 
-<ui:composition template="/template/template_principal.xhtml">
+<ui:composition template="/template/template_default.xhtml">
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo">
 		<h:form>
@@ -18,21 +18,21 @@
 					emptyMessage="Nenhum registro encontrado"
 					value="#{categoriaMb.categorias}">
 
-					<p:column>
+					<p:column style="width:15%">
 						<f:facet name="header">
 							<h:outputLabel value="Id" />
 						</f:facet>
 						<h:outputLabel value="#{categoria.id}" />
 					</p:column>
 
-					<p:column>
+					<p:column style="width:65%%">
 						<f:facet name="header">
 							<h:outputLabel value="Descrição" />
 						</f:facet>
 						<h:outputLabel value="#{categoria.descricao}" />
 					</p:column>
 
-					<p:column>
+					<p:column style="width:10%">
 						<f:facet name="header">
 							<h:outputLabel value="Editar" />
 						</f:facet>
@@ -43,7 +43,7 @@
 						
 					</p:column>
 
-					<p:column>
+					<p:column style="width:10%">
 						<f:facet name="header">
 							<h:outputLabel value="Excluir" />
 						</f:facet>

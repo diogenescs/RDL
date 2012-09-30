@@ -19,10 +19,9 @@
 		<auth-constraint />
 	</security-constraint>
 	
-	<context-param> 
+<context-param> 
 <param-name>com.sun.faces.writeStateAtFormEnd</param-name> 
 <param-value>false</param-value> 
 </context-param>
-	
-	
+		
 </web-app>
