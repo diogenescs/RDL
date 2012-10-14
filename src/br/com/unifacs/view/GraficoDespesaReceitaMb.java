@@ -45,7 +45,7 @@ public class GraficoDespesaReceitaMb implements Serializable {
 		}
 		
 		categoryModel.addSeries(receita);
-		categoryModel.addSeries(despesa);
+		categoryModel.addSeries(despesa);	
 			
 	}
 	
