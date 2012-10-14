@@ -6,11 +6,11 @@
 
 <ui:composition>
 	
-		<p:panelMenu style="width:100%" >
+		<p:menubar>
+			
 			<p:submenu label="Inicio" >
 				<p:menuitem value="Grafico de lancamentos" url="/graficosLancamentos.jsf" />
 			</p:submenu>
-			<p:separator /> 
 			<p:submenu label="Cadastro" >
 				<p:menuitem value="Projetos" url="/projeto_list.jsf" />
 				<p:menuitem value="Contatos" url="/contato_list.jsf" />
@@ -18,7 +18,6 @@
 				<p:menuitem value="Formas de Pgto" url="/forma_de_pgto_list.jsf" />
 			</p:submenu>
 			
-			<p:separator /> 
 			<p:submenu label="Lançamentos">
 				<p:menuitem value="Receitas e Despesas" url="/lancamento_list.jsf" />
 				<p:menuitem value="Ultimos lançamentos" url="/pagina_construcao.jsf" />
@@ -26,7 +25,6 @@
 				<p:menuitem value="Histórico" url="/pagina_construcao.jsf" />
 			</p:submenu>
 			
-			<p:separator /> 
 			<p:submenu label="Suporte">
 				<p:menuitem value="Usuário" url="/pagina_construcao.jsf" />
 				<p:menuitem value="Config. Usuário" url="/pagina_construcao.jsf" />
@@ -34,13 +32,12 @@
 				<p:menuitem value="Log do sistema" url="/pagina_construcao.jsf" />
 			</p:submenu>
 			
-			<p:separator /> 
 			<p:submenu label="Outros">
 				<p:menuitem value="Sair"
 					url="http://google.com.br"/>
 			</p:submenu>
 
-		</p:panelMenu >
+		</p:menubar >
 
 </ui:composition>
 </html>

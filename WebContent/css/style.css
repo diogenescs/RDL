@@ -1,98 +1,35 @@
-* {
-	margin: 0;
-	padding: 0;
+.wrapper{
+   margin: 0px auto;
+   width: 100%;
+   background-color: #ffffff;
 }
-html {
-	height: 100%;
+.header{
+   float: left;
+   width: 100%;
+   background-color: orange;
+   color: white;
+}
+.bar{
+   float: left;
+   width: 100%;
+}
+.message{
+   float: left;
+   width: 100%;
+}
+.content{
+   float: left;
+   width: 100%;
+   background-color: #ffffff;
+}
+.footer{
+   float: left;
+   width: 100%;
+   background-color: #cfcfcf;
+   color: #ffffff
 }
 body {
-	font: 12px/18px Arial, Tahoma, Verdana, sans-serif;
-	height: 100%;
-}
-a {
-	color: blue;
-	outline: none;
-	text-decoration: underline;
-}
-a:hover {
-	text-decoration: none;
-}
-p {
-	margin: 0 0 18px
-}
-img {
-	border: none;
-}
-input {
-	vertical-align: middle;
-}
-#wrapper {
-	width: 100%;
-	min-width: 1000px;
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-}
-
-
-/* Header
------------------------------------------------------------------------------*/
-#header {
-	height: 100px;
-	background: #FFE680;
-}
-
-/* Header
------------------------------------------------------------------------------*/
-#topnav {
-	height: 30px;
-	background: #FFE644;
-}
-
-
-/* Middle
------------------------------------------------------------------------------*/
-#middle {
-	width: 100%;
-	padding: 0 0 40px;
-	height: 1%;
-	position: relative;
-}
-#middle:after {
-	content: '.';
-	display: block;
-	clear: both;
-	visibility: hidden;
-	height: 0;
-}
-#container {
-	width: 100%;
-	float: left;
-	overflow: hidden;
-}
-#content {
-	padding: 10px 10px 10px 270px;
-	background-color: blue;
-}
-
-
-/* Sidebar Left
------------------------------------------------------------------------------*/
-#sideLeft {
-	float: left;
-	width: 250px;
-	margin-left: -100%;
-	position: relative;
-	background: #B5E3FF;
-}
-
-
-/* Footer
------------------------------------------------------------------------------*/
-#footer {
-	margin: -40px auto 0;
-	min-width: 1000px;
-	height: 40px;
-	background: #BFF08E;
-	position: relative;
+   padding: 0px;
+   margin: 0px;
+   font-size: 90%;
 }
