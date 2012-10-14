@@ -8,5 +8,6 @@ public interface UsuarioBo {
 	void salvar(Usuario usuario) throws BoException;
 	void excluir(Usuario usuario) throws BoException;
 	Usuario obter(Integer id);
-	List<Usuario> obterTodos(); 
+	List<Usuario> obterTodos();
+	Usuario Logar(String login, String senha) throws BoException;
 }

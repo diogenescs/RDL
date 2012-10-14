@@ -1,6 +1,9 @@
 package br.com.unifacs.view;
 
 import java.awt.event.ActionEvent;
+import java.sql.Time;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -13,13 +16,17 @@ import br.com.unifacs.bo.CategoriaBoImpl;
 import br.com.unifacs.bo.ContatoBoImpl;
 import br.com.unifacs.bo.FormaDePgtoBoImpl;
 import br.com.unifacs.bo.FrequenciaBoImpl;
+import br.com.unifacs.bo.HistoricoBo;
+import br.com.unifacs.bo.HistoricoBoImpl;
 import br.com.unifacs.bo.LancamentoBo;
 import br.com.unifacs.bo.LancamentoBoImpl;
 import br.com.unifacs.bo.UsuarioPojetoBoImpl;
 import br.com.unifacs.model.Categoria;
 import br.com.unifacs.model.Contato;
+import br.com.unifacs.model.Historico;
 import br.com.unifacs.model.Lancamento;
 import br.com.unifacs.model.UsuarioProjeto;
+import br.com.unifacs.utils.RdlUtils;
 
 @ManagedBean(name="lancamentoMb")
 @SessionScoped
@@ -28,11 +35,15 @@ public class LancamentoMb {
 	private LancamentoBo bo;
 	private Lancamento lancamento;
 	private List<Lancamento> lancamentos;
+	private HistoricoBo historicoBo;
+	
+	private static String TIPO_OP;
 	
 	public LancamentoMb(){
 		bo = new LancamentoBoImpl();
 		setLancamento(new Lancamento());
 		this.setLancamentos(this.bo.obterTodos());
+		historicoBo = new HistoricoBoImpl();
 	}
 	
 	public void atualizar(ActionEvent actionEvent){
@@ -64,8 +75,13 @@ public class LancamentoMb {
 		this.lancamento = lancamento;
 	}
 	public String novo(){
+		
+		if (!RdlUtils.isUsuarioLogado())
+			return "novoLogin";
+		
 		this.lancamento = new Lancamento();
 		atualizar(null);
+		LancamentoMb.TIPO_OP = "Inserção";
 		return "novoLancamento";
 	}
 	
@@ -81,6 +97,7 @@ public class LancamentoMb {
 			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione uma lançamento", null));
 			return null;
 		}else{
+			LancamentoMb.TIPO_OP = "Edição";
 			return "editarLancamento";
 		}		
 	}
@@ -90,9 +107,26 @@ public class LancamentoMb {
 			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um lançamento", null));
 		}else{
 			try {
+				
+				Historico historico = new Historico();
+				historico.setDataAlteracao(new Date());
+				historico.setHoraAlteracao(new Time(new Date().getTime()));
+				historico.setLancamento(lancamento);
+				historico.setUsuario(RdlUtils.getUsuarioLogado());
+				historico.setTipoOperacao("Exclusão");
+				
 				this.bo.excluir(lancamento);
-				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Item excluído com sucesso!", null));
+				
+				try{
+					this.historicoBo.salvar(historico);
+				}
+				catch(BoException e){
+					e.printStackTrace();
+				}
+				
+				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Item excluído com sucesso!", null));	
 				atualizar(null);
+				
 			} catch (BoException e) { 
 				e.printStackTrace();
 				FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage("Erro ao excluir registro", e.getMessage()));
@@ -111,6 +145,21 @@ public class LancamentoMb {
 			this.lancamento.setFormaDePgto(new FormaDePgtoBoImpl().obter(this.lancamento.getFormaDePgto().getId()));
 			this.lancamento.setFrequencia(new FrequenciaBoImpl().obter(this.lancamento.getFrequencia().getId()));			
 			bo.salvar(this.lancamento);
+			
+			Historico historico = new Historico();
+			historico.setDataAlteracao(new Date());
+			historico.setHoraAlteracao(new Time(new Date().getTime()));
+			historico.setLancamento(lancamento);
+			historico.setTipoOperacao(LancamentoMb.TIPO_OP);
+			historico.setUsuario(RdlUtils.getUsuarioLogado());
+
+			try{
+				this.historicoBo.salvar(historico);
+			}
+			catch(BoException ex){
+				ex.printStackTrace();
+			}			
+			
 			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Operação realizada com sucesso!", "teste"));
 			atualizar(null);
 		} catch (BoException e) {

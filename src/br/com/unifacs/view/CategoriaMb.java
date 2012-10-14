@@ -1,6 +1,6 @@
 package br.com.unifacs.view;
 
-import java.awt.event.ActionEvent;
+import javax.faces.event.ActionEvent;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -36,6 +36,21 @@ public class CategoriaMb {
 		return "novaCategoria";
 	}
 	
+	public void insert(ActionEvent event){
+		this.categoria = new Categoria();
+	}
+	
+	public void post(ActionEvent event){
+		try {
+			bo.salvar(categoria);
+			FacesContext.getCurrentInstance().addMessage(null,  new FacesMessage(FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso!", "teste"));
+			atualizar(null);
+		} catch (BoException e) {
+			e.printStackTrace();
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
+		}
+	}	
+	
 	public String editar(){ 
 		if(this.categoria == null){
 			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione uma categoria", null));
@@ -51,7 +66,7 @@ public class CategoriaMb {
 		}else{
 			try {
 				this.bo.excluir(categoria);
-				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Item excluído com sucesso!", null));
+				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Item excluído com sucesso!", null));
 				atualizar(null);
 			} catch (BoException e) { 
 				e.printStackTrace();
@@ -65,7 +80,7 @@ public class CategoriaMb {
 	public String salvar(){
 		try {
 			bo.salvar(categoria);
-			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Operação realizada com sucesso!", "teste"));
+			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso!", "teste"));
 			atualizar(null);
 		} catch (BoException e) {
 			e.printStackTrace();

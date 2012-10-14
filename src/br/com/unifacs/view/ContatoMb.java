@@ -27,6 +27,21 @@ public class ContatoMb {
 		this.setContatos(this.bo.obterTodos()); 
 	}
 	
+	public void insert(ActionEvent actionEvent){
+		this.contato = new Contato();
+	}
+	
+	public void post(ActionEvent actionEvent){
+		try {
+			bo.salvar(contato);
+			FacesContext.getCurrentInstance().addMessage(null,  new FacesMessage(FacesMessage.SEVERITY_WARN, "Operação realizada com sucesso!", "teste"));
+			atualizar(null);
+		} catch (BoException e) {
+			e.printStackTrace();
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
+		}
+	}	
+	
 	public void atualizar(ActionEvent actionEvent){
 		this.setContatos(this.bo.obterTodos()); 	
 	}
