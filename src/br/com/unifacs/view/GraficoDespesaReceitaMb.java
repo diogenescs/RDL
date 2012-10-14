@@ -22,7 +22,7 @@ public class GraficoDespesaReceitaMb implements Serializable {
 	
 	public GraficoDespesaReceitaMb() {
 		bo = new LancamentoBoImpl();
-		//criarGrafico();
+		criarGrafico();
 	}
 	
 	private void criarGrafico(){

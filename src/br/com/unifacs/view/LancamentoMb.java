@@ -76,8 +76,8 @@ public class LancamentoMb {
 	}
 	public String novo(){
 		
-		if (!RdlUtils.isUsuarioLogado())
-			return "novoLogin";
+//		if (!RdlUtils.isUsuarioLogado())
+//			return "novoLogin";
 		
 		this.lancamento = new Lancamento();
 		atualizar(null);
