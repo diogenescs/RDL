@@ -1,12 +1,13 @@
 .wrapper{
    margin: 0px auto;
    width: 100%;
+   height: 100%;
    background-color: #ffffff;
 }
 .header{
    float: left;
    width: 100%;
-   background-color: orange;
+   background-color: green;
    color: white;
 }
 .bar{
@@ -20,15 +21,17 @@
 .content{
    float: left;
    width: 100%;
+   height: 100%;
    background-color: #ffffff;
 }
 .footer{
    float: left;
    width: 100%;
-   background-color: #cfcfcf;
+   background-color: green;
    color: #ffffff
 }
 body {
+   size: inherit;
    padding: 0px;
    margin: 0px;
    font-size: 90%;
