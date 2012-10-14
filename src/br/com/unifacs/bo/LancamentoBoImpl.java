@@ -1,5 +1,6 @@
 package br.com.unifacs.bo;
 
+import java.io.Serializable;
 import java.util.List;
 
 import br.com.unifacs.dao.DaoException;
@@ -7,7 +8,7 @@ import br.com.unifacs.dao.LancamentoDao;
 import br.com.unifacs.model.Categoria;
 import br.com.unifacs.model.Lancamento;
 
-public class LancamentoBoImpl implements LancamentoBo {
+public class LancamentoBoImpl implements LancamentoBo,Serializable {
 	
 	LancamentoDao dao = new LancamentoDao();
 	
