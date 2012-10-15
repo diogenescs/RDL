@@ -83,12 +83,16 @@ public class GenericDaoJpa<T, PK extends Serializable> implements GenericDao<T, 
 
 	public List<T> query(String q, String... param) throws DaoException {
 		try {
+			
 			EntityManager entitymanager = JpaUtil.getEntityManager();
 			Query query = entitymanager.createQuery(q);
 			for(int i=0; i < param.length; i++)
 				query.setParameter((i + 1), param[i]);
-			entitymanager.close();
-			return query.getResultList();
+			//entitymanager.close();
+			 List<T> result = query.getResultList();
+			 entitymanager.close();
+			 return result;
+			//return query.getResultList();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

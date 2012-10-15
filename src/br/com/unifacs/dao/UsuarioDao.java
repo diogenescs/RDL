@@ -6,7 +6,6 @@ public class UsuarioDao extends GenericDaoJpa<Usuario, Integer>{
 
 	public UsuarioDao() {
 		super(Usuario.class);
-		// TODO Auto-generated constructor stub
 	}
 	
 	
