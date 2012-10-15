@@ -31,7 +31,32 @@
 						</f:facet>
 						<h:outputLabel value="#{lancamento.nome}" />
 					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Categoria" />
+						</f:facet>
+						<h:outputLabel value="#{lancamento.categoria.descricao}" />
+					</p:column>
 
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Data de Vcto" />
+						</f:facet>
+						<h:outputLabel value="#{lancamento.dataVcto}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Valor" />
+						</f:facet>
+						<h:outputLabel value="#{lancamento.valorVcto}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputLabel value="Forma de pgto" />
+						</f:facet>
+						<h:outputLabel value="#{lancamento.formaDePgto.descricao}" />
+					</p:column>
 					<p:column>
 						<f:facet name="header">
 							<h:outputLabel value="Editar" />
