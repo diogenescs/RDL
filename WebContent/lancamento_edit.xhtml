@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -8,24 +8,27 @@
 <ui:composition template="/template/template_default.xhtml">
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo">
-		<h:form id="main" prependId="false">
+		<h:form id="main" >
 
-			<p:panel header="Novo Lançamento">
-
-				<h:panelGrid columns="2">
+			<p:panel style="width : 60%;">
+				<h:outputLabel style="font-weight: bold; font-size: 15pt; color:green" value="Novo lancamento" />
+				<p:separator/>
+				<h:panelGrid columns="2"> 
 
 					<p:outputLabel value="Id" for="textId" />
 					<p:inputText value="#{lancamentoMb.lancamento.id}" id="textId"
 						disabled="true" />
 
-					<p:outputLabel value="Descrição" for="textDesc" />
-					<p:inputText value="#{lancamentoMb.lancamento.nome}" id="textDesc"
-						required="true" requiredMessage="Descricao é campo obrigatório" />
+					
 
 				</h:panelGrid>
 				
 				
-				<h:panelGrid columns="3">
+				<h:panelGrid columns="10">
+				
+				<p:outputLabel value="Descrição" for="textDesc" />
+					<p:inputText value="#{lancamentoMb.lancamento.nome}" id="textDesc"
+						required="true" requiredMessage="Descricao é campo obrigatório" />
 
 					<p:outputLabel value="Categoria" for="comboCat" />
 					<p:selectOneMenu value="#{lancamentoMb.lancamento.categoria.id}"
@@ -38,10 +41,22 @@
 					<p:commandButton id="btnCat" icon="ui-icon-print"
 						actionListener="#{categoriaMb.insert}" update=":formCat:panelDlg"
 						onsuccess="dlgcat.show();" immediate="true" />
+						
+					<p:outputLabel value="Contato" for="textContato" />
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.contato.id}"
+						id="textContato">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItems value="#{contatoMb.contatos}" var="contato"
+							itemLabel="#{contato.nome}" itemValue="#{contato.id}" />
+					</p:selectOneMenu>
+					
+					<p:commandButton id="btnContato" icon="ui-icon-print"
+						actionListener="#{contatoMb.insert}" update=":formContato:panelContato"
+						onsuccess="dlgcontato.show();" immediate="true" />		
 				</h:panelGrid>
 
 
-				<h:panelGrid columns="2">
+				<h:panelGrid columns="4">
 					<p:outputLabel value="Data de Vencimento" for="textDataVcto" />
 					<p:calendar value="#{lancamentoMb.lancamento.dataVcto}"
 						id="textDataVcto" required="true"
@@ -69,26 +84,9 @@
 					</p:inputText>
 
 				</h:panelGrid>
-				
-				
-				<h:panelGrid columns="3">
-
-					<p:outputLabel value="Contato" for="textContato" />
-					<p:selectOneMenu value="#{lancamentoMb.lancamento.contato.id}"
-						id="textContato">
-						<f:selectItem itemLabel="Selecione" itemValue="" />
-						<f:selectItems value="#{contatoMb.contatos}" var="contato"
-							itemLabel="#{contato.nome}" itemValue="#{contato.id}" />
-					</p:selectOneMenu>
 					
-					<p:commandButton id="btnContato" icon="ui-icon-print"
-						actionListener="#{contatoMb.insert}" update=":formContato:panelContato"
-						onsuccess="dlgcontato.show();" immediate="true" />					
-											
-				</h:panelGrid>
 				
-				
-				<h:panelGrid columns="2">
+				<h:panelGrid columns="4">
 					<p:outputLabel value="Despesa" for="textDesp" />
 					<p:selectOneRadio value="#{lancamentoMb.lancamento.despesa}"
 						id="textDesp" required="true" requiredMessage="Campo obrigatório">
@@ -116,7 +114,9 @@
 						<f:selectItem itemLabel="SIM" itemValue="S" />
 						<f:selectItem itemLabel="NÂO" itemValue="N" />
 					</p:selectOneRadio>
-
+					</h:panelGrid>
+					
+					<h:panelGrid columns="6">
 					<p:outputLabel value="Número de Parcelas" for="textNumPar" />
 					<p:inputText value="#{lancamentoMb.lancamento.numParcelas}"
 						id="textNumPar" converterMessage="Utilize apenas números.">
@@ -141,13 +141,13 @@
 							itemValue="#{formPgto.id}" />
 					</p:selectOneMenu>
 
-
+					</h:panelGrid>
 					<p:commandButton id="btnCancelar" value="Cancelar"
 						action="#{lancamentoMb.cancelar}" ajax="false" immediate="true" />
 
 					<p:commandButton id="btnInserir" value="Salvar"
 						action="#{lancamentoMb.salvar}" ajax="false" />
-				</h:panelGrid>
+
 
 			</p:panel>
 		</h:form>
@@ -269,4 +269,139 @@
 
 </ui:composition>
 
-</html>
+</html> 
+
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/template/template_default.xhtml">
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<ui:define name="corpo">
+		<h:form >
+			
+			<p:panel style="width : 80%;">
+				<h:outputLabel style="font-weight: bold; font-size: 20pt; color:green" value="Lancamento" />
+				<p:separator/>
+				<h:panelGrid columns="6">  
+
+					<p:outputLabel value="Id" for="textId" />
+					<p:inputText value="#{lancamentoMb.lancamento.id}" id="textId" disabled="true" />
+					
+					<p:outputLabel value="Descrição" for="catDesc" />
+					<p:inputText value="#{lancamentoMb.lancamento.nome}" id="catDesc" disabled="false" required="true"/>
+					
+									
+
+					<p:outputLabel value="Categoria" for="textCat" />
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.categoria.id}" id="textCat" disabled="false">
+            			<f:selectItem itemLabel="Selecione" itemValue="" />  
+            			<f:selectItems value="#{categoriaMb.categorias}" var="cat" itemLabel="#{cat.descricao}" itemValue="#{cat.id}" />						
+					</p:selectOneMenu>
+										
+					<p:outputLabel value="Data de Vencimento" for="textDataVcto" />
+					<p:calendar value="#{lancamentoMb.lancamento.dataVcto}" id="textDataVcto" disabled="false"/>
+
+					<p:outputLabel value="Data de Pagamento" for="textDataPgto" />
+					<p:calendar value="#{lancamentoMb.lancamento.dataPgto}" id="textDataPgto" disabled="false"/>
+					
+					<p:outputLabel value="Valor de Vencimento" for="textValorVcto" />
+					<p:inputText value="#{lancamentoMb.lancamento.valorVcto}" id="textValorVcto" disabled="false">
+						<f:convertNumber currencyCode="BRL"/>
+					</p:inputText>
+					
+					<p:outputLabel value="Valor de Pago" for="textValorPg" />
+					<p:inputText value="#{lancamentoMb.lancamento.valorPgto}" id="textValorPg" disabled="false">
+						<f:convertNumber currencyCode="BRL"/>
+					</p:inputText>	
+					
+					<p:outputLabel value="Contato" for="textContato" />
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.contato.id}" id="textContato" disabled="false">
+            			<f:selectItem itemLabel="Selecione" itemValue="" />  
+            			<f:selectItems value="#{contatoMb.contatos}" var="contato" itemLabel="#{contato.nome}" itemValue="#{contato.id}"/>						
+					</p:selectOneMenu>																			
+					
+					<p:outputLabel value="Despesa" for="textDesp" />
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.despesa}" id="textDesp"  disabled="false">
+            			<f:selectItem itemLabel="Selecione" itemValue="" />  						
+            			<f:selectItem itemLabel="SIM" itemValue="S" />  
+            			<f:selectItem itemLabel="NÂO" itemValue="N" />              			            			
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="Automático" for="textAuto" />
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.automatico}" id="textAuto" disabled="false">
+            			<f:selectItem itemLabel="Selecione" itemValue="" />  						
+            			<f:selectItem itemLabel="SIM" itemValue="S" />  
+            			<f:selectItem itemLabel="NÂO" itemValue="N" />              			            			
+					</p:selectOneMenu>											
+					
+					<p:outputLabel value="Notificação" for="textNote" />
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.notificacao}" id="textNote" disabled="false">
+            			<f:selectItem itemLabel="Selecione" itemValue="" />  						
+            			<f:selectItem itemLabel="SIM" itemValue="S" />  
+            			<f:selectItem itemLabel="NÂO" itemValue="N" />              			            			
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="Realizado" for="textReal" />
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.realizado}" id="textReal" disabled="false">
+            			<f:selectItem itemLabel="Selecione" itemValue="" />  						
+            			<f:selectItem itemLabel="SIM" itemValue="S" />  
+            			<f:selectItem itemLabel="NÂO" itemValue="N" />              			            			
+					</p:selectOneMenu>	
+					
+					<p:outputLabel value="Número de Parcelas" for="textNumPar" />
+					<p:inputText value="#{lancamentoMb.lancamento.numParcelas}" id="textNumPar" disabled="false">
+						<f:convertNumber integerOnly="true" minIntegerDigits="1"/>
+					</p:inputText>		
+					
+					<p:outputLabel value="Frequência" for="textFreq" />
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.frequencia.id}" id="textFreq" disabled="false">
+            			<f:selectItem itemLabel="Selecione" itemValue="" />  
+            			<f:selectItems value="#{frequenciaMb.frequencias}" var="freq" itemLabel="#{freq.descricao}" itemValue="#{freq.id}" />						
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="Forma de Pagamento" for="textFormPtgo" />
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.formaDePgto.id}" id="textFormPtgo" disabled="false">
+            			<f:selectItem itemLabel="Selecione" itemValue="" />  
+            			<f:selectItems value="#{formaDePgtoMb.formaDePgtos}" var="formPgto" itemLabel="#{formPgto.descricao}" itemValue="#{formPgto.id}" />						
+					</p:selectOneMenu>
+																																			
+					<p:commandButton id="btnCancelarContato" value="Cancelar"
+							actionListener="#{contatoMb.atualizar}" ajax="false" immediate="true" onclick="dlgcontato.hide()"/>
+
+						<p:commandButton id="btnInserirContato" value="Salvar" 
+							actionListener="#{contatoMb.post}" ajax="false" oncomplete="handContatoRequest(xhr, status, args)"/>
+
+				</h:panelGrid>
+
+			</p:panel>
+		</h:form>
+		<script type="text/javascript">  
+			function handCatRequest(xhr, status, args) {  
+				if(args.validationFailed || !args.loggedIn) {  
+					jQuery('#dialog').effect("shake", { times:3 }, 100);  
+				} else {  
+					dlgcat.hide();  
+					jQuery('#loginLink').fadeOut();  
+				}  
+			} 
+			function handContatoRequest(xhr, status, args) {  
+				if(args.validationFailed || !args.loggedIn) {  
+					jQuery('#dialog').effect("shake", { times:3 }, 100);  
+				} else {  
+					dlgcontato.hide();  
+					jQuery('#loginLink').fadeOut();  
+				}  
+			}  			 
+		</script>		
+		
+
+	</ui:define>
+	
+
+</ui:composition>
+</html> -->

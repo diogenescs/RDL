@@ -1,4 +1,161 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/template_default.xhtml">
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<ui:define name="corpo">
+		<h:form id="main" >
+
+			<p:panel style="width : 60%;">
+				<h:outputLabel style="font-weight: bold; font-size: 15pt; color:green" value="Dados do lancamento" />
+				<p:separator/>
+				<h:panelGrid columns="2"> 
+
+					<p:outputLabel value="Id" for="textId" />
+					<p:inputText value="#{lancamentoMb.lancamento.id}" id="textId"
+						disabled="true" />
+
+				</h:panelGrid>
+				
+				
+				<h:panelGrid columns="6">
+				<p:outputLabel value="Descrição" for="textDesc" />
+					<p:inputText value="#{lancamentoMb.lancamento.nome}" id="textDesc"
+						required="true" requiredMessage="Descricao é campo obrigatório" disabled="true" style="size:50px;" />
+				
+
+					<p:outputLabel value="Categoria" for="comboCat" />
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.categoria.id}"
+						id="comboCat" disabled="true">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItems value="#{categoriaMb.categorias}" var="cat"
+							itemLabel="#{cat.descricao}" itemValue="#{cat.id}" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="Contato" for="textContato" />
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.contato.id}"
+						id="textContato" disabled="true">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItems value="#{contatoMb.contatos}" var="contato"
+							itemLabel="#{contato.nome}" itemValue="#{contato.id}" />
+					</p:selectOneMenu>
+					
+				</h:panelGrid>
+
+
+				<h:panelGrid columns="4">
+					
+					<p:outputLabel value="Data de Vencimento" for="textDataVcto" />
+					<p:calendar value="#{lancamentoMb.lancamento.dataVcto}"
+						id="textDataVcto" required="true"
+						requiredMessage="Campo obrigatório" disabled="true"/>
+						
+						<p:outputLabel value="Valor de Vencimento" for="textValorVcto" />
+					<p:inputText value="#{lancamentoMb.lancamento.valorVcto}"
+						id="textValorVcto" required="true"
+						requiredMessage="Campo obrigatório"
+						converterMessage="Digite um valor váliro" disabled="true">
+						<f:convertNumber currencyCode="BRL" />
+					</p:inputText>
+
+				</h:panelGrid>
+				
+				<h:panelGrid columns="4">					
+					
+					<p:outputLabel value="Data de Pagamento" for="textDataPgto" />
+					<p:calendar value="#{lancamentoMb.lancamento.dataPgto}"
+						id="textDataPgto" required="true"
+						requiredMessage="Campo obrigatório" disabled="true"/>
+
+					
+
+					<p:outputLabel value="Valor de Pagto" for="textValorPg" />
+					<p:inputText value="#{lancamentoMb.lancamento.valorPgto}"
+						id="textValorPg" required="true"
+						requiredMessage="Campo obrigatório"
+						converterMessage="Digite um valor váliro" disabled="true">
+						<f:convertNumber currencyCode="BRL" />
+					</p:inputText>
+
+				</h:panelGrid>
+				
+				<h:panelGrid columns="4">
+					<p:outputLabel value="Despesa" for="textDesp" />
+					<p:selectOneRadio value="#{lancamentoMb.lancamento.despesa}"
+						id="textDesp" required="true" requiredMessage="Campo obrigatório" disabled="true">
+						<f:selectItem itemLabel="SIM" itemValue="S" />
+						<f:selectItem itemLabel="NÂO" itemValue="N" />
+					</p:selectOneRadio>
+
+					<p:outputLabel value="Automático" for="textAuto" />
+					<p:selectOneRadio value="#{lancamentoMb.lancamento.automatico}"
+						id="textAuto" required="true" requiredMessage="Campo obrigatório" disabled="true">
+						<f:selectItem itemLabel="SIM" itemValue="S" />
+						<f:selectItem itemLabel="NÂO" itemValue="N" />
+					</p:selectOneRadio>
+
+					<p:outputLabel value="Notificação" for="textNote" />
+					<p:selectOneRadio value="#{lancamentoMb.lancamento.notificacao}"
+						id="textNote" required="true" requiredMessage="Campo obrigatório" disabled="true">
+						<f:selectItem itemLabel="SIM" itemValue="S" />
+						<f:selectItem itemLabel="NÂO" itemValue="N" />
+					</p:selectOneRadio>
+
+					<p:outputLabel value="Realizado" for="textReal" />
+					<p:selectOneRadio value="#{lancamentoMb.lancamento.realizado}"
+						id="textReal" required="true" requiredMessage="Campo obrigatório" disabled="true">
+						<f:selectItem itemLabel="SIM" itemValue="S" />
+						<f:selectItem itemLabel="NÂO" itemValue="N" />
+					</p:selectOneRadio>
+					</h:panelGrid>
+					
+					<h:panelGrid columns="6">
+					<p:outputLabel value="Número de Parcelas" for="textNumPar" />
+					<p:inputText value="#{lancamentoMb.lancamento.numParcelas}"
+						id="textNumPar" converterMessage="Utilize apenas números." disabled="true">
+						<f:convertNumber integerOnly="true" minIntegerDigits="1" />
+					</p:inputText>
+
+					<p:outputLabel value="Frequência" for="textFreq" />
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.frequencia.id}"
+						id="textFreq" required="true" requiredMessage="Campo obrigatório" disabled="true">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItems value="#{frequenciaMb.frequencias}" var="freq"
+							itemLabel="#{freq.descricao}" itemValue="#{freq.id}"/>
+					</p:selectOneMenu>
+
+					<p:outputLabel value="Forma de Pagamento" for="textFormPtgo" />
+					<p:selectOneMenu value="#{lancamentoMb.lancamento.formaDePgto.id}"
+						id="textFormPtgo" required="true"
+						requiredMessage="Campo obrigatório" disabled="true">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItems value="#{formaDePgtoMb.formaDePgtos}"
+							var="formPgto" itemLabel="#{formPgto.descricao}"
+							itemValue="#{formPgto.id}" disabled="true"/>
+					</p:selectOneMenu>	
+				</h:panelGrid>
+<p:commandButton id="btnVoltar" value="Voltar"
+						action="#{lancamentoMb.cancelar}" ajax="false" immediate="true" />
+			</p:panel>
+		</h:form>
+
+
+		
+		
+		
+
+	</ui:define>
+
+
+</ui:composition>
+
+</html> 
+
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -9,12 +166,12 @@
 <ui:composition template="/template/template_default.xhtml">
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo">
-		<h:form>
+		<h:form >
 			
-			<p:panel style="width : 550px">
-				<h:outputLabel style="font-weight: bold;" value="Dados do lancamento" />
-				<p:separator />
-				<h:panelGrid columns="2">  
+			<p:panel style="width : 80%;">
+				<h:outputLabel style="font-weight: bold; font-size: 20pt; color:green" value="Dados do lancamento" />
+				<p:separator/>
+				<h:panelGrid columns="6">  
 
 					<p:outputLabel value="Id" for="textId" />
 					<p:inputText value="#{lancamentoMb.lancamento.id}" id="textId" disabled="true" />
@@ -97,7 +254,7 @@
 																																			
 					
 					<p:commandButton id="btnVoltar" value="Voltar"
-						action="#{lancamentoMb.cancelar}" ajax="false" immediate="true"/>
+						action="#{lancamentoMb.cancelar}" ajax="false" immediate="true" />
 
 				</h:panelGrid>
 
@@ -107,4 +264,5 @@
 	</ui:define>
 
 </ui:composition>
-</html>
+</html>-->
+
