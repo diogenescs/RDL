@@ -9,6 +9,13 @@
 <ui:composition template="/template/template_default.xhtml">
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo">
+
+	<p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>  
+              
+	<p:dialog modal="true" widgetVar="statusDialog" header="Status"   
+        draggable="false" closable="false">  
+    	<p:graphicImage value="/images/ajax-loader.gif" />  
+	</p:dialog>  	
 		<h:form>
 			<p:messages showDetail="false" autoUpdate="true"
 					closable="true"/>
