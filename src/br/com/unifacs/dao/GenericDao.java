@@ -10,6 +10,6 @@ public interface GenericDao<T, PK extends Serializable> {
 	void excluir(T model) throws DaoException;
 	T obter(PK id);
 	List<T> obterTodos();
-	List<T> query(String q, String... param) throws DaoException;
+	List<T> query(String q, Object... param) throws DaoException;
 
 }

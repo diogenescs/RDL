@@ -202,4 +202,11 @@ public class Lancamento implements Serializable {
 		this.contato = contato;
 	}
 	
+	public void setRealizadoAsBoolean(boolean realizado){
+		this.realizado = (realizado)?"S":"N";
+	}
+	public boolean getRealizadoAsBoolean(){
+		return (this.realizado.equals("S"))?true:false;
+	}
+	
 }

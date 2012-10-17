@@ -81,7 +81,7 @@ public class GenericDaoJpa<T, PK extends Serializable> implements GenericDao<T, 
 		return tipoModel;
 	}
 
-	public List<T> query(String q, String... param) throws DaoException {
+	public List<T> query(String q, Object... param) throws DaoException {
 		try {
 			
 			EntityManager entitymanager = JpaUtil.getEntityManager();

@@ -1,5 +1,10 @@
 package br.com.unifacs.dao;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,6 +16,7 @@ import br.com.unifacs.bo.ContatoBoImpl;
 import br.com.unifacs.bo.UsuarioPojetoBoImpl;
 import br.com.unifacs.model.Categoria;
 import br.com.unifacs.model.Contato;
+import br.com.unifacs.model.Lancamento;
 import br.com.unifacs.model.UsuarioProjeto;
 
 public class Teste {
@@ -32,10 +38,38 @@ public class Teste {
 //			e.printStackTrace();
 //		}
 		
-		UsuarioProjeto e = new UsuarioPojetoBoImpl().obter(2);
+		LancamentoDao d = new LancamentoDao();
+		List<Lancamento> l = null;
 		
-		Assert.assertNotNull(e);
+		try {
+			l = d.obterContasAPagar(new Date(2012, 10, 01), new Date(2012, 11, 30));
+		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		Assert.assertNotNull(l);
+		
+		System.out.println("TESTE");
+	}
+	
+	public static void main(String args[]){
+		LancamentoDao d = new LancamentoDao();
+		List<Lancamento> l = null;
+		
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
+			try {
+				l = d.obterContasAPagar(sdf.parse("2012-10-01"),sdf.parse("2012-11-30"));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println(l);
+		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

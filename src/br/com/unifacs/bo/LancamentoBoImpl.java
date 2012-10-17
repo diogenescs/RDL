@@ -1,7 +1,9 @@
 package br.com.unifacs.bo;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
+
 
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.LancamentoDao;
@@ -65,6 +67,16 @@ public class LancamentoBoImpl implements LancamentoBo,Serializable {
 	public Lancamento obter(Integer id) {
 		return dao.obter(id);
 	}
+
+	public List<Lancamento> obterContasAPagar(Date dataInicial, Date dataFinal) throws BoException {
+		try {
+			return dao.obterContasAPagar(dataInicial, dataFinal);
+		} catch (DaoException e) {
+			e.printStackTrace();
+			throw new BoException(e, "Erro na pesquisa");
+		}
+	}
+
 	
 
 }
