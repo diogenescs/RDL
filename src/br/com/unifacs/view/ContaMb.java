@@ -1,5 +1,6 @@
 package br.com.unifacs.view;
 
+import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +15,9 @@ import br.com.unifacs.bo.HistoricoBo;
 import br.com.unifacs.bo.HistoricoBoImpl;
 import br.com.unifacs.bo.LancamentoBo;
 import br.com.unifacs.bo.LancamentoBoImpl;
+import br.com.unifacs.model.Historico;
 import br.com.unifacs.model.Lancamento;
+import br.com.unifacs.utils.RdlUtils;
 
 @ManagedBean(name="contaMb")
 @SessionScoped
@@ -29,6 +32,7 @@ public class ContaMb {
 		bo = new LancamentoBoImpl();
 		historicoBo = new HistoricoBoImpl();
 	}
+	
 	
 	public void contasAPagar(ActionEvent e){
 		
@@ -46,12 +50,21 @@ public class ContaMb {
 	}
 	
 	public void realizarLancamento(ActionEvent e){
-		if (this.lancamentos == null){
+		if (this.lancamentos == null || this.lancamentos.size() == 0){
 			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione uma lançamento", null));
 		}else{
 			try {
-				for(Lancamento l: this.lancamentos)
+				for(Lancamento l: this.lancamentos){
 					bo.salvar(l);
+					
+//					Historico historico = new Historico();
+//					historico.setDataAlteracao(new Date());
+//					historico.setHoraAlteracao(new Time(new Date().getTime()));
+//					historico.setLancamento(l);
+//					historico.setUsuario(RdlUtils.getUsuarioLogado());
+//					historico.setTipoOperacao("Exclusão");	
+//					historicoBo.salvar(historico);
+				}
 				this.contasAPagar(null);
 			} catch (BoException e1) {
 				e1.printStackTrace();
