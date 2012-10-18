@@ -39,6 +39,8 @@ public class Lancamento implements Serializable {
 	private BigDecimal valorPgto;
 
 	private BigDecimal valorVcto;
+	
+	
 
 	//bi-directional many-to-one association to UsuarioProjeto
 	@ManyToOne(fetch=FetchType.LAZY)

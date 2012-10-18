@@ -142,7 +142,7 @@ public class LancamentoMb {
 			this.lancamento.setContato(new ContatoBoImpl().obter(this.lancamento.getContato().getId()));
 			this.lancamento.setCategoria(new CategoriaBoImpl().obter(this.lancamento.getCategoria().getId()));
 			this.lancamento.setFormaDePgto(new FormaDePgtoBoImpl().obter(this.lancamento.getFormaDePgto().getId()));
-			this.lancamento.setFrequencia(new FrequenciaBoImpl().obter(this.lancamento.getFrequencia().getId()));			
+			this.lancamento.setFrequencia(new FrequenciaBoImpl().obter(this.lancamento.getFrequencia().getId()));	
 			bo.salvar(this.lancamento);
 			
 			Historico historico = new Historico();

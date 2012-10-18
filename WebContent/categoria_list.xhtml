@@ -10,13 +10,13 @@
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo">
 		<h:form>
-			<h:outputLabel align="right" style="font-weight: bold;" value="Lista de categorias" />
+			<h:outputLabel align="right" style="font-weight: bold; font-size: 15pt; color:green" value="Lista de categorias" />
 
 				<p:separator />
  
 				<p:dataTable id="dataTable" var="categoria"
 					emptyMessage="Nenhum registro encontrado"
-					value="#{categoriaMb.categorias}">
+					value="#{categoriaMb.categorias}" style="width : 60%;" align="left">
 
 					<p:column style="width:15%">
 						<f:facet name="header">
@@ -25,7 +25,7 @@
 						<h:outputLabel value="#{categoria.id}" />
 					</p:column>
 
-					<p:column style="width:65%%">
+					<p:column style="width:50%">
 						<f:facet name="header">
 							<h:outputLabel value="Descrição" />
 						</f:facet>

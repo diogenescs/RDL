@@ -10,29 +10,29 @@
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo">
 		<h:form>
-			<h:outputLabel  style="font-weight: bold;" value="Lista de projetos"  />
+			<h:outputLabel  style="font-weight: bold; font-size: 15pt; color:green" value="Lista de projetos"  />
 			
 				<p:separator />
  
 				<p:dataTable id="dataTable" var="projeto"
 					emptyMessage="Nenhum registro encontrado"
-					value="#{projetoMb.projetos}">
+					value="#{projetoMb.projetos}" style="width:60%; align:left">
 
-					<p:column>
+					<p:column style="width:15%">
 						<f:facet name="header">
 							<h:outputLabel value="Id" />
 						</f:facet>
 						<h:outputLabel value="#{projeto.id}" />
 					</p:column>
 
-					<p:column>
+					<p:column style="width:50%">
 						<f:facet name="header">
 							<h:outputLabel value="Descrição" />
 						</f:facet>
 						<h:outputLabel value="#{projeto.descricao}" />
 					</p:column>
 
-					<p:column>
+					<p:column style="width:10%">
 						<f:facet name="header">
 							<h:outputLabel value="Editar" />
 						</f:facet>
@@ -43,7 +43,7 @@
 						
 					</p:column>
 
-					<p:column>
+					<p:column style="width:10%">
 						<f:facet name="header">
 							<h:outputLabel value="Excluir" />
 						</f:facet>

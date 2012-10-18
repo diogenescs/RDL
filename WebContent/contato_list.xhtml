@@ -10,36 +10,36 @@
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo">
 		<h:form>
-			<h:outputLabel align="right" style="font-weight: bold;" value="Lista de contatos" />
+			<h:outputLabel align="right" style="font-weight: bold; font-size: 15pt; color:green" value="Lista de contatos" />
 			
 				<p:separator />
  
 				<p:dataTable id="dataTable" var="contato"
 					emptyMessage="Nenhum registro encontrado"
-					value="#{contatoMb.contatos}">
+					value="#{contatoMb.contatos}" style="width : 80%;" align="left">
 
-					 <p:column>
+					 <p:column style="width:15%">
 						<f:facet name="header">
 							<h:outputLabel value="Id" />
 						</f:facet>
 						<h:outputLabel value="#{contato.id}" />
 					</p:column>
 
-					<p:column>
+					<p:column style="width:30%">
 						<f:facet name="header">
 							<h:outputLabel value="Nome" />
 						</f:facet>
 						<h:outputLabel value="#{contato.nome}" />
 					</p:column>
 					
-					<p:column>
+					<p:column style="width:30%">
 						<f:facet name="header">
 							<h:outputLabel value="Email" />
 						</f:facet>
 						<h:outputLabel value="#{contato.email}" />
 					</p:column>
 					
-					<p:column>
+					<p:column style="width:20%">
 						<f:facet name="header">
 							<h:outputLabel value="Tel Movel" />
 						</f:facet>
@@ -57,7 +57,7 @@
 						
 					</p:column>
 
-					<p:column>
+					<p:column style="width:10%">
 						<f:facet name="header">
 							<h:outputLabel value="Excluir" />
 						</f:facet>
@@ -67,7 +67,7 @@
 						</p:commandButton>
 					</p:column>
 					
-					<p:column>
+					<p:column style="width:10%">
 						<f:facet name="header">
 							<h:outputLabel value="Visualizar" />
 						</f:facet>

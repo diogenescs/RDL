@@ -17,14 +17,12 @@
 
 					<p:outputLabel value="Id" for="textId" />
 					<p:inputText value="#{lancamentoMb.lancamento.id}" id="textId"
-						disabled="true" />
-
-					
+						disabled="true" />					
 
 				</h:panelGrid>
 				
 				
-				<h:panelGrid columns="10">
+				<h:panelGrid columns="8">
 				
 				<p:outputLabel value="Descrição" for="textDesc" />
 					<p:inputText value="#{lancamentoMb.lancamento.nome}" id="textDesc"
@@ -75,7 +73,7 @@
 						<f:convertNumber currencyCode="BRL" />
 					</p:inputText>
 
-					<p:outputLabel value="Valor de Pago" for="textValorPg" />
+					<p:outputLabel value="Valor de Pagto" for="textValorPg" />
 					<p:inputText value="#{lancamentoMb.lancamento.valorPgto}"
 						id="textValorPg" required="true"
 						requiredMessage="Campo obrigatório"
@@ -84,40 +82,8 @@
 					</p:inputText>
 
 				</h:panelGrid>
-					
-				
-				<h:panelGrid columns="4">
-					<p:outputLabel value="Despesa" for="textDesp" />
-					<p:selectOneRadio value="#{lancamentoMb.lancamento.despesa}"
-						id="textDesp" required="true" requiredMessage="Campo obrigatório">
-						<f:selectItem itemLabel="SIM" itemValue="S" />
-						<f:selectItem itemLabel="NÂO" itemValue="N" />
-					</p:selectOneRadio>
-
-					<p:outputLabel value="Automático" for="textAuto" />
-					<p:selectOneRadio value="#{lancamentoMb.lancamento.automatico}"
-						id="textAuto" required="true" requiredMessage="Campo obrigatório">
-						<f:selectItem itemLabel="SIM" itemValue="S" />
-						<f:selectItem itemLabel="NÂO" itemValue="N" />
-					</p:selectOneRadio>
-
-					<p:outputLabel value="Notificação" for="textNote" />
-					<p:selectOneRadio value="#{lancamentoMb.lancamento.notificacao}"
-						id="textNote" required="true" requiredMessage="Campo obrigatório">
-						<f:selectItem itemLabel="SIM" itemValue="S" />
-						<f:selectItem itemLabel="NÂO" itemValue="N" />
-					</p:selectOneRadio>
-
-					<p:outputLabel value="Realizado" for="textReal" />
-					<p:selectOneRadio value="#{lancamentoMb.lancamento.realizado}"
-						id="textReal" required="true" requiredMessage="Campo obrigatório">
-						<f:selectItem itemLabel="SIM" itemValue="S" />
-						<f:selectItem itemLabel="NÂO" itemValue="N" />
-					</p:selectOneRadio>
-					</h:panelGrid>
-					
-					<h:panelGrid columns="6">
-					<p:outputLabel value="Número de Parcelas" for="textNumPar" />
+				<h:panelGrid columns="8">
+					<p:outputLabel value="N. de Parcelas" for="textNumPar" />
 					<p:inputText value="#{lancamentoMb.lancamento.numParcelas}"
 						id="textNumPar" converterMessage="Utilize apenas números.">
 						<f:convertNumber integerOnly="true" minIntegerDigits="1" />
@@ -131,7 +97,7 @@
 							itemLabel="#{freq.descricao}" itemValue="#{freq.id}" />
 					</p:selectOneMenu>
 
-					<p:outputLabel value="Forma de Pagamento" for="textFormPtgo" />
+					<p:outputLabel value="Forma de Pgto" for="textFormPtgo" />
 					<p:selectOneMenu value="#{lancamentoMb.lancamento.formaDePgto.id}"
 						id="textFormPtgo" required="true"
 						requiredMessage="Campo obrigatório">
@@ -142,6 +108,40 @@
 					</p:selectOneMenu>
 
 					</h:panelGrid>
+					
+				
+				<h:panelGrid columns="4">
+					
+					<p:outputLabel value="Tipo de lancamento:" for="textDesp" />
+					<p:selectOneRadio value="#{lancamentoMb.lancamento.despesa}"
+						id="textDesp" required="true" requiredMessage="Campo obrigatório">
+						<f:selectItem itemLabel="DESPESA" itemValue="S" />
+						<f:selectItem itemLabel="RECEITA" itemValue="N" />
+					</p:selectOneRadio>	
+					
+					<p:outputLabel value="Notificação" for="textNote" />
+					<p:selectOneRadio value="#{lancamentoMb.lancamento.notificacao}"
+						id="textNote" required="true" requiredMessage="Campo obrigatório">
+						<f:selectItem itemLabel="SIM" itemValue="S" />
+						<f:selectItem itemLabel="NÂO" itemValue="N" />
+					</p:selectOneRadio>
+					
+					<p:outputLabel value="Tipo de recebimento:" for="textAuto" />
+					<p:selectOneRadio value="#{lancamentoMb.lancamento.automatico}"
+						id="textAuto" required="true" requiredMessage="Campo obrigatório">
+						<f:selectItem itemLabel="AUTOMATICO" itemValue="S" />
+						<f:selectItem itemLabel="MANUAL" itemValue="N" />
+					</p:selectOneRadio>
+
+					<p:outputLabel value="Realizado" for="textReal" />
+					<p:selectOneRadio value="#{lancamentoMb.lancamento.realizado}"
+						id="textReal" required="true" requiredMessage="Campo obrigatório">
+						<f:selectItem itemLabel="SIM" itemValue="S" />
+						<f:selectItem itemLabel="NÂO" itemValue="N" />
+					</p:selectOneRadio>
+					</h:panelGrid>
+					
+					
 					<p:commandButton id="btnCancelar" value="Cancelar"
 						action="#{lancamentoMb.cancelar}" ajax="false" immediate="true" />
 

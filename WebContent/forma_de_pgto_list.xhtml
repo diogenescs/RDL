@@ -10,35 +10,35 @@
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo">
 		<h:form>
-			<h:outputLabel align="right" style="font-weight: bold;" value="Lista de formas de pgto" />
+			<h:outputLabel align="right" style="font-weight: bold; font-size: 15pt; color:green" value="Lista de formas de pgto" />
 				<p:separator />
  
 				<p:dataTable id="dataTable" var="formaDePgto"
 					emptyMessage="Nenhum registro encontrado"
-					value="#{formaDePgtoMb.formaDePgtos}">
+					value="#{formaDePgtoMb.formaDePgtos}" style="width : 60%;" align="left">
 
-					 <p:column>
+					 <p:column style="width:15%">
 						<f:facet name="header">
 							<h:outputLabel value="Id" />
 						</f:facet>
 						<h:outputLabel value="#{formaDePgto.id}" />
 					</p:column>
 
-					<p:column>
+					<p:column style="width:50%">
 						<f:facet name="header">
 							<h:outputLabel value="Descrição" />
 						</f:facet>
 						<h:outputLabel value="#{formaDePgto.descricao}" />
 					</p:column>
 					
-					<p:column>
+					<p:column style="width:15%">
 						<f:facet name="header">
 							<h:outputLabel value="Sigla" />
 						</f:facet>
 						<h:outputLabel value="#{formaDePgto.sigla}" />
 					</p:column>
 
-					<p:column>
+					<p:column style="width:10%">
 						<f:facet name="header">
 							<h:outputLabel value="Editar" />
 						</f:facet>
@@ -49,7 +49,7 @@
 						
 					</p:column>
 
-					<p:column>
+					<p:column style="width:10%">
 						<f:facet name="header">
 							<h:outputLabel value="Excluir" />
 						</f:facet>

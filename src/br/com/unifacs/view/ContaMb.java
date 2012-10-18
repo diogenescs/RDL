@@ -1,6 +1,5 @@
 package br.com.unifacs.view;
 
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -15,9 +14,7 @@ import br.com.unifacs.bo.HistoricoBo;
 import br.com.unifacs.bo.HistoricoBoImpl;
 import br.com.unifacs.bo.LancamentoBo;
 import br.com.unifacs.bo.LancamentoBoImpl;
-import br.com.unifacs.model.Historico;
 import br.com.unifacs.model.Lancamento;
-import br.com.unifacs.utils.RdlUtils;
 
 @ManagedBean(name="contaMb")
 @SessionScoped
@@ -42,6 +39,20 @@ public class ContaMb {
 		
 		try {
 			this.lancamentos = bo.obterContasAPagar(this.dataInicial, this.dataFinal);
+		} catch (BoException ex) {
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), null));
+			ex.printStackTrace();
+		}
+			
+	}
+	
+public void contasAReceber(ActionEvent e){
+		if(this.dataInicial == null || this.dataFinal == null){
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Informe o período.", null));
+		} 
+		
+		try {
+			this.lancamentos = bo.obterContasAReceber(this.dataInicial, this.dataFinal);
 		} catch (BoException ex) {
 			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), null));
 			ex.printStackTrace();
@@ -96,5 +107,8 @@ public class ContaMb {
 	public void setDataInicial(Date dataInicial) {
 		this.dataInicial = dataInicial;
 	}
+
+
+	
 
 }

@@ -11,5 +11,6 @@ public interface LancamentoBo {
 	void excluir(Lancamento lancamento) throws BoException;
 	List<Lancamento> obterTodos();
 	List<Lancamento> obterContasAPagar(Date dataInicial, Date dataFinal) throws BoException;
+	List<Lancamento> obterContasAReceber(Date dataInicial, Date dataFinal) throws BoException;
 	Lancamento obter(Integer id);
 }

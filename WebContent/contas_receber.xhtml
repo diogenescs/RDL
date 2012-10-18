@@ -26,7 +26,7 @@
 				<h:outputLabel value="Data Final" for="dtFinal"/>
 				<p:calendar id="dtFinal" value="#{contaMb.dataFinal}"/>
 				
-				<p:commandButton value="Buscar" actionListener="#{contaMb.contasAPagar}" update="dataTable">
+				<p:commandButton value="Buscar" actionListener="#{contaMb.contasAReceber}" update="dataTable">
 					<f:ajax render="dataTable" /> 
 				</p:commandButton>				
 			
@@ -34,7 +34,7 @@
 			
 			<br></br>
 			<p:separator />
-			<h:outputLabel align="center" style="font-weight: bold; font-size: 15pt; color:green" value="Lista de Contas a Pagar" />
+			<h:outputLabel align="center" style="font-weight: bold; font-size: 15pt; color:green" value="Lista de Contas a Receber" />
 			
 				<p:separator />
  

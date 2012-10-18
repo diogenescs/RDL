@@ -38,9 +38,9 @@ public class GraficoDespesaReceitaMb implements Serializable {
 		
 		for(Lancamento l:lancamentos){
 			if(l.getDespesa().equals("S")){
-				despesa.set(l.getDataPgto(), l.getValorPgto());
+				despesa.set(l.getDataPgto().getMonth(), l.getValorPgto());
 			} else {
-				receita.set(l.getDataPgto(), l.getValorPgto());
+				receita.set(l.getDataPgto().getMonth(), l.getValorPgto());
 			}
 		}
 		

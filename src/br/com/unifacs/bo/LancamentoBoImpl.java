@@ -4,14 +4,16 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.LancamentoDao;
-import br.com.unifacs.model.Categoria;
 import br.com.unifacs.model.Lancamento;
 
 public class LancamentoBoImpl implements LancamentoBo,Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7618437877185942892L;
 	LancamentoDao dao = new LancamentoDao();
 	
 	public void salvar(Lancamento lancamento) throws BoException {
@@ -77,6 +79,13 @@ public class LancamentoBoImpl implements LancamentoBo,Serializable {
 		}
 	}
 
-	
+	public List<Lancamento> obterContasAReceber(Date dataInicial, Date dataFinal) throws BoException {
+		try {
+			return dao.obterContasAReceber(dataInicial, dataFinal);
+		} catch (DaoException e) {
+			e.printStackTrace();
+			throw new BoException(e, "Erro na pesquisa");
+		}
+	}	
 
 }
