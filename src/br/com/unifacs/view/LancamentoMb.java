@@ -74,10 +74,6 @@ public class LancamentoMb {
 		this.lancamento = lancamento;
 	}
 	public String novo(){
-		
-		if (!RdlUtils.isUsuarioLogado())
-			return "novoLogin";
-		
 		this.lancamento = new Lancamento();
 		atualizar(null);
 		LancamentoMb.TIPO_OP = "Inserção";
