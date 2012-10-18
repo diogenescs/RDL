@@ -8,8 +8,23 @@
 
 <ui:composition template="/template/template_default.xhtml">
 	<ui:define name="corpo">
+	
+	<p:panelGrid columns="5">
+		<h:outputText value="Legenda: " style="font-weight:bold;"/>
+		<p:graphicImage id="Nimg" value="images/N.png"/>
+		<h:outputText value="Receita"/>
+		<p:graphicImage id="Simg" value="images/S.png"/>
+		<h:outputText value="Despesa"/>		
+	</p:panelGrid>
+	
 	<h:form>  
-    <p:dataTable var="hist" value="#{historicoMb.historicos}">  
+    
+    <p:dataTable var="hist" value="#{historicoMb.historicos}"> 
+    
+        <p:column headerText="Tipo">  
+           <p:graphicImage value="images/#{hist.lancamento.despesa}.png"/> 
+        </p:column> 
+             
         <p:column headerText="Identificador">  
             <h:outputText value="#{hist.id}" />  
         </p:column>  
