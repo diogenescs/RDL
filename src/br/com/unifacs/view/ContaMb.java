@@ -1,5 +1,6 @@
 package br.com.unifacs.view;
 
+import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -8,13 +9,14 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-
 import br.com.unifacs.bo.BoException;
 import br.com.unifacs.bo.HistoricoBo;
 import br.com.unifacs.bo.HistoricoBoImpl;
 import br.com.unifacs.bo.LancamentoBo;
 import br.com.unifacs.bo.LancamentoBoImpl;
+import br.com.unifacs.model.Historico;
 import br.com.unifacs.model.Lancamento;
+import br.com.unifacs.utils.RdlUtils;
 
 @ManagedBean(name="contaMb")
 @ViewScoped
@@ -68,13 +70,13 @@ public void contasAReceber(ActionEvent e){
                 for(Lancamento l: this.lancamentos){
                     bo.salvar(l);
                    
-//                    Historico historico = new Historico();
-//                    historico.setDataAlteracao(new Date());
-//                    historico.setHoraAlteracao(new Time(new Date().getTime()));
-//                    historico.setLancamento(l);
-//                    historico.setUsuario(RdlUtils.getUsuarioLogado());
-//                    historico.setTipoOperacao("Exclusão");   
-//                    historicoBo.salvar(historico);
+                    Historico historico = new Historico();
+                    historico.setDataAlteracao(new Date());
+                    historico.setHoraAlteracao(new Time(new Date().getTime()));
+                    historico.setLancamento(l);
+                    historico.setUsuario(RdlUtils.getUsuarioLogado());
+                    historico.setTipoOperacao("Exclusão");   
+                    historicoBo.salvar(historico);
                 }
                 this.contasAPagar(null);
             } catch (BoException e1) {
