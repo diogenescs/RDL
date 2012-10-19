@@ -11,4 +11,4 @@ select
     sum(case extract(month from l.dataPgto) when 10 then l.valorPgto else 0 end),
     sum(case extract(month from l.dataPgto) when 11 then l.valorPgto else 0 end),
     sum(case extract(month from l.dataPgto) when 12 then l.valorPgto else 0 end)
-from Lancamento l where extract(year from l.dataPgto) = ?1 and despesa = ?2
+from Lancamento l where extract(year from l.dataPgto) = ?1 and l.despesa = ?2 and l.ativo = 1
