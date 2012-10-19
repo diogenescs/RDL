@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import br.com.unifacs.dao.DaoException;
+import br.com.unifacs.dao.HistoricoDao;
 import br.com.unifacs.dao.LancamentoDao;
 import br.com.unifacs.model.Lancamento;
 

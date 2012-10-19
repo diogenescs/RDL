@@ -17,8 +17,8 @@
 		<p:panelGrid columns="2" style="font-size:80%;">
 			<p:outputLabel style="font-size:100%;" for="txtLogin" value="Usuario"/>
 			<p:inputText id="txtLogin" value="#{loginMb.login}"/>
-			<p:outputLabel style="font-size:100%;" for="txtSenha" value="Senha"/>
-			<p:inputText id="txtSenha" value="#{loginMb.senha}"/>
+			<p:outputLabel style="font-size:100%;" for="txtSenha" value="Senha" />
+			<p:password  id="txtSenha" value="#{loginMb.senha}"/>
 		</p:panelGrid>
 		<p:commandButton action="#{loginMb.login}" value="Logar"/>		
 	</p:fieldset>

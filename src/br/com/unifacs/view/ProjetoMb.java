@@ -44,7 +44,7 @@ public class ProjetoMb {
 	
 	public String editar(){ 
 		if(this.projeto == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um pprojeto", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um projeto", null));
 			return null;
 		}else{
 			return "editarProjeto";
@@ -75,7 +75,8 @@ public class ProjetoMb {
 			atualizar(null);
 		} catch (BoException e) {
 			e.printStackTrace();
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Já existe projeto com esse nome!", ""));
+			return null;
 		}
 		
 		return "listaProjeto";

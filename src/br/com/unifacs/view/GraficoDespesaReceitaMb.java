@@ -1,7 +1,6 @@
 package br.com.unifacs.view;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -11,7 +10,6 @@ import org.primefaces.model.chart.ChartSeries;
 
 import br.com.unifacs.bo.LancamentoBo;
 import br.com.unifacs.bo.LancamentoBoImpl;
-import br.com.unifacs.model.Lancamento;
 
 @ManagedBean(name="graficoMb")
 @SessionScoped
