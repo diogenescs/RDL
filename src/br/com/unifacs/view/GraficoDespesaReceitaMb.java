@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartSeries;
@@ -14,7 +15,7 @@ import br.com.unifacs.dao.CustomQueryDao;
 import br.com.unifacs.dao.DaoException;
 
 @ManagedBean(name="graficoMb")
-@SessionScoped
+@ViewScoped
 public class GraficoDespesaReceitaMb implements Serializable {
 
 	private CartesianChartModel categoryModel;
