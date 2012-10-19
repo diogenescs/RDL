@@ -8,6 +8,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.context.RequestContext;
+
 import br.com.unifacs.bo.BoException;
 import br.com.unifacs.bo.CategoriaBo;
 import br.com.unifacs.bo.CategoriaBoImpl;
@@ -41,14 +43,25 @@ public class CategoriaMb {
 	}
 	
 	public void post(ActionEvent event){
+		RequestContext context = RequestContext.getCurrentInstance(); 
+		FacesMessage msg = null;
+		boolean valid = false;		
 		try {
-			bo.salvar(categoria);
-			FacesContext.getCurrentInstance().addMessage(null,  new FacesMessage(FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso!", "teste"));
-			atualizar(null);
+			
+			if (this.categoria.getDescricao() != null){
+				bo.salvar(categoria);
+				valid = true;
+				msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso!", this.categoria.getDescricao());
+				atualizar(null);
+			} else{
+				msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", null);
+			}
 		} catch (BoException e) {
 			e.printStackTrace();
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
+			msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", e.getMessage());
 		}
+        FacesContext.getCurrentInstance().addMessage(null, msg);  
+        context.addCallbackParam("valid", valid);  		
 	}	
 	
 	public String editar(){ 

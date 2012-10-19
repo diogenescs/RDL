@@ -40,9 +40,9 @@
 						actionListener="#{categoriaMb.insert}" update=":formCat:panelDlg"
 						onsuccess="dlgcat.show();" immediate="true" />
 						
-					<p:outputLabel value="Contato" for="textContato" />
+					<p:outputLabel value="Contato" for="comboContato" />
 					<p:selectOneMenu value="#{lancamentoMb.lancamento.contato.id}"
-						id="textContato">
+						id="comboContato">
 						<f:selectItem itemLabel="Selecione" itemValue="" />
 						<f:selectItems value="#{contatoMb.contatos}" var="contato"
 							itemLabel="#{contato.nome}" itemValue="#{contato.id}" />
@@ -239,30 +239,28 @@
 							actionListener="#{contatoMb.atualizar}" ajax="false" immediate="true" onclick="dlgcontato.hide()"/>
 
 						<p:commandButton id="btnInserirContato" value="Salvar" 
-							actionListener="#{contatoMb.post}" ajax="false" oncomplete="handContatoRequest(xhr, status, args)"/>
+							actionListener="#{contatoMb.post}" update=":main:comboContato" oncomplete="handContatoRequest(xhr, status, args)"/>
 					</h:panelGrid>
 			</h:form>
 		</p:dialog>
 		
-		<script type="text/javascript">  
-			function handCatRequest(xhr, status, args) {  
-				if(args.validationFailed || !args.loggedIn) {  
-					jQuery('#dialog').effect("shake", { times:3 }, 100);  
-				} else {  
-					dlgcat.hide();  
-					jQuery('#loginLink').fadeOut();  
-				}  
-			} 
-			function handContatoRequest(xhr, status, args) {  
-				if(args.validationFailed || !args.loggedIn) {  
-					jQuery('#dialog').effect("shake", { times:3 }, 100);  
-				} else {  
-					dlgcontato.hide();  
-					jQuery('#loginLink').fadeOut();  
-				}  
-			}  			 
-		</script>		
-
+	<script type="text/javascript">
+ 			function handCatRequest(xhr, status, args) {  
+ 				if(args.validationFailed || !args.valid) {  
+ 					//jQuery('#dlgcat').effect("shake", { times:3 }, 100);  
+ 				} else {  
+ 					dlgcat.hide(); 
+ 					//jQuery('#loginLink').fadeOut();    
+ 				}  
+ 			} 
+ 			function handContatoRequest(xhr, status, args) {  
+ 				if(args.validationFailed || !args.valid) {  
+ 					//jQuery('#dialog').effect("shake", { times:3 }, 100);  
+ 				} else {  
+ 					dlgcontato.hide();  
+ 				}  
+ 			}  			 
+</script>
 
 	</ui:define>
 

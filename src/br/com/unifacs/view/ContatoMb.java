@@ -1,12 +1,14 @@
 package br.com.unifacs.view;
 
-import java.awt.event.ActionEvent;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+
+import org.primefaces.context.RequestContext;
 
 import br.com.unifacs.bo.BoException;
 import br.com.unifacs.bo.ContatoBo;
@@ -32,14 +34,24 @@ public class ContatoMb {
 	}
 	
 	public void post(ActionEvent actionEvent){
+		RequestContext context = RequestContext.getCurrentInstance(); 
+		FacesMessage msg = null;
+		boolean valid = false;			
 		try {
-			bo.salvar(contato);
-			FacesContext.getCurrentInstance().addMessage(null,  new FacesMessage(FacesMessage.SEVERITY_WARN, "Operação realizada com sucesso!", "teste"));
-			atualizar(null);
+			if(this.contato.getNome()!=null && this.contato.getEmail() != null){
+				bo.salvar(contato);
+				msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso!", null);
+				valid = true;
+				atualizar(null);
+			} else{
+				msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Campos devem ser preenchidos.!", null);
+			}
 		} catch (BoException e) {
 			e.printStackTrace();
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
+			msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", null);
 		}
+        FacesContext.getCurrentInstance().addMessage(null, msg);  
+        context.addCallbackParam("valid", valid);  		
 	}	
 	
 	public void atualizar(ActionEvent actionEvent){
