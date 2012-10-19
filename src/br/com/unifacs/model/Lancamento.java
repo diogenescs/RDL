@@ -40,30 +40,31 @@ public class Lancamento implements Serializable {
 
 	private BigDecimal valorVcto;
 	
-	
+	@Column(name="ativo")
+	private boolean ativo;
 
 	//bi-directional many-to-one association to UsuarioProjeto
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_Usuario_Projeto")
 	private UsuarioProjeto usuarioProjeto;
 
 	//bi-directional many-to-one association to Frequencia
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_Frequencia")
 	private Frequencia frequencia;
 
 	//bi-directional many-to-one association to Categoria
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_Categoria")
 	private Categoria categoria;
 
 	//bi-directional many-to-one association to FormaDePgto
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_Forma_de_Pgto")
 	private FormaDePgto formaDePgto;
 
 	//bi-directional many-to-one association to Contato
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_Contato")
 	private Contato contato;
 
@@ -72,6 +73,7 @@ public class Lancamento implements Serializable {
     	this.frequencia = new Frequencia();
     	this.contato = new Contato();
     	this.formaDePgto = new FormaDePgto();
+    	setAtivo(true);
     	setDespesa("S");
     	setAutomatico("S");
     }
@@ -209,6 +211,14 @@ public class Lancamento implements Serializable {
 	}
 	public boolean getRealizadoAsBoolean(){
 		return (this.realizado.equals("S"))?true:false;
+	}
+
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 	
 }

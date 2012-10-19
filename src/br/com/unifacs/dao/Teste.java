@@ -57,19 +57,25 @@ public class Teste {
 		LancamentoDao d = new LancamentoDao();
 		List<Lancamento> l = null;
 		
-		try {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
-			try {
-				l = d.obterContasAPagar(sdf.parse("2012-10-01"),sdf.parse("2012-11-30"));
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println(l);
-		} catch (DaoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  
+//			try {
+//				l = d.obterContasAPagar(sdf.parse("2012-10-01"),sdf.parse("2012-11-30"));
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			System.out.println(l);
+//		} catch (DaoException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		LancamentoDao dao = new LancamentoDao();
+		List<Lancamento> w = dao.obterTodos();
+		System.out.println(w);
+		for (Lancamento a: w)
+			System.out.println(a.getCategoria().getDescricao());	
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import br.com.unifacs.bo.HistoricoBo;
@@ -12,7 +13,7 @@ import br.com.unifacs.bo.HistoricoBoImpl;
 import br.com.unifacs.model.Historico;
 
 @ManagedBean(name="historicoMb")
-@SessionScoped
+@ViewScoped
 public class HistoricoMb {
 
 	private HistoricoBo bo;
