@@ -1,5 +1,6 @@
 package br.com.unifacs.dao;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -71,11 +72,20 @@ public class Teste {
 //			e.printStackTrace();
 //		}
 		
-		LancamentoDao dao = new LancamentoDao();
-		List<Lancamento> w = dao.obterTodos();
-		System.out.println(w);
-		for (Lancamento a: w)
-			System.out.println(a.getCategoria().getDescricao());	
+//		LancamentoDao dao = new LancamentoDao();
+//		List<Lancamento> w = dao.obterTodos();
+//		System.out.println(w);
+//		for (Lancamento a: w)
+//			System.out.println(a.getCategoria().getDescricao());	
+		
+		try {
+			Object[] o = CustomQueryDao.getTotalDespesaAnual(2012);
+			for(int i=0; i<o.length; i++)
+				System.out.println(o[i]);
+		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

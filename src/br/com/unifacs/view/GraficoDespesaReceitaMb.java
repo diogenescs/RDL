@@ -10,6 +10,8 @@ import org.primefaces.model.chart.ChartSeries;
 
 import br.com.unifacs.bo.LancamentoBo;
 import br.com.unifacs.bo.LancamentoBoImpl;
+import br.com.unifacs.dao.CustomQueryDao;
+import br.com.unifacs.dao.DaoException;
 
 @ManagedBean(name="graficoMb")
 @SessionScoped
@@ -33,32 +35,48 @@ public class GraficoDespesaReceitaMb implements Serializable {
 		ChartSeries despesa = new ChartSeries();
 		despesa.setLabel("Despesas");
 		
-		/*List<Lancamento> lancamentos = bo.obterTodos();*/
-		receita.set("jan", 500);
-		receita.set("fev", 1000);
-		receita.set("mar", 5000);
-		receita.set("abr", 600);
-		receita.set("mai", 700);
-		receita.set("jun", 2000);
-		receita.set("jul", 3000);
-		receita.set("ago", 3000);
-		receita.set("set", 4000);
-		receita.set("out", 2500);
-		receita.set("nov", 15000);
-		receita.set("dez", 600);
+		Object[] receitas = null;
+		Object[] despesas = null;
 		
-		despesa.set("jan", 5000);
-		despesa.set("fev", 100);
-		despesa.set("mar", 500);
-		despesa.set("abr", 650);
-		despesa.set("mai", 500);
-		despesa.set("jun", 200);
-		despesa.set("jul", 300);
-		despesa.set("ago", 300);
-		despesa.set("set", 2000);
-		despesa.set("out", 2200);
-		despesa.set("nov", 1500);
-		despesa.set("dez", 1000);
+		try {
+			receitas = CustomQueryDao.getTotalReceitaAnual(2012);
+		} catch (DaoException e) {
+			e.printStackTrace();
+			return;
+		}
+		
+		try {
+			despesas = CustomQueryDao.getTotalDespesaAnual(2012);
+		} catch (DaoException e) {
+			e.printStackTrace();
+			return;
+		}		
+		
+		receita.set("jan", (Number) receitas[0]);
+		receita.set("fev", (Number) receitas[1]);
+		receita.set("mar", (Number) receitas[2]);
+		receita.set("abr", (Number) receitas[3]);
+		receita.set("mai", (Number) receitas[4]);
+		receita.set("jun", (Number) receitas[5]);
+		receita.set("jul", (Number) receitas[6]);
+		receita.set("ago", (Number) receitas[7]);
+		receita.set("set", (Number) receitas[8]);
+		receita.set("out", (Number) receitas[9]);
+		receita.set("nov", (Number) receitas[10]);
+		receita.set("dez", (Number) receitas[11]);
+		
+		despesa.set("jan", (Number) despesas[0]);
+		despesa.set("fev", (Number) despesas[1]);
+		despesa.set("mar", (Number) despesas[2]);
+		despesa.set("abr", (Number) despesas[3]);
+		despesa.set("mai", (Number) despesas[4]);
+		despesa.set("jun", (Number) despesas[5]);
+		despesa.set("jul", (Number) despesas[6]);
+		despesa.set("ago", (Number) despesas[7]);
+		despesa.set("set", (Number) despesas[8]);
+		despesa.set("out", (Number) despesas[9]);
+		despesa.set("nov", (Number) despesas[10]);
+		despesa.set("dez", (Number) despesas[11]);
 		/*for(Lancamento l:lancamentos){
 			if(l.getDespesa().equals("S")){
 				despesa.set(l.getDataPgto().getMonth(), l.getValorPgto());
