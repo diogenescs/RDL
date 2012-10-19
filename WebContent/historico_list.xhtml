@@ -19,7 +19,7 @@
 	
 	<h:form>  
     
-    <p:dataTable var="hist" value="#{historicoMb.historicos}"> 
+    <p:dataTable id="dataTable" var="hist" value="#{historicoMb.historicos}" emptyMessage="Nenhum registro encontrado"> 
     
         <p:column headerText="Tipo">  
            <p:graphicImage value="images/#{hist.lancamento.despesa}.png"/> 

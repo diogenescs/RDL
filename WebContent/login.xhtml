@@ -8,14 +8,16 @@
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<link type="text/css" rel="stylesheet" href="css/style.css" />	
 </h:head>
-<h:body>
-	<h:form>
+<h:body style="background-color:green;  ">
+	
+	<h:form style="width:40%; background-color:green; color: #ffffff;  margin-left:30%; margin-top:15%;">
+	<h:outputLabel style="font-weight: bold; font-size: 15pt; color:#ffffff; margin-left:40%; " value="RDL Contas - Organizando sua vida" />
 	<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" globalOnly="false"/> 
-	<p:fieldset legend="Login">
-		<p:panelGrid columns="2">
-			<p:outputLabel for="txtLogin" value="Login"/>
+	<p:fieldset legend="Login" style="font-size:150%; border-width: medium; ">
+		<p:panelGrid columns="2" style="font-size:80%;">
+			<p:outputLabel style="font-size:100%;" for="txtLogin" value="Usuario"/>
 			<p:inputText id="txtLogin" value="#{loginMb.login}"/>
-			<p:outputLabel for="txtSenha" value="Senha"/>
+			<p:outputLabel style="font-size:100%;" for="txtSenha" value="Senha"/>
 			<p:inputText id="txtSenha" value="#{loginMb.senha}"/>
 		</p:panelGrid>
 		<p:commandButton action="#{loginMb.login}" value="Logar"/>		

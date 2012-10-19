@@ -33,7 +33,7 @@ public class LoginMb {
 			}
 			else{
 			   RdlUtils.login(u);
-				return "novoLancamento";
+				return "listaProjeto";
 			}
 		} catch (BoException e) {
 			// TODO Auto-generated catch block

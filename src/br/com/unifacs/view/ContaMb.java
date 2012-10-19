@@ -79,6 +79,7 @@ public void contasAReceber(ActionEvent e){
                     historicoBo.salvar(historico);
                 }
                 this.contasAPagar(null);
+                this.contasAReceber(null);
             } catch (BoException e1) {
                 e1.printStackTrace();
                 FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR, e1.getMessage(), null));
