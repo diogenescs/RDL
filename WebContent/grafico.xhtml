@@ -24,7 +24,7 @@
 				
 				
 				<p:outputLabel value="Ano" for="ano" />
-					<p:selectOneMenu value="#{graficoDespesaReceitaMb.ano}" id="ano" disabled="false">
+					<p:selectOneMenu value="#{graficoMb.ano}" id="ano" disabled="false" required="true">
             			<f:selectItem itemLabel="Selecione" itemValue="" />  						
             			<f:selectItem itemLabel="2012" itemValue="2012" />  
             			<f:selectItem itemLabel="2011" itemValue="2011" />
@@ -35,7 +35,7 @@
             			<f:selectItem itemLabel="2006" itemValue="2006" />                   			            			
 					</p:selectOneMenu>
 				
-				<p:commandButton value="Buscar" actionListener="#{graficoDespesaReceitaMb.criarGrafico}" update="barChart">
+				<p:commandButton value="Buscar" actionListener="#{graficoMb.criarGrafico}" update="barChart">
 					<f:ajax render="barChart" /> 
 				</p:commandButton>				
 			
