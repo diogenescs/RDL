@@ -27,6 +27,7 @@ public class ContaMb {
     private HistoricoBo historicoBo;
     private Date dataInicial;
     private Date dataFinal;
+    private String receitaOuDespesa = null;
     public ContaMb() {
         bo = new LancamentoBoImpl();
         historicoBo = new HistoricoBoImpl();
@@ -41,8 +42,9 @@ public class ContaMb {
        
         try {
             this.lancamentos = bo.obterContasAPagar(this.dataInicial, this.dataFinal);
+            receitaOuDespesa = "D";
         } catch (BoException ex) {
-            FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), null));
+            FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), null));
             ex.printStackTrace();
         }
            
@@ -55,6 +57,7 @@ public void contasAReceber(ActionEvent e){
        
         try {
             this.lancamentos = bo.obterContasAReceber(this.dataInicial, this.dataFinal);
+            receitaOuDespesa = "R";
         } catch (BoException ex) {
             FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), null));
             ex.printStackTrace();
@@ -75,11 +78,14 @@ public void contasAReceber(ActionEvent e){
                     historico.setHoraAlteracao(new Time(new Date().getTime()));
                     historico.setLancamento(l);
                     historico.setUsuario(RdlUtils.getUsuarioLogado());
-                    historico.setTipoOperacao("Exclusão");   
+                    historico.setTipoOperacao("Edição");   
                     historicoBo.salvar(historico);
                 }
-                this.contasAPagar(null);
-                this.contasAReceber(null);
+                
+                if(receitaOuDespesa.equals("D"))
+                	this.contasAPagar(null);
+                else
+                	this.contasAReceber(null);
             } catch (BoException e1) {
                 e1.printStackTrace();
                 FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR, e1.getMessage(), null));
