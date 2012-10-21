@@ -51,7 +51,7 @@ public class LancamentoMb {
 	
 	public String visualizar(){ 
 		if(this.lancamento == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um lancamento", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um lancamento", null));
 			return null;
 		}else{
 			return "visualizarLancamento";
@@ -89,7 +89,7 @@ public class LancamentoMb {
 			this.lancamento.setContato(new Contato());		
 		
 		if(this.lancamento == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione uma lançamento", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione uma lançamento", null));
 			return null;
 		}else{
 			LancamentoMb.TIPO_OP = "Edição";
@@ -99,7 +99,7 @@ public class LancamentoMb {
 	
 	public String excluir(){ 
 		if(this.lancamento == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um lançamento", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um lançamento", null));
 		}else{
 			try {
 				
@@ -119,7 +119,7 @@ public class LancamentoMb {
 					e.printStackTrace();
 				}
 				
-				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Item excluído com sucesso!", null));	
+				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Item excluído com sucesso!", null));	
 				atualizar(null);
 				
 			} catch (BoException e) { 
@@ -155,11 +155,11 @@ public class LancamentoMb {
 				ex.printStackTrace();
 			}			
 			
-			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Operação realizada com sucesso!", "teste"));
+			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso!", "teste"));
 			atualizar(null);
 		} catch (BoException e) {
 			e.printStackTrace();
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
+			FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
 		}
 		
 		return "listaLancamento";

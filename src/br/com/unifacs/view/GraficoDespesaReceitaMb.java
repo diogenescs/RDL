@@ -118,7 +118,7 @@ public class GraficoDespesaReceitaMb implements Serializable {
 				receitas = CustomQueryDao.getTotalReceitaAnual(this.ano);
 			} catch (DaoException e) {
 				e.printStackTrace();
-				FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro na exportação", null));
+				FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro na exportação", null));
 				return;
 			}
 			
@@ -134,7 +134,7 @@ public class GraficoDespesaReceitaMb implements Serializable {
 				despesas = CustomQueryDao.getTotalDespesaAnual(this.ano);
 			} catch (DaoException e) {
 				e.printStackTrace();
-				FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro na exportação", null));				
+				FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro na exportação", null));				
 				return;
 			}			
 			
@@ -157,7 +157,7 @@ public class GraficoDespesaReceitaMb implements Serializable {
 			faces.responseComplete(); 
 			
 		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro na exportação", null));
+			FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro na exportação", null));
 			e.printStackTrace();
 		}
 		

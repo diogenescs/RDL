@@ -8,9 +8,18 @@
 
 <ui:composition template="/template/template_default.xhtml">
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
-	<ui:define name="corpo">
+	<ui:define name="corpo" >
+		
 		<h:form>
+		
 			<h:outputLabel style="font-weight: bold; font-size: 15pt; color:green" value="Lista de Lancamentos" />
+			<p:panelGrid columns="5">
+		<h:outputText value="Legenda: " style="font-weight:bold;float:right;"/>
+		<p:graphicImage id="Nimg" value="images/N.png"/>
+		<h:outputText value="Receita"/>
+		<p:graphicImage id="Simg" value="images/S.png"/>
+		<h:outputText value="Despesa"/>		
+		</p:panelGrid>
 			
 				<p:separator />
  
@@ -18,6 +27,9 @@
 					emptyMessage="Nenhum registro encontrado"
 					value="#{lancamentoMb.lancamentos}">
 
+					 <p:column headerText="Tipo">  
+          				 <p:graphicImage value="images/#{lancamento.despesa}.png"/> 
+       				 </p:column> 
 					<p:column>
 						<f:facet name="header">
 							<h:outputLabel value="Id" />

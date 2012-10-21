@@ -44,7 +44,7 @@ public class ProjetoMb {
 	
 	public String editar(){ 
 		if(this.projeto == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um projeto", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um projeto", null));
 			return null;
 		}else{
 			return "editarProjeto";
@@ -53,15 +53,15 @@ public class ProjetoMb {
 	
 	public String excluir(){ 
 		if(this.projeto == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um projeto", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um projeto", null));
 		}else{
 			try {
 				this.bo.excluir(projeto);
-				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Item excluído com sucesso!", null));
+				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Item excluído com sucesso!", null));
 				atualizar(null);
 			} catch (BoException e) { 
 				e.printStackTrace();
-				FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage("Erro ao excluir registro", e.getMessage()));
+				FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro ao excluir registro", e.getMessage()));
 			} 
 		}
 		
@@ -71,11 +71,11 @@ public class ProjetoMb {
 	public String salvar(){
 		try {
 			bo.salvar(projeto);
-			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Operação realizada com sucesso!", "teste"));
+			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso!", ""));
 			atualizar(null);
 		} catch (BoException e) {
 			e.printStackTrace();
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Já existe projeto com esse nome!", ""));
+			FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Já existe projeto com esse nome!", ""));
 			return null;
 		}
 		

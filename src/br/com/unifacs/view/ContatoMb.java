@@ -65,7 +65,7 @@ public class ContatoMb {
 	
 	public String editar(){ 
 		if(this.contato == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um contato", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um contato", null));
 			return null;
 		}else{
 			return "editarContato";
@@ -74,7 +74,7 @@ public class ContatoMb {
 	
 	public String visualizar(){ 
 		if(this.contato == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um contato", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um contato", null));
 			return null;
 		}else{
 			return "visualizarContato";
@@ -83,15 +83,15 @@ public class ContatoMb {
 	
 	public String excluir(){ 
 		if(this.contato == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um contato", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um contato", null));
 		}else{
 			try {
 				this.bo.excluir(contato);
-				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Item excluído com sucesso!", null));
+				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Item excluído com sucesso!", null));
 				atualizar(null);
 			} catch (BoException e) { 
 				e.printStackTrace();
-				FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage("Erro ao excluir registro", e.getMessage()));
+				FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro ao excluir registro", e.getMessage()));
 			} 
 		}
 		
@@ -101,7 +101,7 @@ public class ContatoMb {
 	public String salvar(){
 		try {
 			bo.salvar(contato);
-			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Operação realizada com sucesso!", "teste"));
+			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso!", "teste"));
 			atualizar(null);
 		} catch (BoException e) {
 			e.printStackTrace();

@@ -8,16 +8,16 @@
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<link type="text/css" rel="stylesheet" href="css/style.css" />	
 </h:head>
-<h:body style="background-color:green;  ">
+<h:body style="background-color:white; height: 100%; overflow: hidden;">
 	
-	<h:form style="width:40%; background-color:green; color: #ffffff;  margin-left:30%; margin-top:15%;">
-	<h:outputLabel style="font-weight: bold; font-size: 15pt; color:#ffffff; margin-left:40%; " value="RDL Contas - Organizando sua vida" />
+	<h:form style="width:40%; background-color:white; color: green;  margin-left:30%; margin-top:15%; height: 100%;">
+	<h:outputLabel style="font-weight: bold; font-size: 15pt; color:green; margin-left:35%; " value="RDL Contas - Organizando sua vida" />
 	<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" globalOnly="false"/> 
-	<p:fieldset legend="Login" style="font-size:150%; border-width: medium; ">
+	<p:fieldset legend="Login" style="font-size:150%; border-width: medium; border-color: green ; ">
 		<p:panelGrid columns="2" style="font-size:80%;">
-			<p:outputLabel style="font-size:100%;" for="txtLogin" value="Usuario"/>
+			<p:outputLabel style="font-size:80%;" for="txtLogin" value="Usuario"/>
 			<p:inputText id="txtLogin" value="#{loginMb.login}"/>
-			<p:outputLabel style="font-size:100%;" for="txtSenha" value="Senha" />
+			<p:outputLabel style="font-size:80%;" for="txtSenha" value="Senha" />
 			<p:password  id="txtSenha" value="#{loginMb.senha}"/>
 		</p:panelGrid>
 		<p:commandButton action="#{loginMb.login}" value="Logar"/>		

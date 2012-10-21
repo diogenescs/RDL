@@ -29,7 +29,7 @@ public class HistoricoMb {
 	
 	public String visualizar(){ 
 		if(this.historico == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione um historico", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um historico", null));
 			return null;
 		}else{
 			return "visualizarHistorico";

@@ -38,7 +38,7 @@ public class FrequenciaMb {
 	
 	public String editar(){ 
 		if(this.frequencia == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione uma frequência", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione uma frequência", null));
 			return null;
 		}else{
 			return "editarFrequencia";
@@ -47,15 +47,15 @@ public class FrequenciaMb {
 	
 	public String excluir(){ 
 		if(this.frequencia == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione uma Frequencia", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione uma Frequencia", null));
 		}else{
 			try {
 				this.bo.excluir(frequencia);
-				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Item excluído com sucesso!", null));
+				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Item excluído com sucesso!", null));
 				atualizar(null);
 			} catch (BoException e) { 
 				e.printStackTrace();
-				FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage("Erro ao excluir registro", e.getMessage()));
+				FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro ao excluir registro", e.getMessage()));
 			} 
 		}
 		
@@ -65,11 +65,11 @@ public class FrequenciaMb {
 	public String salvar(){
 		try {
 			bo.salvar(frequencia);
-			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Operação realizada com sucesso!", "teste"));
+			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso!", "teste"));
 			atualizar(null);
 		} catch (BoException e) {
 			e.printStackTrace();
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
+			FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
 		}
 		
 		return "listaFrequencia";

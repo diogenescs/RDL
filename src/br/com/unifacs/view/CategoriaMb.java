@@ -66,7 +66,7 @@ public class CategoriaMb {
 	
 	public String editar(){ 
 		if(this.categoria == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione uma categoria", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione uma categoria", null));
 			return null;
 		}else{
 			return "editarCategoria";
@@ -75,7 +75,7 @@ public class CategoriaMb {
 	
 	public String excluir(){ 
 		if(this.categoria == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione uma categoria", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione uma categoria", null));
 		}else{
 			try {
 				this.bo.excluir(categoria);
@@ -83,7 +83,7 @@ public class CategoriaMb {
 				atualizar(null);
 			} catch (BoException e) { 
 				e.printStackTrace();
-				FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage("Erro ao excluir registro", e.getMessage()));
+				FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro ao excluir registro", e.getMessage()));
 			} 
 		}
 		
@@ -97,7 +97,7 @@ public class CategoriaMb {
 			atualizar(null);
 		} catch (BoException e) {
 			e.printStackTrace();
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Já existe categoria com esse nome!", ""));
+			FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Já existe categoria com esse nome!", ""));
 			return null;
 		}
 		

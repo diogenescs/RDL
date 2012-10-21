@@ -28,7 +28,7 @@ public class LoginMb {
 		try {
 			Usuario u = usuarioBo.Logar(this.login, this.senha);
 			if (u == null){
-			   FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Usuário ou Senha inválido",null));
+			   FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Usuário ou Senha inválido",null));
 			   return null;
 			}
 			else{

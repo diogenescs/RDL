@@ -37,7 +37,7 @@ public class FormaDePgtoMb {
 	
 	public String editar(){ 
 		if(this.formaDePgto == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione uma forma de pagamento", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione uma forma de pagamento", null));
 			return null;
 		}else{
 			return "editarFormaDePgto";
@@ -46,15 +46,15 @@ public class FormaDePgtoMb {
 	
 	public String excluir(){ 
 		if(this.formaDePgto == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione uma forma de pagamento", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione uma forma de pagamento", null));
 		}else{
 			try {
 				this.bo.excluir(formaDePgto);
-				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Item excluído com sucesso!", null));
+				FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Item excluído com sucesso!", null));
 				atualizar(null);
 			} catch (BoException e) { 
 				e.printStackTrace();
-				FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage("Erro ao excluir registro", e.getMessage()));
+				FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro ao excluir registro", e.getMessage()));
 			} 
 		}
 		
@@ -64,11 +64,12 @@ public class FormaDePgtoMb {
 	public String salvar(){
 		try {
 			bo.salvar(formaDePgto);
-			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_WARN, "Operação realizada com sucesso!", "teste"));
+			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso!", "teste"));
 			atualizar(null);
 		} catch (BoException e) {
 			e.printStackTrace();
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Já existe forma de pgto com esse nome!", ""));
+			return null;
 		}
 		
 		return "listaFormaDePgto";

@@ -37,7 +37,7 @@ public class ContaMb {
     public void contasAPagar(ActionEvent e){
        
         if(this.dataInicial == null || this.dataFinal == null){
-            FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Informe o período.", null));
+            FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Informe o período.", null));
         }
        
         try {
@@ -52,7 +52,7 @@ public class ContaMb {
    
 public void contasAReceber(ActionEvent e){
         if(this.dataInicial == null || this.dataFinal == null){
-            FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Informe o período.", null));
+            FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Informe o período.", null));
         }
        
         try {
@@ -67,7 +67,7 @@ public void contasAReceber(ActionEvent e){
    
     public void realizarLancamento(ActionEvent e){
         if (this.lancamentos == null || this.lancamentos.size() == 0){
-            FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Selecione uma lançamento", null));
+            FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione uma lançamento", null));
         }else{
             try {
                 for(Lancamento l: this.lancamentos){
