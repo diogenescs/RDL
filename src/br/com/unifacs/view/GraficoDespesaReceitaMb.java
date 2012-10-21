@@ -1,15 +1,30 @@
 package br.com.unifacs.view;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.Serializable;
+import java.net.URL;
 import java.util.Calendar;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRichTextString;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartSeries;
 import br.com.unifacs.dao.CustomQueryDao;
 import br.com.unifacs.dao.DaoException;
+import br.com.unifacs.utils.HttpJSFUtil;
 
 @ManagedBean(name="graficoMb")
 @ViewScoped
@@ -78,6 +93,74 @@ public class GraficoDespesaReceitaMb implements Serializable {
 		categoryModel.addSeries(receita);
 		categoryModel.addSeries(despesa);	
 			
+	}
+	
+	public void exportarExcel(ActionEvent event){
+		
+		Object[] receitas = null;
+		Object[] despesas = null;
+		
+		try {
+			HSSFWorkbook workbook = new HSSFWorkbook();
+			HSSFSheet worksheet = workbook.createSheet("plan1");
+			
+			String meses[] ={"JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"};
+			HSSFRow linha1 = worksheet.createRow(0);
+			
+			linha1.createCell(0).setCellValue(new HSSFRichTextString("Mês"));
+			
+			for(int i = 0; i < meses.length; i++){
+				HSSFCell cell = linha1.createCell(i + 1);
+				cell.setCellValue(new HSSFRichTextString(meses[i] + "/" + this.ano));
+			}
+			
+			try {
+				receitas = CustomQueryDao.getTotalReceitaAnual(this.ano);
+			} catch (DaoException e) {
+				e.printStackTrace();
+				FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro na exportação", null));
+				return;
+			}
+			
+			HSSFRow linha2 = worksheet.createRow(1);
+			linha2.createCell(0).setCellValue(new HSSFRichTextString("Receitas"));
+			
+			for(int i =0; i<receitas.length; i++ ){
+				HSSFCell cell = linha2.createCell(i + 1);
+				cell.setCellValue(new HSSFRichTextString(receitas[i].toString()));
+			}
+			
+			try {
+				despesas = CustomQueryDao.getTotalDespesaAnual(this.ano);
+			} catch (DaoException e) {
+				e.printStackTrace();
+				FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro na exportação", null));				
+				return;
+			}			
+			
+			HSSFRow linha3 = worksheet.createRow(2);
+			linha3.createCell(0).setCellValue(new HSSFRichTextString("Despesas"));
+			
+			for(int i =0; i<receitas.length; i++ ){
+				HSSFCell cell = linha3.createCell(i + 1);
+				cell.setCellValue(new HSSFRichTextString(despesas[i].toString()));
+			}
+			
+			HttpServletResponse res = HttpJSFUtil.getResponse();   
+			res.setContentType("application/vnd.ms-excel");
+			res.setHeader("Content-disposition",  "attachment; filename=test.xls");
+			ServletOutputStream out = res.getOutputStream();
+			workbook.write(out);
+			out.flush();
+			out.close();
+			FacesContext faces = FacesContext.getCurrentInstance();
+			faces.responseComplete(); 
+			
+		} catch (Exception e) {
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro na exportação", null));
+			e.printStackTrace();
+		}
+		
 	}
 	
 	

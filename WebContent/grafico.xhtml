@@ -37,7 +37,9 @@
 				
 				<p:commandButton value="Buscar" actionListener="#{graficoMb.criarGrafico}" update="barChart">
 					<f:ajax render="barChart" /> 
-				</p:commandButton>				
+				</p:commandButton>
+				
+				<p:commandButton value="Exportar" actionListener="#{graficoMb.exportarExcel}" ajax="false" />							
 			
 			</h:panelGrid>
 			
