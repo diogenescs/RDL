@@ -66,8 +66,9 @@ div#footer {
 	position:absolute;
 	width:100%;
 	bottom:0; /* stick to bottom */
-	background:#ddd;
-	border-top:6px double gray;
+	background:green;
+	border-top:6px double white;
+	color: white;
 }
 	div#footer p {
 		padding:1em;
