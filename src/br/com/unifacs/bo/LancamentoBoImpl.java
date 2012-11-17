@@ -87,6 +87,15 @@ public class LancamentoBoImpl implements LancamentoBo,Serializable {
 			e.printStackTrace();
 			throw new BoException(e, "Erro na pesquisa");
 		}
-	}	
+	}
+	
+	public List<Lancamento> obterPgtosEfetuados(Date dataInicial, Date dataFinal) throws BoException {
+		try {
+			return dao.obterPgtosEfetuados(dataInicial, dataFinal);
+		} catch (DaoException e) {
+			e.printStackTrace();
+			throw new BoException(e, "Erro na pesquisa");
+		}
+	}
 
 }

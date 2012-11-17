@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets">  
+
+
+<ui:composition template="/template/template_default.xhtml">
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<ui:define name="corpo">
+
+	<p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>  
+              
+	<p:dialog modal="true" widgetVar="statusDialog" header="Status"   
+        draggable="false" closable="false">  
+    	<p:graphicImage value="/images/ajax-loader.gif" />  
+	</p:dialog>  	
+		<br></br>
+		<h:form  style="width : 50%; margin-left: 20px; margin-top:60 px;" >
+			<p:messages showDetail="false" autoUpdate="true"
+					closable="true"/>
+			<h:panelGrid columns="5">
+				<h:outputLabel value="Data Inicial" for="dtInicial"/>
+				<p:calendar id="dtInicial" value="#{contaMb.dataInicial}"/>
+				<h:outputLabel value="Data Final" for="dtFinal"/>
+				<p:calendar id="dtFinal" value="#{contaMb.dataFinal}"/>
+				
+				<p:commandButton value="Buscar" actionListener="#{contaMb.pgtosEfetuados}" update="dataTable">
+					<f:ajax render="dataTable" /> 
+				</p:commandButton>				
+			
+			</h:panelGrid>
+			
+			<br></br>
+			<p:separator />
+			<h:outputLabel align="center" style="font-weight: bold; font-size: 15pt; color:green" value="Lista de Pagamentos efetuados" />
+			
+				<p:separator />
+ 
+				<p:dataTable id="dataTable" var="lancamento"
+					emptyMessage="Nenhum registro encontrado"
+					value="#{contaMb.lancamentos}"  align="center">
+
+					<p:column align="center" width="10" >
+						<f:facet name="header">
+							<h:outputLabel value="Id" />
+						</f:facet>
+						<h:outputLabel  value="#{lancamento.id}" />
+					</p:column>
+
+					<p:column align="center" width="70">
+						<f:facet name="header">
+							<h:outputLabel value="Descrição" />
+						</f:facet>
+						<h:outputLabel value="#{lancamento.nome}" />
+					</p:column>
+
+					<p:column align="center" width="70">
+						<f:facet name="header">
+							<h:outputLabel value="Data de Pgto" />
+						</f:facet>
+						<h:outputLabel value="#{lancamento.dataPgto}" />
+					</p:column>
+					
+					<p:column align="center" width="30">
+						<f:facet name="header">
+							<h:outputLabel value="Valor" />
+						</f:facet>
+						<h:outputLabel value="#{lancamento.valorVcto}" />
+					</p:column>
+
+				</p:dataTable>
+				<br />
+			
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>

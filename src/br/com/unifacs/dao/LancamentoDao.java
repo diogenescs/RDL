@@ -28,6 +28,10 @@ public class LancamentoDao extends GenericDaoJpa<Lancamento, Integer>{
 		return this.query("SELECT l FROM Lancamento l WHERE l.realizado='N' AND l.ativo = 1 AND Despesa=despesa AND dataVcto BETWEEN ?1 AND ?2",dataInicial,dataFinal);
 	}
 	
+	public List<Lancamento> obterPgtosEfetuados(Date dataInicial, Date dataFinal) throws DaoException{
+		return this.query("SELECT l FROM Lancamento l WHERE l.realizado='S' AND l.ativo = 1 AND Despesa='S' AND dataVcto BETWEEN ?1 AND ?2",dataInicial,dataFinal);
+	}
+	
 	@Override
 	public List<Lancamento> obterTodos() {
 		try {

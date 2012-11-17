@@ -64,6 +64,22 @@ public void contasAReceber(ActionEvent e){
         }
            
     }
+
+	public void pgtosEfetuados(ActionEvent e){
+	    
+	    if(this.dataInicial == null || this.dataFinal == null){
+	        FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Informe o período.", null));
+	    }
+	   
+	    try {
+	        this.lancamentos = bo.obterPgtosEfetuados(this.dataInicial, this.dataFinal);
+	        receitaOuDespesa = "D";
+	    } catch (BoException ex) {
+	        FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), null));
+	        ex.printStackTrace();
+	    }
+	       
+	}
    
     public void realizarLancamento(ActionEvent e){
         if (this.lancamentos == null || this.lancamentos.size() == 0){
