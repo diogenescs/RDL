@@ -16,10 +16,9 @@
    <PROCESS-ITEM-OUTPUT ID="editarProjeto::#projeto_edit.xhtml"
     NAME="output4" PATH="/projeto_edit.xhtml"
     TARGET="rules:#projeto_edit.xhtml" TITLE="editarProjeto" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT
-    ID="editarFormaDePgto::#forma_de_pgto_edit.xhtml" NAME="output5"
-    PATH="/forma_de_pgto_edit.xhtml"
-    TARGET="rules:#forma_de_pgto_edit.xhtml" TITLE="editarFormaDePgto" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editarFrequencia::#frequencia_edit.xhtml"
+    NAME="output5" PATH="/frequencia_edit.xhtml"
+    TARGET="rules:#frequencia_edit.xhtml" TITLE="editarFrequencia" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="visualizarContato::#contato_visualizacao.xhtml" NAME="output6"
     PATH="/contato_visualizacao.xhtml"
@@ -85,6 +84,9 @@
    <PROCESS-ITEM-OUTPUT ID="novoContato::#contato_edit.xhtml"
     NAME="output6" PATH="/contato_edit.xhtml"
     TARGET="rules:#contato_edit.xhtml" TITLE="novoContato" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="workspaceProjetos::#projeto_workspace.xhtml"
+    NAME="output4" PATH="/projeto_workspace.xhtml"
+    TARGET="rules:#projeto_workspace.xhtml" TITLE="workspaceProjetos" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#frequencia_edit.xhtml"
@@ -105,4 +107,6 @@
   PATH="/lancamento_visualizacao.xhtml" SHAPE="304,593,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
   SHAPE="304,753,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#projeto_workspace.xhtml"
+  PATH="/projeto_workspace.xhtml" SHAPE="304,753,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

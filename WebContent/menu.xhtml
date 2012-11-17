@@ -5,11 +5,11 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition>
-	
+	<h:form id="formPrincipal">
 		<p:menubar>
 			
 			<p:submenu label="Inicio" >
-				<p:menuitem value="Escolher projeto" url="/pagina_construcao.jsf" />
+				<p:menuitem value="Escolher projeto" url="/projeto_workspace.jsf" />
 				<p:menuitem value="Grafico de lancamentos" url="/grafico.jsf" />
 			</p:submenu>
 			<p:submenu label="Cadastro" >
@@ -23,7 +23,7 @@
 				<p:menuitem value="Receitas e Despesas" url="/lancamento_list.jsf" />
 				<p:menuitem value="Contas a vencer" url="/contas_pagar.jsf" />
 				<p:menuitem value="Contas a receber" url="/contas_receber.jsf" />
-				<p:menuitem value="Pgtos Efetuados" url="/pgtos_efetuados.jsf" />
+				<p:menuitem value="Pgtos efetuados" url="/pgtos_efetuados.jsf" />
 				<p:menuitem value="Log de alterações" url="/historico_list.jsf" />
 			</p:submenu>
 			
@@ -36,10 +36,10 @@
 			
 			<p:submenu label="Outros">
 				<p:menuitem value="Sair"
-					url="http://google.com.br"/>
+					 action="#{loginMb.logout}"/>
 			</p:submenu>
 
 		</p:menubar >
-
+	</h:form>
 </ui:composition>
 </html>
