@@ -33,13 +33,19 @@ public class LoginMb {
 			}
 			else{
 			   RdlUtils.login(u);
-				return "listaProjeto";
+				return "workspaceProjetos";
 			}
 		} catch (BoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public String logout(){
+		RdlUtils.logout();
+		return "novoLogin";
+		
 	}
 
 	public String getSenha() {
