@@ -19,7 +19,7 @@ import br.com.unifacs.bo.HistoricoBo;
 import br.com.unifacs.bo.HistoricoBoImpl;
 import br.com.unifacs.bo.LancamentoBo;
 import br.com.unifacs.bo.LancamentoBoImpl;
-import br.com.unifacs.bo.UsuarioPojetoBoImpl;
+import br.com.unifacs.bo.UsuarioProjetoBoImpl;
 import br.com.unifacs.model.Categoria;
 import br.com.unifacs.model.Contato;
 import br.com.unifacs.model.Historico;
@@ -133,7 +133,7 @@ public class LancamentoMb {
 	
 	public String salvar(){
 		try {
-			UsuarioProjeto e = new UsuarioPojetoBoImpl().obter(2);
+			UsuarioProjeto e = new UsuarioProjetoBoImpl().obter(2);
 			this.lancamento.setUsuarioProjeto(e);
 			this.lancamento.setContato(new ContatoBoImpl().obter(this.lancamento.getContato().getId()));
 			this.lancamento.setCategoria(new CategoriaBoImpl().obter(this.lancamento.getCategoria().getId()));

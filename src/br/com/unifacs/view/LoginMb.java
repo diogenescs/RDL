@@ -1,5 +1,7 @@
 package br.com.unifacs.view;
 
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -8,6 +10,8 @@ import javax.faces.context.FacesContext;
 import br.com.unifacs.bo.BoException;
 import br.com.unifacs.bo.UsuarioBo;
 import br.com.unifacs.bo.UsuarioBoImpl;
+import br.com.unifacs.bo.UsuarioProjetoBoImpl;
+import br.com.unifacs.model.Projeto;
 import br.com.unifacs.model.Usuario;
 import br.com.unifacs.utils.RdlUtils;
 
@@ -32,8 +36,11 @@ public class LoginMb {
 			   return null;
 			}
 			else{
+			   
 			   RdlUtils.login(u);
-				return "workspaceProjetos";
+			   List<Projeto> projetos = new UsuarioProjetoBoImpl().obterTodos(u);
+			   RdlUtils.setListaProjeto(projetos);
+			   return "workspaceProjetos";
 			}
 		} catch (BoException e) {
 			// TODO Auto-generated catch block
@@ -43,7 +50,8 @@ public class LoginMb {
 	}
 	
 	public String logout(){
-		RdlUtils.logout();
+		if (RdlUtils.getUsuarioLogado() != null)
+			RdlUtils.logout();
 		return "novoLogin";
 		
 	}

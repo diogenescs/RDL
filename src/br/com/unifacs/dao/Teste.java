@@ -14,7 +14,7 @@ import br.com.unifacs.bo.CategoriaBo;
 import br.com.unifacs.bo.CategoriaBoImpl;
 import br.com.unifacs.bo.ContatoBo;
 import br.com.unifacs.bo.ContatoBoImpl;
-import br.com.unifacs.bo.UsuarioPojetoBoImpl;
+import br.com.unifacs.bo.UsuarioProjetoBoImpl;
 import br.com.unifacs.model.Categoria;
 import br.com.unifacs.model.Contato;
 import br.com.unifacs.model.Lancamento;

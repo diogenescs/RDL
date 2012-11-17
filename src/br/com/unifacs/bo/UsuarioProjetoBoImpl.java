@@ -1,12 +1,15 @@
 package br.com.unifacs.bo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.UsuarioPojetoDao;
+import br.com.unifacs.model.Projeto;
+import br.com.unifacs.model.Usuario;
 import br.com.unifacs.model.UsuarioProjeto;
 
-public class UsuarioPojetoBoImpl implements UsuarioProjetoBo {
+public class UsuarioProjetoBoImpl implements UsuarioProjetoBo {
 
 	UsuarioPojetoDao dao = new UsuarioPojetoDao();
 	
@@ -62,6 +65,20 @@ public class UsuarioPojetoBoImpl implements UsuarioProjetoBo {
 	public List<UsuarioProjeto> obterTodos() {
 		// TODO Auto-generated method stub
 		return dao.obterTodos();
+	}
+
+	public List<Projeto> obterTodos(Usuario u) {
+		try {
+			List<UsuarioProjeto> a = dao.query("SELECT up FROM UsuarioProjeto up WHERE up.usuario = ?1", u);
+			List<Projeto> p = new ArrayList<Projeto>();
+			for(UsuarioProjeto up : a){
+		       p.add(up.getProjeto());
+			}
+			return p;
+		} catch (DaoException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

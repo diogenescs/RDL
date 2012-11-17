@@ -2,6 +2,8 @@ package br.com.unifacs.bo;
 
 import java.util.List;
 
+import br.com.unifacs.model.Projeto;
+import br.com.unifacs.model.Usuario;
 import br.com.unifacs.model.UsuarioProjeto;
 
 public interface UsuarioProjetoBo {
@@ -9,4 +11,5 @@ public interface UsuarioProjetoBo {
 	void excluir(UsuarioProjeto usuarioProjeto) throws BoException;
 	UsuarioProjeto obter(Integer id);
 	List<UsuarioProjeto> obterTodos();
+	List<Projeto> obterTodos(Usuario u);
 }
