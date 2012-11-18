@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 public class HttpJSFUtil{
     private HttpJSFUtil()
     {
+    	
     }
    
     public static HttpSession getSession()
