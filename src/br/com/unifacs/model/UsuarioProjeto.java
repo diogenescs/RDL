@@ -29,12 +29,12 @@ public class UsuarioProjeto implements Serializable {
 	private Set<Orcamento> orcamentos;
 
 	//bi-directional many-to-one association to Usuario
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_Usuario")
 	private Usuario usuario;
 
 	//bi-directional many-to-one association to Projeto
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_Projeto")
 	private Projeto projeto;
 

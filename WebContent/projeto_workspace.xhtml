@@ -20,7 +20,7 @@
 					<p:selectOneMenu value="#{projeto.id}"
 						id="textProjet" style="width:200px">
 						<f:selectItem itemLabel="Selecione" itemValue="" />
-						<f:selectItems value="#{RdlUtils.listaProjeto}" var="projeto"
+						<f:selectItems value="#{projetoMb.projetosUsuarioAtual}" var="projeto"
 							itemLabel="#{projeto.descricao}" itemValue="#{projeto.id}" />
 					</p:selectOneMenu>
 					
