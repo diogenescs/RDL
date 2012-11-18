@@ -2,7 +2,6 @@ package br.com.unifacs.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
 import java.util.Set;
 
 
@@ -24,11 +23,11 @@ public class Projeto implements Serializable {
 	@OneToMany(mappedBy="projeto")
 	private Set<UsuarioProjeto> usuarioProjetos;
 	
-	//bi-directional many-to-one association to UsuarioProjeto
-		@ManyToOne(fetch=FetchType.EAGER)
-		@JoinColumn(name="id_Usuario")
-		private Usuario owner;
-
+	 //bi-directional many-to-one association to Usuario
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="id_Usuario")
+    private Usuario owner;
+    
     public Projeto() {
     }
 

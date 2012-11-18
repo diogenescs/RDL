@@ -10,4 +10,5 @@ public interface UsuarioBo {
 	Usuario obter(Integer id);
 	List<Usuario> obterTodos();
 	Usuario Logar(String login, String senha) throws BoException;
+	Usuario BuscarUsuario(String email) throws BoException;
 }

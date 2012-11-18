@@ -39,11 +39,11 @@
 						id="textTelMovel" />
 					<p:outputLabel value="Perg. de seguranca" for="textPergunta" />
 						<p:inputText style="width : 400px" value="#{usuarioMb.usuario.pergunta}"
-						id="textPergunta">
+						id="textPergunta" required="true">
 						</p:inputText>	
 					<p:outputLabel value="Resposta" for="textResposta" />
 						<p:inputText style="width : 400px" value="#{usuarioMb.usuario.resposta}"
-						id="textResposta">
+						id="textResposta" required="true">
 						</p:inputText>									
 					<p:commandButton id="btnCancelar" value="Cancelar"
 						action="#{usuarioMb.cancelar}" ajax="false" immediate="true"/>

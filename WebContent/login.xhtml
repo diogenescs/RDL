@@ -8,9 +8,7 @@
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<link type="text/css" rel="stylesheet" href="css/style.css" />	
 </h:head>
-<ui:composition template="/template/template_basico.xhtml">
-	
-	<ui:define name="corpo">
+
 	
 	<h:form style="width:40%; background-color:white; color: green;  margin-left:30%; margin-top:15%; height: 100%;">
 	<h:outputLabel style="font-weight: bold; font-size: 15pt; color:green; margin-left:35%; " value="RDL Contas - Organizando sua vida" />
@@ -23,11 +21,10 @@
 			<p:password  id="txtSenha" value="#{loginMb.senha}"/>
 		</p:panelGrid>
 		<p:commandButton action="#{loginMb.login}" value="Logar"/>	
-		<p:commandButton action="#{usuarioMb.novo}" value="Novo usuario"/>		
+		<p:commandButton  action="#{usuarioMb.novo}" value="Novo usuario"/>	
+		<p:commandButton  action="/nova_senha.xhtml" value="Esqueceu a senha?"/>		
 	</p:fieldset>
 	</h:form>
-</ui:define>
 
-</ui:composition>
 	
 </html>

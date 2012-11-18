@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/template/template_basico.xhtml">
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<ui:define name="corpo"> 
+	<p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>  
+              
+	<p:dialog modal="true" widgetVar="statusDialog" header="Status"   
+        draggable="false" closable="false">  
+    	<p:graphicImage value="/images/ajax-loader.gif" />  
+	</p:dialog>   	
+		<br></br>
+		<h:form  style="width : 50%; margin-left: 20px; margin-top:60 px;" >
+			<p:messages showDetail="false" autoUpdate="true"
+					closable="true"/>
+			<h:panelGrid columns="5">
+				<h:outputLabel value="Email" for="email"/>
+				<p:inputText id="email" value="#{usuarioMb.email}" required="true" requiredMessage="Email é campo obrigatório"/>
+				
+				<p:commandButton value="Buscar" actionListener="#{usuarioMb.buscarUsuario}" update="dataTable">
+					<f:ajax render="dataTable" /> 
+				</p:commandButton>				
+			
+			</h:panelGrid>
+			
+			<br></br>
+			<p:separator />
+			<h:outputLabel align="center" style="font-weight: bold; font-size: 15pt; color:green" value="Pergunta de segurança" />
+			
+				<p:separator />
+ 
+				<p:dataTable id="dataTable" var="usuario"
+					emptyMessage="Nenhum registro encontrado"
+					value="#{usuarioMb.usuario}"  align="center">
+
+					<p:column align="center" width="60" >
+						<f:facet name="header">
+							<h:outputLabel value="Pergunta" />
+						</f:facet>
+						<h:outputLabel  value="#{usuario.pergunta}" />
+					</p:column>
+					<p:column align="center" width="60" >
+						<f:facet name="header">
+							<h:outputLabel value="Resposta" />
+						</f:facet>
+						<h:inputLabel  value="#{usuarioMb.resposta}" />
+					</p:column>
+
+				</p:dataTable>
+				<br />
+			
+		</h:form>
+		
+
+	</ui:define>
+
+</ui:composition>
+</html>

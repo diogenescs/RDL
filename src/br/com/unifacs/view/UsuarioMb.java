@@ -20,6 +20,8 @@ public class UsuarioMb {
 	private Usuario usuario;
 	private List<Usuario> usuarios;
 	private UsuarioBo bo;
+	private String email;
+	private String resposta;
 	
 	public UsuarioMb(){
 		this.usuario = new Usuario();
@@ -43,8 +45,29 @@ public class UsuarioMb {
 
 	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
-	} 	
+	} 
 	
+	
+	public String getResposta() {
+		return resposta;
+	}
+
+
+	public void setResposta(String resposta) {
+		this.resposta = resposta;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
 	public void atualizar(ActionEvent actionEvent){
 		this.setUsuarios(this.bo.obterTodos()); 	
 	}
@@ -96,18 +119,34 @@ public class UsuarioMb {
 			bo.salvar(usuario);
 			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso!", "teste"));
 			atualizar(null);
+			return "visualizarUsuario";
 		} catch (BoException e) {
 			e.printStackTrace();
 			FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
 		}
 		
-		return "visualizarUsuario";
+		return null;
 	}
 	
 	public String cancelar(){
 		atualizar(null);
 		return "novoLogin";
 	}
-
+	
+	public void buscarUsuario(ActionEvent e){
+	    
+	    if(this.email == null){
+	        FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Informe o email.", null));
+	    }else{
+		    try {
+		        this.usuario = bo.BuscarUsuario(email);
+		    } catch (BoException ex) {
+		        FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), null));
+		        ex.printStackTrace();
+		    }
+	    }  
+	       
+	}
+	
 	
 }
