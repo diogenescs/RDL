@@ -120,6 +120,10 @@
 			<from-outcome>workspaceProjetos</from-outcome>
 			<to-view-id>/projeto_workspace.xhtml</to-view-id>
 		</navigation-case>
+		<navigation-case>
+			<from-outcome>grafico</from-outcome>
+			<to-view-id>/grafico.xhtml</to-view-id>
+		</navigation-case>
 		
 	</navigation-rule>
 </faces-config>
