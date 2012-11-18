@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/template/template_default.xhtml">
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<ui:define name="corpo">
+		<h:form>
+			
+			<p:panel style="width : 750px">
+				<h:outputLabel style="font-weight: bold; font-size: 15pt; color:green" value="Selecione um projeto" />
+				<p:separator />
+				<h:panelGrid columns="3">  
+
+					<p:outputLabel value="Descrição " for="textProjet" />
+					<p:selectOneMenu value="#{projeto.id}"
+						id="textProjet" style="width:200px">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItems value="#{RdlUtils.listaProjeto}" var="projeto"
+							itemLabel="#{projeto.descricao}" itemValue="#{projeto.id}" />
+					</p:selectOneMenu>
+					
+
+					<p:commandButton id="btnWorkspace" value="Ok"
+						action="#{projetoMb.salvar}" ajax="false" />
+				</h:panelGrid>
+
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>

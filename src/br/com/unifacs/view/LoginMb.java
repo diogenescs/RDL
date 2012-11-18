@@ -50,7 +50,7 @@ public class LoginMb {
 	}
 	
 	public String logout(){
-		if (RdlUtils.getUsuarioLogado() != null)
+		//if (RdlUtils.getUsuarioLogado() != null)
 			RdlUtils.logout();
 		return "novoLogin";
 		
