@@ -11,7 +11,7 @@
 	<ui:define name="corpo">
 		<h:form>
 			
-			<p:panel style="width : 750px">
+			<p:panel style="width : 1000px">
 				<h:outputLabel style="font-weight: bold; font-size: 15pt; color:green" value="Dados do usuario" />
 				<p:separator />
 				<h:panelGrid columns="4">  
@@ -41,17 +41,17 @@
 					<p:inputText style="width : 250px;" value="#{usuarioMb.usuario.telMovel}"
 					id="textTelMovel" disabled="true" />
 					
-					<p:outputLabel value="Pergunta de seguranca" for="textPergunta" />
+					<p:outputLabel value="Perg. de seguranca" for="textPergunta" />
 					<p:inputText style="width : 250px;" value="#{usuarioMb.usuario.pergunta}"
 					id="textPergunta" disabled="true" />
 					
-					<p:outputLabel value="Resposta de segurança" for="textResposta" />
+					<p:outputLabel value="Resposta" for="textResposta" />
 					<p:inputText style="width : 250px;" value="#{usuarioMb.usuario.resposta}"
 					id="textResposta" disabled="true" />
 					
 					
 					<p:commandButton id="btnVoltar" value="Voltar"
-						action="#{contatoMb.cancelar}" ajax="false" immediate="true"/>
+						action="#{usuarioMb.editar}" ajax="false" immediate="true"/>
 
 						 
 				</h:panelGrid>

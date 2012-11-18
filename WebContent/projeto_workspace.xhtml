@@ -17,8 +17,8 @@
 				<h:panelGrid columns="3">  
 
 					<p:outputLabel value="Descrição " for="textProjet" />
-					<p:selectOneMenu value="#{projetoMb.projetoAtual}"
-						id="textProjet" style="width:200px">
+					<p:selectOneMenu value="#{projetoMb.idProjetoAtual}"
+						id="textProjet" style="width:200px" immediate="true">
 						<f:selectItem itemLabel="Selecione" itemValue="" />
 						<f:selectItems value="#{projetoMb.projetosUsuarioAtual}" var="projeto"
 							itemLabel="#{projeto.descricao}" itemValue="#{projeto.id}" />

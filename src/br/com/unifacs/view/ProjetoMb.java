@@ -26,7 +26,8 @@ public class ProjetoMb {
 	
 	private ProjetoBo bo;
 	private Projeto projeto;
-	private List<Projeto> projetos; 
+	private List<Projeto> projetos;
+	private int idProjetoAtual;
 	
 	public ProjetoMb() {
 		this.projeto = new Projeto();
@@ -123,6 +124,15 @@ public class ProjetoMb {
 
 	public void setProjetoAtual(Projeto projetoAtual) {
 		RdlUtils.setProjetoAtual(projetoAtual);
+	}
+
+	public int getIdProjetoAtual() {
+		return idProjetoAtual;
+	}
+
+	public void setIdProjetoAtual(int idProjetoAtual) {
+		this.idProjetoAtual = idProjetoAtual;
+		this.setProjetoAtual(new ProjetoBoImpl().obter(idProjetoAtual));
 	}
 	
 	
