@@ -61,7 +61,7 @@ public class UsuarioMb {
 	
 	public String novo(){
 		this.usuario = new Usuario();
-		return "novoUsuario";
+		return "editarUsuario";
 	}
 	
 	public String editar(){ 

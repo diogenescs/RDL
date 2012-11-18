@@ -40,7 +40,7 @@ public class LoginFilter implements Filter {
 			resp.sendRedirect("login.jsf");
 		}
 		else if (RdlUtils.isUsuarioLogado() && pageRequest.contains("login.jsf")){
-			resp.sendRedirect("lancamento_list.jsf");
+			resp.sendRedirect("produto_workspace.jsf");
 		}
 		else{
 			chain.doFilter(req, resp);

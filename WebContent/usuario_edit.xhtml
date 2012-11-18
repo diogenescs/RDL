@@ -7,7 +7,7 @@
 
 
 <ui:composition template="/template/template_basico.xhtml">
-	
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo">
 		<h:form>
 			
@@ -28,7 +28,9 @@
 						id="textLogin" required="true" requiredMessage="Login é campo obrigatório" />
 					<p:outputLabel value="Senha" for="textSenha" />
 						<p:inputText style="width : 250px" value="#{usuarioMb.usuario.senha}"
-						id="textSenha" required="true" requiredMessage="Senha é campo obrigatório" />							
+						id="textSenha" required="true" requiredMessage="Senha é campo obrigatório com minimo de 4 caracteres e máximo de 8">
+						<f:validateLength minimum="4" maximum="8"/>
+						</p:inputText>							
 					<p:outputLabel value="Email" for="textEmail" />
 						<p:inputText style="width : 250px" value="#{usuarioMb.usuario.email}"
 						id="textEmail" required="true" requiredMessage="Email é campo obrigatório" />				
