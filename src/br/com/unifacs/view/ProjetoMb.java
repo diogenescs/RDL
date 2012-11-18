@@ -116,6 +116,14 @@ public class ProjetoMb {
 	public void setProjetosUsuarioAtual(List<Projeto> projetosUsuarioAtual) {
 		
 	}
+
+	public Projeto getProjetoAtual() {
+		return RdlUtils.getProjetoAtual();
+	}
+
+	public void setProjetoAtual(Projeto projetoAtual) {
+		RdlUtils.setProjetoAtual(projetoAtual);
+	}
 	
 	
 
