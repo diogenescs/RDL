@@ -34,12 +34,20 @@
 					
 					
 					<p:outputLabel value="Email" for="textEmail" />
-					<p:inputText style="width : 250px;" value="#{contatoMb.contato.email}"
+					<p:inputText style="width : 250px;" value="#{usuarioMb.usuario.email}"
 					id="textEmail" disabled="true" />
 					
 					<p:outputLabel value="Tel movel" for="textTelMovel" />
 					<p:inputText style="width : 250px;" value="#{usuarioMb.usuario.telMovel}"
 					id="textTelMovel" disabled="true" />
+					
+					<p:outputLabel value="Pergunta de seguranca" for="textPergunta" />
+					<p:inputText style="width : 250px;" value="#{usuarioMb.usuario.pergunta}"
+					id="textPergunta" disabled="true" />
+					
+					<p:outputLabel value="Resposta de segurança" for="textResposta" />
+					<p:inputText style="width : 250px;" value="#{usuarioMb.usuario.resposta}"
+					id="textResposta" disabled="true" />
 					
 					
 					<p:commandButton id="btnVoltar" value="Voltar"

@@ -36,7 +36,15 @@
 						id="textEmail" required="true" requiredMessage="Email é campo obrigatório" />				
 					<p:outputLabel value="Tel movel" for="textTelMovel" />
 						<p:inputText style="width : 250px" value="#{usuarioMb.usuario.telMovel}"
-						id="textTelMovel" />					
+						id="textTelMovel" />
+					<p:outputLabel value="Pergunta de seguranca" for="textPergunta" />
+						<p:inputText style="width : 400px" value="#{usuarioMb.usuario.pergunta}"
+						id="textPergunta">
+						</p:inputText>	
+					<p:outputLabel value="Resposta de seguranca" for="textResposta" />
+						<p:inputText style="width : 400px" value="#{usuarioMb.usuario.resposta}"
+						id="textResposta">
+						</p:inputText>									
 					<p:commandButton id="btnCancelar" value="Cancelar"
 						action="#{usuarioMb.cancelar}" ajax="false" immediate="true"/>
 

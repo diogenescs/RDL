@@ -26,6 +26,10 @@ public class Usuario implements Serializable {
 	private String senha;
 
 	private String telMovel;
+	
+	private String pergunta;
+	
+	private String resposta;
 
 	//bi-directional many-to-one association to UsuarioProjeto
 	@OneToMany(mappedBy="usuario")
@@ -89,5 +93,23 @@ public class Usuario implements Serializable {
 	public void setUsuarioProjetos(Set<UsuarioProjeto> usuarioProjetos) {
 		this.usuarioProjetos = usuarioProjetos;
 	}
+
+	public String getPergunta() {
+		return pergunta;
+	}
+
+	public void setPergunta(String pergunta) {
+		this.pergunta = pergunta;
+	}
+
+	public String getResposta() {
+		return resposta;
+	}
+
+	public void setResposta(String resposta) {
+		this.resposta = resposta;
+	}
+	
+	
 	
 }
