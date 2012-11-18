@@ -1,24 +1,30 @@
 package br.com.unifacs.view;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 import br.com.unifacs.dao.CustomQueryDao;
 import br.com.unifacs.dao.DaoException;
-import br.com.unifacs.model.FluxoCaixa;
 
 @SessionScoped
 @ManagedBean(name="fluxoCaixa")
 public class FluxoCaixaMb implements Serializable{
 
-	private FluxoCaixa fluxoCaixa;
 	private int ano;
+	private Object[] tabela;
 	public FluxoCaixaMb() {
-		criarTabela();
+		this.ano = Calendar.getInstance().get(Calendar.YEAR);
+		criarTabela(null);
 	}
 	
-	private void criarTabela(){
+	public void criarTabela(ActionEvent event){
 		Object[] receitas = null;
 		Object[] despesas = null;
 		
@@ -37,43 +43,16 @@ public class FluxoCaixaMb implements Serializable{
 		}	
 		
 		
-		this.fluxoCaixa = new FluxoCaixa();
+		tabela = new Object[3];
 		
-		this.fluxoCaixa.setReceitaJan((Number)despesas[0]);
-		this.fluxoCaixa.setDespesaJan((Number)despesas[0]);
+		Object[] total = new Object[12];
 		
-		this.fluxoCaixa.setReceitaFev((Number)despesas[1]);
-		this.fluxoCaixa.setDespesaFev((Number)despesas[1]);
+		for(int i = 0; i < 12;i++)
+			total[i] = (Number)(((Number)receitas[i]).longValue() - ((Number)despesas[i]).longValue());	
 		
-		this.fluxoCaixa.setReceitaMar((Number)despesas[2]);
-		this.fluxoCaixa.setDespesaMar((Number)despesas[2]);
-		
-		this.fluxoCaixa.setReceitaAbr((Number)despesas[3]);
-		this.fluxoCaixa.setDespesaAbr((Number)despesas[3]);
-		
-		this.fluxoCaixa.setReceitaMai((Number)despesas[4]);
-		this.fluxoCaixa.setDespesaMai((Number)despesas[4]);			
-		
-		this.fluxoCaixa.setReceitaJun((Number)despesas[5]);
-		this.fluxoCaixa.setDespesaJun((Number)despesas[5]);
-		
-		this.fluxoCaixa.setReceitaJul((Number)despesas[6]);
-		this.fluxoCaixa.setDespesaJul((Number)despesas[6]);		
-		
-		this.fluxoCaixa.setReceitaAgo((Number)despesas[7]);
-		this.fluxoCaixa.setDespesaAgo((Number)despesas[7]);
-		
-		this.fluxoCaixa.setReceitaSet((Number)despesas[8]);
-		this.fluxoCaixa.setDespesaSet((Number)despesas[8]);
-		
-		this.fluxoCaixa.setReceitaOut((Number)despesas[9]);
-		this.fluxoCaixa.setDespesaOut((Number)despesas[9]);
-		
-		this.fluxoCaixa.setReceitaNov((Number)despesas[10]);
-		this.fluxoCaixa.setDespesaNov((Number)despesas[10]);
-		
-		this.fluxoCaixa.setReceitaDez((Number)despesas[11]);
-		this.fluxoCaixa.setDespesaDez((Number)despesas[11]);
+		tabela[0] = receitas;
+		tabela[1] = despesas;
+		tabela[2] = total;				
 				
 	}
 
@@ -85,11 +64,12 @@ public class FluxoCaixaMb implements Serializable{
 		this.ano = ano;
 	}
 
-	public FluxoCaixa getFluxoCaixa() {
-		return fluxoCaixa;
+
+	public Object[] getTabela() {
+		return tabela;
 	}
 
-	public void setFluxoCaixa(FluxoCaixa fluxoCaixa) {
-		this.fluxoCaixa = fluxoCaixa;
+	public void setTabela(Object[] tabela) {
+		this.tabela = tabela;
 	}
 }

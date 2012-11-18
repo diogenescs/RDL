@@ -74,3 +74,12 @@ div#footer {
 		padding:1em;
 		margin:0;
 	}
+	
+
+.receita{
+	color: blue;
+}
+
+.despesa{
+	color: red;
+}
