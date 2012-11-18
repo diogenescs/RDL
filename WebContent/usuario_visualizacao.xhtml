@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/template/template_basico.xhtml">
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<ui:define name="corpo">
+		<h:form>
+			
+			<p:panel style="width : 750px">
+				<h:outputLabel style="font-weight: bold; font-size: 15pt; color:green" value="Dados do usuario" />
+				<p:separator />
+				<h:panelGrid columns="4">  
+
+					 <p:outputLabel value="Codigo" for="textId" />
+					<p:inputText style="width : 50px;" value="#{usuarioMb.usuario.id}" id="textId"
+						disabled="true" />
+
+					<p:outputLabel value="Nome" for="textNome" />
+					<p:inputText style="width : 250px;" value="#{usuarioMb.usuario.nome}"
+						id="textNome" disabled="true" />
+						
+					<p:outputLabel value="Login" for="textLogin" />
+					<p:inputText style="width : 250px;" value="#{usuarioMb.usuario.login}"
+						id="textLogin" disabled="true" />
+					
+					<p:outputLabel value="Senha" for="textSenha" />
+					<p:inputText style="width : 250px;" value="#{usuarioMb.usuario.senha}"
+						id="textSenha" disabled="true" />
+					
+					
+					<p:outputLabel value="Email" for="textEmail" />
+					<p:inputText style="width : 250px;" value="#{contatoMb.contato.email}"
+					id="textEmail" disabled="true" />
+					
+					<p:outputLabel value="Tel movel" for="textTelMovel" />
+					<p:inputText style="width : 250px;" value="#{usuarioMb.usuario.telMovel}"
+					id="textTelMovel" disabled="true" />
+					
+					
+					<p:commandButton id="btnVoltar" value="Voltar"
+						action="#{contatoMb.cancelar}" ajax="false" immediate="true"/>
+
+						 
+				</h:panelGrid>
+
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>

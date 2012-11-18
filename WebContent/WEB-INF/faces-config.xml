@@ -32,6 +32,10 @@
 			<to-view-id>/frequencia_edit.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
+			<from-outcome>editarUsuario</from-outcome>
+			<to-view-id>/usuario_edit.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
 			<from-outcome>editarFormaDePgto</from-outcome>
 			<to-view-id>/forma_de_pgto_edit.xhtml</to-view-id>
 			<redirect />
@@ -45,6 +49,10 @@
 			<from-outcome>visualizarLancamento</from-outcome>
 			<to-view-id>/lancamento_visualizacao.xhtml</to-view-id>
 			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>visualizarUsuario</from-outcome>
+			<to-view-id>/usuario_visualizacao.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
@@ -105,8 +113,13 @@
 			<to-view-id>/contato_edit.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
+			<from-outcome>novoUsuario</from-outcome>
+			<to-view-id>/usuario_edit.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
 			<from-outcome>workspaceProjetos</from-outcome>
 			<to-view-id>/projeto_workspace.xhtml</to-view-id>
 		</navigation-case>
+		
 	</navigation-rule>
 </faces-config>

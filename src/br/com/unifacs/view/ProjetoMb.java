@@ -18,8 +18,8 @@ import br.com.unifacs.bo.ProjetoBo;
 import br.com.unifacs.bo.ProjetoBoImpl;
 import br.com.unifacs.model.Categoria;
 import br.com.unifacs.model.Projeto;
+import br.com.unifacs.model.Usuario;
 import br.com.unifacs.utils.RdlUtils;
-
 @ManagedBean(name="projetoMb")
 @SessionScoped
 public class ProjetoMb {
@@ -102,8 +102,8 @@ public class ProjetoMb {
 	}
 
 	public List<Projeto> getProjetos() {
-		return projetos;
-	}
+		return projetos; 
+}
 
 	public void setProjetos(List<Projeto> projetos) {
 		this.projetos = projetos;
@@ -116,7 +116,6 @@ public class ProjetoMb {
 	public void setProjetosUsuarioAtual(List<Projeto> projetosUsuarioAtual) {
 		
 	}
-	
 	
 	
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:ui="http://java.sun.com/jsf/facelets">  
+
+<h:head>
+
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<link type="text/css" rel="stylesheet" href="css/style.css" />	
+</h:head>
+<h:body style="background: #F2F2F2; margin: 0px">
+
+    <div id="container">
+        
+        <div id="header">
+             <ui:include src="/topo.xhtml"> </ui:include>
+        </div>	 
+        
+        
+        <div id="message">
+             <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" globalOnly="false"/>  
+        </div>        
+        
+        <div id="content">
+   			<ui:insert name="corpo"/>
+        </div> 	       
+ 	   
+        
+  		<div id="footer" >
+			<h5 align="center">RDL - Organizando sua vida | Diógenes Sampaio, Luana Oliveira e Roberta Sardeiro - Todos os direitos reservados.</h5>
+  		</div>  
+   </div>                  
+</h:body>
+
+</html>

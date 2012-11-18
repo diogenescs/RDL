@@ -101,12 +101,12 @@ public class UsuarioMb {
 			FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
 		}
 		
-		return "listaUsuario";
+		return "visualizarUsuario";
 	}
 	
 	public String cancelar(){
 		atualizar(null);
-		return "listaUsuario";
+		return "novoLogin";
 	}
 
 	
