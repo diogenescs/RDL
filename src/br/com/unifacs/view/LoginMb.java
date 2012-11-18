@@ -23,6 +23,7 @@ public class LoginMb {
 	private String senha;
 	private String login;
 	
+	
 	public LoginMb() {
 		usuarioBo = new UsuarioBoImpl();
 	}

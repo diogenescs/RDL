@@ -20,7 +20,7 @@ public class RdlUtils {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private static HttpSession getSession(){
+	public static HttpSession getSession(){
 			HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
 			return request.getSession(true);
 		

@@ -17,7 +17,8 @@ import br.com.unifacs.utils.RdlUtils;
 public class LoginFilter implements Filter {
 
 	private FilterConfig fc;
-		
+	
+	
 	public LoginFilter() {
 		// TODO Auto-generated constructor stub
 	}
@@ -30,9 +31,9 @@ public class LoginFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		
+	
 		HttpServletRequest req = (HttpServletRequest)request;
-		HttpServletResponse resp = (HttpServletResponse) response;
-		//HttpSession session = req.getSession(true);
+		HttpServletResponse resp = (HttpServletResponse) response;	
 
 		String pageRequest = req.getRequestURL().toString();
 		
