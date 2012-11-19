@@ -8,7 +8,9 @@ import java.net.URL;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import br.com.unifacs.bo.UsuarioProjetoBoImpl;
 import br.com.unifacs.utils.JpaUtil;
+import br.com.unifacs.utils.RdlUtils;
 
 public class CustomQueryDao {
 	
@@ -32,6 +34,7 @@ public class CustomQueryDao {
 			Query query = entitymanager.createQuery(q);
 			query.setParameter(1,ano);
 			query.setParameter(2,"S");
+			query.setParameter(3,new UsuarioProjetoBoImpl().obterUsuarioProjeto(RdlUtils.getUsuarioLogado(),RdlUtils.getProjetoAtual()));	
 			Object[] i = (Object[]) query.getSingleResult();
 			entitymanager.close();
 			return i;
@@ -61,6 +64,7 @@ public class CustomQueryDao {
 			Query query = entitymanager.createQuery(q);
 			query.setParameter(1,ano);
 			query.setParameter(2,"N");
+			query.setParameter(3,new UsuarioProjetoBoImpl().obterUsuarioProjeto(RdlUtils.getUsuarioLogado(),RdlUtils.getProjetoAtual()));			
 			Object[] i = (Object[]) query.getSingleResult();
 			entitymanager.close();
 			return i;
