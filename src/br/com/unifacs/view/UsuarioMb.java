@@ -12,6 +12,7 @@ import br.com.unifacs.bo.BoException;
 import br.com.unifacs.bo.UsuarioBoImpl;
 import br.com.unifacs.bo.UsuarioBo;
 import br.com.unifacs.model.Usuario;
+import br.com.unifacs.utils.RdlUtils;
 
 @ManagedBean(name="usuarioMb")
 @SessionScoped
@@ -22,6 +23,7 @@ public class UsuarioMb {
 	private UsuarioBo bo;
 	private String email;
 	private String resposta;
+	private String senha;
 	
 	public UsuarioMb(){
 		this.usuario = new Usuario();
@@ -56,6 +58,18 @@ public class UsuarioMb {
 	public void setResposta(String resposta) {
 		this.resposta = resposta;
 	}
+	
+	
+
+
+	public String getSenha() {
+		return senha;
+	}
+
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
 
 	public String getEmail() {
@@ -75,12 +89,20 @@ public class UsuarioMb {
 	public String visualizar(){ 
 		
 		if(this.usuario == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um lancamento", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um usuario", null));
 			return null;
 		}else{
 			return "visualizarUsuario";
 		}
 	}
+	
+	public String visualizarSenha(){ 
+			usuario = RdlUtils.getUsuarioLogado();
+		    senha = usuario.getSenha();
+			return "visualizarSenha";
+		
+	}
+	
 	
 	public String novo(){
 		this.usuario = new Usuario();
@@ -94,6 +116,12 @@ public class UsuarioMb {
 		}else{
 			return "editarUsuario";
 		}
+	} 
+	
+	public String editarSenha(){ 
+		
+			return "editarSenhaUsuario";
+		
 	} 
 	
 	
@@ -128,9 +156,30 @@ public class UsuarioMb {
 		return null;
 	}
 	
+	public String salvarNovaSenha(){
+		try {
+			Usuario usuarioAux = RdlUtils.getUsuarioLogado();
+			usuarioAux.setSenha(usuario.getSenha());
+			bo.salvar(usuarioAux);
+			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso!", "teste"));
+			atualizar(null);
+			return "visualizarSenha";
+		} catch (BoException e) {
+			e.printStackTrace();
+			FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
+		}
+		
+		return null;
+	}
+	
 	public String cancelar(){
 		atualizar(null);
 		return "novoLogin";
+	}
+	
+	public String cancelarAlteracaoSenha(){
+		atualizar(null);
+		return "visualizarSenha";
 	}
 	
 	public void buscarUsuario(ActionEvent e){

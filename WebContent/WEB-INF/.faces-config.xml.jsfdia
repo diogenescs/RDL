@@ -10,12 +10,13 @@
    <PROCESS-ITEM-OUTPUT ID="editarLancamento::#lancamento_edit.xhtml"
     NAME="output2" PATH="/lancamento_edit.xhtml"
     TARGET="rules:#lancamento_edit.xhtml" TITLE="editarLancamento" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="editarSenhaUsuario::#senha_usuario_edit.xhtml" NAME="output3"
+    PATH="/senha_usuario_edit.xhtml"
+    TARGET="rules:#senha_usuario_edit.xhtml" TITLE="editarSenhaUsuario" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="editarContato::#contato_edit.xhtml"
-    NAME="output3" PATH="/contato_edit.xhtml"
+    NAME="output4" PATH="/contato_edit.xhtml"
     TARGET="rules:#contato_edit.xhtml" TITLE="editarContato" model-entity="JSFProcessItemOutput"/>
-   <PROCESS-ITEM-OUTPUT ID="editarProjeto::#projeto_edit.xhtml"
-    NAME="output4" PATH="/projeto_edit.xhtml"
-    TARGET="rules:#projeto_edit.xhtml" TITLE="editarProjeto" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT ID="editarFrequencia::#frequencia_edit.xhtml"
     NAME="output5" PATH="/frequencia_edit.xhtml"
     TARGET="rules:#frequencia_edit.xhtml" TITLE="editarFrequencia" model-entity="JSFProcessItemOutput"/>
@@ -39,10 +40,10 @@
     TARGET="rules:#notificacao_visualizacao.xhtml"
     TITLE="visualizarNotificacao" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="visualizarLancamento::#lancamento_visualizacao.xhtml"
-    NAME="output11" PATH="/lancamento_visualizacao.xhtml"
-    TARGET="rules:#lancamento_visualizacao.xhtml"
-    TITLE="visualizarLancamento" model-entity="JSFProcessItemOutput"/>
+    ID="visualizarSenha::#senha_usuario_visualizacao.xhtml"
+    NAME="output11" PATH="/senha_usuario_visualizacao.xhtml"
+    TARGET="rules:#senha_usuario_visualizacao.xhtml"
+    TITLE="visualizarSenha" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="visualizarUsuario::#usuario_visualizacao.xhtml" NAME="output12"
     PATH="/usuario_visualizacao.xhtml"
@@ -143,4 +144,8 @@
   PATH="/notificacao_edit.xhtml" SHAPE="304,817,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#notificacao_visualizacao.xhtml"
   PATH="/notificacao_visualizacao.xhtml" SHAPE="304,913,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#senha_usuario_edit.xhtml"
+  PATH="/senha_usuario_edit.xhtml" SHAPE="304,913,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#senha_usuario_visualizacao.xhtml"
+  PATH="/senha_usuario_visualizacao.xhtml" SHAPE="304,913,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

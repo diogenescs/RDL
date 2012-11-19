@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/template/template_default.xhtml">
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<ui:define name="corpo">
+		<h:form>
+			
+			<p:panel style="width : 750px">
+				<h:outputLabel style="font-weight: bold; font-size: 15pt; color:green" value="Alteração de senha" />
+				<p:separator />
+				<h:panelGrid columns="4">  
+
+					 <p:outputLabel value="Senha atual" for="textAtual" />
+					<p:inputText style="width : 50px;" value="#{usuarioMb.usuario.senha}" id="textAtual"
+						disabled="true" />
+						
+					
+					<p:commandButton id="btnEditar" value="Editar"
+						action="#{usuarioMb.editarSenha}" ajax="false" immediate="true"/>
+
+						 
+				</h:panelGrid>
+
+			</p:panel>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+</html>

@@ -18,6 +18,10 @@
 			<to-view-id>/lancamento_edit.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
+			<from-outcome>editarSenhaUsuario</from-outcome>
+			<to-view-id>/senha_usuario_edit.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
 			<from-outcome>editarContato</from-outcome>
 			<to-view-id>/contato_edit.xhtml</to-view-id>
 			<redirect />
@@ -53,6 +57,11 @@
 		<navigation-case>
 			<from-outcome>visualizarNotificacao</from-outcome>
 			<to-view-id>/notificacao_visualizacao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>visualizarSenha</from-outcome>
+			<to-view-id>/senha_usuario_visualizacao.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		<navigation-case>
