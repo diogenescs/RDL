@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 
-<ui:composition template="/template/template_basico.xhtml">
+<ui:composition template="/template/template_default.xhtml">
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo"> 
 	<p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>  
@@ -31,25 +31,31 @@
 			
 			<br></br>
 			<p:separator />
-			<h:outputLabel align="center" style="font-weight: bold; font-size: 15pt; color:green" value="Pergunta de segurança" />
+			<h:outputLabel align="center" style="font-weight: bold; font-size: 15pt; color:green" value="Adicionar usuario" />
 			
 				<p:separator />
  
 				<p:dataTable id="dataTable" var="usuario"
 					emptyMessage="Nenhum registro encontrado"
-					value="#{usuarioMb.convidado}"  align="center">
+					value="#{usuarioMb.usuario}"  align="center">
 
 					<p:column align="center" width="60" >
 						<f:facet name="header">
-							<h:outputLabel value="Pergunta" />
+							<h:outputLabel value="Nome" />
 						</f:facet>
-						<h:outputLabel  value="#{usuario.pergunta}" />
+						<h:outputLabel  value="#{usuario.nome}" />
 					</p:column>
 					<p:column align="center" width="60" >
 						<f:facet name="header">
-							<h:outputLabel value="Resposta" />
+							<h:outputLabel value="Email" />
 						</f:facet>
-						<h:inputText style="width : 250px;"  value="#{usuarioMb.resposta}" />
+						<h:outputLabel style="width : 250px;"  value="#{usuario.email}" />
+					</p:column>
+					<p:column align="center" width="60">
+						<f:facet name="header">
+							<h:outputLabel value="Adicionar" />
+						</f:facet>
+						<p:selectBooleanCheckbox id="btnVisualizar" value="#{usuario.email}" />
 					</p:column>
 
 				</p:dataTable>

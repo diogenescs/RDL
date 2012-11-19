@@ -24,6 +24,7 @@ public class UsuarioMb {
 	private String email;
 	private String resposta;
 	private String senha;
+	private Usuario convidado;
 	
 	public UsuarioMb(){
 		this.usuario = new Usuario();
@@ -79,6 +80,16 @@ public class UsuarioMb {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	
+	public Usuario getConvidado() {
+		return convidado;
+	}
+
+
+	public void setConvidado(Usuario convidado) {
+		this.convidado = convidado;
 	}
 
 
@@ -188,7 +199,22 @@ public class UsuarioMb {
 	        FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Informe o email.", null));
 	    }else{
 		    try {
-		        this.usuario = bo.BuscarUsuario(email);
+		        this.convidado = bo.BuscarUsuario(this.email);
+		    } catch (BoException ex) {
+		        FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), null));
+		        ex.printStackTrace();
+		    }
+	    }  
+	       
+	}
+	
+	public void adicionarUsuario(ActionEvent e){
+	    
+	    if(this.email == null){
+	        FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Informe o email.", null));
+	    }else{
+		    try {
+		        this.usuario = bo.BuscarUsuario(this.email);
 		    } catch (BoException ex) {
 		        FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), null));
 		        ex.printStackTrace();
