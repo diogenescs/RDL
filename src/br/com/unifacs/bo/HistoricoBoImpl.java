@@ -5,6 +5,7 @@ import java.util.List;
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.HistoricoDao;
 import br.com.unifacs.model.Historico;
+import br.com.unifacs.model.Projeto;
 
 public class HistoricoBoImpl implements HistoricoBo {
 	
@@ -60,6 +61,16 @@ public class HistoricoBoImpl implements HistoricoBo {
 	public List<Historico> obterTodos() {
 		return dao.obterTodos();
 	}
+	
+	public List<Historico> obterTodos(Projeto p) {
+		try {
+			return dao.query("SELECT h FROM Historico h WHERE h.lancamento.usuarioProjeto.projeto = ?1", p);
+		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}	
 
 	public Historico obter(Integer id) {
 		return dao.obter(id);

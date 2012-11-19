@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import br.com.unifacs.bo.HistoricoBo;
 import br.com.unifacs.bo.HistoricoBoImpl;
 import br.com.unifacs.model.Historico;
+import br.com.unifacs.utils.RdlUtils;
 
 @ManagedBean(name="historicoMb")
 @ViewScoped
@@ -23,7 +24,7 @@ public class HistoricoMb {
 	public HistoricoMb() {
 		this.historico = new Historico();
 		this.bo = new HistoricoBoImpl();
-		this.setHistoricos(this.bo.obterTodos()); 
+		this.setHistoricos(this.bo.obterTodos(RdlUtils.getProjetoAtual())); 
 	}
 
 	
