@@ -3,16 +3,30 @@ package br.com.unifacs.bo;
 import java.util.List;
 
 import br.com.unifacs.dao.DaoException;
+import br.com.unifacs.dao.NotificacaoDao;
 import br.com.unifacs.dao.UsuarioDao;
+import br.com.unifacs.model.Notificacao;
 import br.com.unifacs.model.Usuario;
 
 public class UsuarioBoImpl implements UsuarioBo{
 	
 	UsuarioDao dao = new UsuarioDao();
+	NotificacaoDao notDao = new NotificacaoDao();
 
 	public void salvar(Usuario usuario) throws BoException {
 		if(usuario.getId() == 0 ){
 			inserir(usuario);
+			Notificacao not = new Notificacao();
+			not.setNumDiasAntes(1);
+			try {
+				notDao.inserir(not);
+				usuario.setNotificacao(not);
+				salvar(usuario);
+			} catch (DaoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}else{
 			atualizar(usuario);
 		}

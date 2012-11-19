@@ -26,13 +26,25 @@
     ID="editarFormaDePgto::#forma_de_pgto_edit.xhtml" NAME="output7"
     PATH="/forma_de_pgto_edit.xhtml"
     TARGET="rules:#forma_de_pgto_edit.xhtml" TITLE="editarFormaDePgto" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="editarNotificacao::#notificacao_edit.xhtml"
+    NAME="output8" PATH="/notificacao_edit.xhtml"
+    TARGET="rules:#notificacao_edit.xhtml" TITLE="editarNotificacao" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="visualizarContato::#contato_visualizacao.xhtml" NAME="output9"
+    PATH="/contato_visualizacao.xhtml"
+    TARGET="rules:#contato_visualizacao.xhtml" TITLE="visualizarContato" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="visualizarNotificacao::#notificacao_visualizacao.xhtml"
+    NAME="output10" PATH="/notificacao_visualizacao.xhtml"
+    TARGET="rules:#notificacao_visualizacao.xhtml"
+    TITLE="visualizarNotificacao" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="visualizarLancamento::#lancamento_visualizacao.xhtml"
-    NAME="output8" PATH="/lancamento_visualizacao.xhtml"
+    NAME="output11" PATH="/lancamento_visualizacao.xhtml"
     TARGET="rules:#lancamento_visualizacao.xhtml"
     TITLE="visualizarLancamento" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
-    ID="visualizarUsuario::#usuario_visualizacao.xhtml" NAME="output9"
+    ID="visualizarUsuario::#usuario_visualizacao.xhtml" NAME="output12"
     PATH="/usuario_visualizacao.xhtml"
     TARGET="rules:#usuario_visualizacao.xhtml" TITLE="visualizarUsuario" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
@@ -127,4 +139,8 @@
   PATH="/usuario_edit.xhtml" SHAPE="304,753,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#grafico.xhtml" PATH="/grafico.xhtml"
   SHAPE="304,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#notificacao_edit.xhtml"
+  PATH="/notificacao_edit.xhtml" SHAPE="304,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#notificacao_visualizacao.xhtml"
+  PATH="/notificacao_visualizacao.xhtml" SHAPE="304,913,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

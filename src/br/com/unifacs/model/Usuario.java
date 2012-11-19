@@ -32,7 +32,7 @@ public class Usuario implements Serializable {
 
 	//bi-directional many-to-one association to Notificacao
 	@ManyToOne
-	@JoinColumn(name="idnotificacao")
+	@JoinColumn(name="idNotificacao")
 	private Notificacao notificacao;
 
 	public Usuario() {

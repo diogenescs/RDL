@@ -41,8 +41,18 @@
 			<redirect />
 		</navigation-case>
 		<navigation-case>
+			<from-outcome>editarNotificacao</from-outcome>
+			<to-view-id>/notificacao_edit.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
 			<from-outcome>visualizarContato</from-outcome>
 			<to-view-id>/contato_visualizacao.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>visualizarNotificacao</from-outcome>
+			<to-view-id>/notificacao_visualizacao.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		<navigation-case>
