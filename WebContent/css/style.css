@@ -83,3 +83,7 @@ div#footer {
 .despesa{
 	color: red;
 }
+
+.total{
+	font-weight: bold;
+}

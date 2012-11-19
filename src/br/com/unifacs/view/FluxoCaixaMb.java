@@ -57,22 +57,25 @@ public class FluxoCaixaMb implements Serializable{
 		Object[] total = new Object[12];
 		
 		for(int i = 0; i < 12;i++)
-			total[i] = (Number)(((Number)receitas[i]).longValue() - ((Number)despesas[i]).longValue());	
+			total[i] = (((Number)receitas[i]).longValue() - ((Number)despesas[i]).longValue());	
 		
 		
 		List<Object> l = Arrays.asList(receitas);
 		ArrayList<Object> l1 = new ArrayList<Object>(l);
 		l1.add("Receitas");
+		l1.add("receita");
 		receitas = l1.toArray();	
 		
 		l = Arrays.asList(despesas);
 		l1 = new ArrayList<Object>(l);
 		l1.add("Despesas");
+		l1.add("despesa");
 		despesas = l1.toArray();		
 		
 		l = Arrays.asList(total);
 		l1 = new ArrayList<Object>(l);
 		l1.add("Total");
+		l1.add("total");
 		total = l1.toArray();	
 		
 		tabela[0] = receitas;

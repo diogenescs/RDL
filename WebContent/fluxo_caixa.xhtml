@@ -46,7 +46,7 @@
 			<br></br>
 			<p:separator />
 			
-			<p:dataTable id="tabela" value="#{fluxoCaixa.tabela}" var="t">
+			<p:dataTable id="tabela" value="#{fluxoCaixa.tabela}" var="t" rowStyleClass="#{t[13]}">
 				<p:column headerText="Tipo">
 						<h:outputText value="#{t[12]}"/>		
 				</p:column>				
