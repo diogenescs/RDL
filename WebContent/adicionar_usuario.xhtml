@@ -16,7 +16,7 @@
     	<p:graphicImage value="/images/ajax-loader.gif" />  
 	</p:dialog>   	
 		<br></br>
-		<h:form  style="width : 50%; margin-left: 20px; margin-top:60 px;" >
+		<h:form  style="width : 60%; margin-left: 10px; margin-top:60 px;" >
 			<p:messages showDetail="false" autoUpdate="true"
 					closable="true"/>
 			<h:panelGrid columns="5">
@@ -50,6 +50,17 @@
 							<h:outputLabel value="Email" />
 						</f:facet>
 						<h:outputLabel style="width : 250px;"  value="#{usuario.email}" />
+					</p:column>
+					<p:column align="center" width="150" >
+					<f:facet name="header">
+							<h:outputLabel value="Projeto" />
+					</f:facet>
+					<p:selectOneMenu value="#{projetoMb.idProjetoAtual}"
+						id="textProjet" style="width:250px" required="true" requiredMessage="Nenhum projeto selecionado.">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItems value="#{projetoMb.projetosUsuarioAtual}" var="projeto"
+							itemLabel="#{projeto.descricao}" itemValue="#{projeto.id}" />
+					</p:selectOneMenu>
 					</p:column>
 					<p:column align="center" width="60">
 						<f:facet name="header">
