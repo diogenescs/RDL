@@ -11,6 +11,7 @@
 		<class>br.com.unifacs.model.Usuario</class>
 		<class>br.com.unifacs.model.UsuarioProjeto</class>
 		<class>br.com.unifacs.model.Historico</class>
+		<class>br.com.unifacs.model.Notificacao</class>
 		
 		<properties>
 			<property name="hibernate.connection.username" value="root"/>

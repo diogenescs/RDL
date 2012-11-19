@@ -2,7 +2,6 @@ package br.com.unifacs.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.Set;
 
 
 /**
@@ -19,24 +18,28 @@ public class Usuario implements Serializable {
 
 	private String email;
 
+	@Column(name="id_notificacao")
+	private int idNotificacao;
+
 	private String login;
 
 	private String nome;
 
+	private String pergunta;
+
+	private String resposta;
+
 	private String senha;
 
 	private String telMovel;
-	
-	private String pergunta;
-	
-	private String resposta;
 
-	//bi-directional many-to-one association to UsuarioProjeto
-	@OneToMany(mappedBy="usuario")
-	private Set<UsuarioProjeto> usuarioProjetos;
+	//bi-directional many-to-one association to Notificacao
+	@ManyToOne
+	@JoinColumn(name="idnotificacao")
+	private Notificacao notificacao;
 
-    public Usuario() {
-    }
+	public Usuario() {
+	}
 
 	public int getId() {
 		return this.id;
@@ -52,6 +55,14 @@ public class Usuario implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public int getIdNotificacao() {
+		return this.idNotificacao;
+	}
+
+	public void setIdNotificacao(int idNotificacao) {
+		this.idNotificacao = idNotificacao;
 	}
 
 	public String getLogin() {
@@ -70,6 +81,22 @@ public class Usuario implements Serializable {
 		this.nome = nome;
 	}
 
+	public String getPergunta() {
+		return this.pergunta;
+	}
+
+	public void setPergunta(String pergunta) {
+		this.pergunta = pergunta;
+	}
+
+	public String getResposta() {
+		return this.resposta;
+	}
+
+	public void setResposta(String resposta) {
+		this.resposta = resposta;
+	}
+
 	public String getSenha() {
 		return this.senha;
 	}
@@ -86,30 +113,12 @@ public class Usuario implements Serializable {
 		this.telMovel = telMovel;
 	}
 
-	public Set<UsuarioProjeto> getUsuarioProjetos() {
-		return this.usuarioProjetos;
+	public Notificacao getNotificacao() {
+		return this.notificacao;
 	}
 
-	public void setUsuarioProjetos(Set<UsuarioProjeto> usuarioProjetos) {
-		this.usuarioProjetos = usuarioProjetos;
+	public void setNotificacao(Notificacao notificacao) {
+		this.notificacao = notificacao;
 	}
 
-	public String getPergunta() {
-		return pergunta;
-	}
-
-	public void setPergunta(String pergunta) {
-		this.pergunta = pergunta;
-	}
-
-	public String getResposta() {
-		return resposta;
-	}
-
-	public void setResposta(String resposta) {
-		this.resposta = resposta;
-	}
-	
-	
-	
 }
