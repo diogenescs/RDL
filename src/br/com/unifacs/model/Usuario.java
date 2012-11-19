@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 
-/***
+/**
  * The persistent class for the usuario database table.
  * 
  */
@@ -17,9 +17,6 @@ public class Usuario implements Serializable {
 	private int id;
 
 	private String email;
-
-	@Column(name="id_notificacao")
-	private int idNotificacao;
 
 	private String login;
 
@@ -55,14 +52,6 @@ public class Usuario implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public int getIdNotificacao() {
-		return this.idNotificacao;
-	}
-
-	public void setIdNotificacao(int idNotificacao) {
-		this.idNotificacao = idNotificacao;
 	}
 
 	public String getLogin() {
