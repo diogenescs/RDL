@@ -8,6 +8,9 @@ import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.HistoricoDao;
 import br.com.unifacs.dao.LancamentoDao;
 import br.com.unifacs.model.Lancamento;
+import br.com.unifacs.model.Projeto;
+import br.com.unifacs.model.Usuario;
+import br.com.unifacs.model.UsuarioProjeto;
 
 public class LancamentoBoImpl implements LancamentoBo,Serializable {
 	
@@ -64,6 +67,18 @@ public class LancamentoBoImpl implements LancamentoBo,Serializable {
 	
 	public List<Lancamento> obterTodos() {
 		return dao.obterTodos();
+	}
+	
+	public List<Lancamento> obterTodos(Usuario u, Projeto p){
+		UsuarioProjeto up = new  UsuarioProjetoBoImpl().obterUsuarioProjeto(u, p);
+		try {
+			return dao.query("SELECT p FROM Lancamento p WHERE p.usuarioProjeto = ?1", up);
+		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 

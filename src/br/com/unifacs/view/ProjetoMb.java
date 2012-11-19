@@ -3,11 +3,13 @@ package br.com.unifacs.view;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
+import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext; 
+import javax.faces.el.ValueBinding;
 
 import org.hibernate.exception.ConstraintViolationException;
 
@@ -133,6 +135,15 @@ public class ProjetoMb {
 	public void setIdProjetoAtual(int idProjetoAtual) {
 		this.idProjetoAtual = idProjetoAtual;
 		this.setProjetoAtual(new ProjetoBoImpl().obter(idProjetoAtual));
+		FacesContext ctx = FacesContext.getCurrentInstance();
+		Application app = ctx.getApplication();
+		ValueBinding bind = app.createValueBinding("#{lancamentoMb}");
+		LancamentoMb bean = (LancamentoMb) bind.getValue(ctx);
+		bean.atualizar(null);		
+	}
+	
+	public String escolherProjeto(){
+		return "grafico";
 	}
 	
 	

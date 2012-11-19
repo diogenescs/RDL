@@ -11,5 +11,6 @@ public interface UsuarioProjetoBo {
 	void excluir(UsuarioProjeto usuarioProjeto) throws BoException;
 	UsuarioProjeto obter(Integer id);
 	List<UsuarioProjeto> obterTodos();
+	UsuarioProjeto obterUsuarioProjeto(Usuario u, Projeto p);
 	List<Projeto> obterTodos(Usuario u);
 }

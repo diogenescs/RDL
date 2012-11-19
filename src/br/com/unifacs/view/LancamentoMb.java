@@ -41,12 +41,12 @@ public class LancamentoMb {
 	public LancamentoMb(){
 		bo = new LancamentoBoImpl();
 		setLancamento(new Lancamento());
-		this.setLancamentos(this.bo.obterTodos());
+		this.setLancamentos(this.bo.obterTodos(RdlUtils.getUsuarioLogado(),RdlUtils.getProjetoAtual()));
 		historicoBo = new HistoricoBoImpl();
 	}
 	
 	public void atualizar(ActionEvent actionEvent){
-		this.setLancamentos(this.bo.obterTodos()); 	
+		this.setLancamentos(this.bo.obterTodos(RdlUtils.getUsuarioLogado(),RdlUtils.getProjetoAtual())); 	
 	}
 	
 	public String visualizar(){ 
@@ -54,6 +54,7 @@ public class LancamentoMb {
 			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um lancamento", null));
 			return null;
 		}else{
+			this.atualizar(null);
 			return "visualizarLancamento";
 		}
 	} 
@@ -133,7 +134,7 @@ public class LancamentoMb {
 	
 	public String salvar(){
 		try {
-			UsuarioProjeto e = new UsuarioProjetoBoImpl().obter(2);
+			UsuarioProjeto e = new UsuarioProjetoBoImpl().obterUsuarioProjeto(RdlUtils.getUsuarioLogado(),RdlUtils.getProjetoAtual());
 			this.lancamento.setUsuarioProjeto(e);
 			this.lancamento.setContato(new ContatoBoImpl().obter(this.lancamento.getContato().getId()));
 			this.lancamento.setCategoria(new CategoriaBoImpl().obter(this.lancamento.getCategoria().getId()));
