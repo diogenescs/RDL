@@ -18,9 +18,11 @@ import br.com.unifacs.bo.CategoriaBo;
 import br.com.unifacs.bo.CategoriaBoImpl;
 import br.com.unifacs.bo.ProjetoBo;
 import br.com.unifacs.bo.ProjetoBoImpl;
+import br.com.unifacs.bo.UsuarioProjetoBoImpl;
 import br.com.unifacs.model.Categoria;
 import br.com.unifacs.model.Projeto;
 import br.com.unifacs.model.Usuario;
+import br.com.unifacs.model.UsuarioProjeto;
 import br.com.unifacs.utils.RdlUtils;
 @ManagedBean(name="projetoMb")
 @SessionScoped
@@ -34,11 +36,13 @@ public class ProjetoMb {
 	public ProjetoMb() {
 		this.projeto = new Projeto();
 		this.bo = new ProjetoBoImpl();
-		this.setProjetos(this.bo.obterTodos()); 
+		this.setProjetos(RdlUtils.getListaProjeto()); 
 	}
 	
 	public void atualizar(ActionEvent actionEvent){
-		this.setProjetos(this.bo.obterTodos()); 	
+		List<Projeto> projetos = new UsuarioProjetoBoImpl().obterTodos(RdlUtils.getUsuarioLogado());
+		RdlUtils.setListaProjeto(projetos);		
+		this.setProjetos(RdlUtils.getListaProjeto()); 	
 	}
 	
 	public String novo(){
@@ -74,7 +78,26 @@ public class ProjetoMb {
 	
 	public String salvar(){
 		try {
+			
+			boolean novo = true;
+			if(projeto.getId() != 0){
+				novo = false;
+				if(projeto.getOwner().getId() != RdlUtils.getUsuarioLogado().getId()){
+					FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Você não tem permissão para alterar esse projeto.", ""));
+					return null;
+				}
+			}
+			
+			projeto.setOwner(RdlUtils.getUsuarioLogado());
+			
 			bo.salvar(projeto);
+			if(novo){
+				UsuarioProjeto u = new UsuarioProjeto();
+				u.setBlock("N");
+				u.setProjeto(projeto);
+				u.setUsuario(RdlUtils.getUsuarioLogado());
+				new UsuarioProjetoBoImpl().salvar(u);
+			}
 			FacesContext.getCurrentInstance().addMessage("Atenção",  new FacesMessage(FacesMessage.SEVERITY_INFO, "Operação realizada com sucesso!", ""));
 			atualizar(null);
 		} catch (BoException e) {
