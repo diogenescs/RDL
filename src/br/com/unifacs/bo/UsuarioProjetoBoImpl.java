@@ -68,9 +68,13 @@ public class UsuarioProjetoBoImpl implements UsuarioProjetoBo {
 	}
 	
 	public UsuarioProjeto obterUsuarioProjeto(Usuario u, Projeto p) {
+		if(u==null || p == null)
+			return null;
 		UsuarioProjeto a = null;
 		try {
-			a = dao.query("SELECT up FROM UsuarioProjeto up WHERE up.usuario = ?1 AND up.projeto = ?2", u,p).get(0);
+			List<UsuarioProjeto> l = dao.query("SELECT up FROM UsuarioProjeto up WHERE up.usuario = ?1 AND up.projeto = ?2", u,p);
+			if(l!=null)
+				a = l.get(0);
 		} catch (DaoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

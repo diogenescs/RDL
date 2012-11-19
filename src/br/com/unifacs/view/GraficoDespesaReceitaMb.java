@@ -25,6 +25,7 @@ import org.primefaces.model.chart.ChartSeries;
 import br.com.unifacs.dao.CustomQueryDao;
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.utils.HttpJSFUtil;
+import br.com.unifacs.utils.RdlUtils;
 
 @ManagedBean(name="graficoMb")
 @ViewScoped
@@ -41,6 +42,11 @@ public class GraficoDespesaReceitaMb implements Serializable {
 	public void criarGrafico(ActionEvent event){
 		
 		categoryModel = new CartesianChartModel();
+		if(RdlUtils.getProjetoAtual() == null){
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um projeto", null));
+			return;
+		}			
+	
 		
 		ChartSeries receita = new ChartSeries();
 		receita.setLabel("Receitas");

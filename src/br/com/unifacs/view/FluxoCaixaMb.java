@@ -6,12 +6,15 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import br.com.unifacs.dao.CustomQueryDao;
 import br.com.unifacs.dao.DaoException;
+import br.com.unifacs.utils.RdlUtils;
 
 @SessionScoped
 @ManagedBean(name="fluxoCaixa")
@@ -25,6 +28,12 @@ public class FluxoCaixaMb implements Serializable{
 	}
 	
 	public void criarTabela(ActionEvent event){
+		
+		if(RdlUtils.getProjetoAtual() == null){
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um projeto", null));
+			return;
+		}			
+		
 		Object[] receitas = null;
 		Object[] despesas = null;
 		

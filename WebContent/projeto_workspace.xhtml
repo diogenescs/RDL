@@ -18,7 +18,7 @@
 
 					<p:outputLabel value="Descrição " for="textProjet" />
 					<p:selectOneMenu value="#{projetoMb.idProjetoAtual}"
-						id="textProjet" style="width:200px" immediate="true">
+						id="textProjet" style="width:200px" required="true" requiredMessage="Nenhum projeto selecionado.">
 						<f:selectItem itemLabel="Selecione" itemValue="" />
 						<f:selectItems value="#{projetoMb.projetosUsuarioAtual}" var="projeto"
 							itemLabel="#{projeto.descricao}" itemValue="#{projeto.id}" />

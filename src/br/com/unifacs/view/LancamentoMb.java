@@ -50,6 +50,10 @@ public class LancamentoMb {
 	}
 	
 	public String visualizar(){ 
+		if(RdlUtils.getProjetoAtual() == null){
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um projeto", null));
+			return null;
+		}		
 		if(this.lancamento == null){
 			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um lancamento", null));
 			return null;
@@ -75,6 +79,10 @@ public class LancamentoMb {
 		this.lancamento = lancamento;
 	}
 	public String novo(){
+		if(RdlUtils.getProjetoAtual() == null){
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um projeto", null));
+			return null;
+		}
 		this.lancamento = new Lancamento();
 		atualizar(null);
 		LancamentoMb.TIPO_OP = "Inserção";
@@ -90,7 +98,7 @@ public class LancamentoMb {
 			this.lancamento.setContato(new Contato());		
 		
 		if(this.lancamento == null){
-			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione uma lançamento", null));
+			FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Selecione um lançamento", null));
 			return null;
 		}else{
 			LancamentoMb.TIPO_OP = "Edição";
