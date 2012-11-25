@@ -37,10 +37,7 @@ public class LoginFilter implements Filter {
 
 		String pageRequest = req.getRequestURL().toString();
 		
-		if(!RdlUtils.isUsuarioLogado() && !pageRequest.contains("login.jsf")){
-			resp.sendRedirect("login.jsf");
-		}
-		else if (RdlUtils.isUsuarioLogado() && pageRequest.contains("login.jsf")){
+		 if (RdlUtils.isUsuarioLogado() && pageRequest.contains("login.jsf")){
 			resp.sendRedirect("produto_workspace.jsf");
 		}
 		else{

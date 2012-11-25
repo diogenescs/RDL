@@ -6,6 +6,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import br.com.unifacs.bo.BoException;
 import br.com.unifacs.bo.UsuarioBo;
@@ -51,8 +52,9 @@ public class LoginMb {
 	}
 	
 	public String logout(){
-		//if (RdlUtils.getUsuarioLogado() != null)
-			RdlUtils.logout();
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.getExternalContext().getSessionMap().remove("usuarioAtual");
+		RdlUtils.logout();
 		return "novoLogin";
 		
 	}
