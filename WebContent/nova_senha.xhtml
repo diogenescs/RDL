@@ -6,6 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 
+
 <ui:composition template="/template/template_basico.xhtml">
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo"> 
@@ -16,12 +17,12 @@
     	<p:graphicImage value="/images/ajax-loader.gif" />  
 	</p:dialog>   	
 		<br></br>
-		<h:form  style="width : 50%; margin-left: 20px; margin-top:60 px;" >
+		<h:form  style="width : 60%; margin-left: 20px; margin-top:60 px;" >
 			<p:messages showDetail="false" autoUpdate="true"
 					closable="true"/>
-			<h:panelGrid columns="5">
+			<h:panelGrid columns="10">
 				<h:outputLabel value="Email" for="email"/>
-				<p:inputText id="email" value="#{usuarioMb.email}" required="true" requiredMessage="Email é campo obrigatório"/>
+				<p:inputText style="width : 200px;" id="email" value="#{usuarioMb.email}" required="true" requiredMessage="Email é campo obrigatório"/>
 				
 				<p:commandButton value="Buscar" actionListener="#{usuarioMb.buscarUsuario}" update="dataTable">
 					<f:ajax render="dataTable" /> 
@@ -34,28 +35,54 @@
 			<h:outputLabel align="center" style="font-weight: bold; font-size: 15pt; color:green" value="Pergunta de segurança" />
 			
 				<p:separator />
+				
  
 				<p:dataTable id="dataTable" var="usuario"
 					emptyMessage="Nenhum registro encontrado"
 					value="#{usuarioMb.convidado}"  align="center">
 
-					<p:column align="center" width="60" >
+					<p:column align="center" width="300" >
 						<f:facet name="header">
 							<h:outputLabel value="Pergunta" />
 						</f:facet>
-						<h:outputLabel  value="#{usuario.pergunta}" />
+						<h:outputLabel style="width : 150px;" value="#{usuario.pergunta}" />
 					</p:column>
-					<p:column align="center" width="60" >
+					<p:column align="center" width="300" >
 						<f:facet name="header">
 							<h:outputLabel value="Resposta" />
 						</f:facet>
-						<h:inputText style="width : 250px;"  value="#{usuarioMb.resposta}" />
+						<h:inputText style="width : 300px;"  value="#{usuarioMb.respSeguranca}" />
 					</p:column>
-
 				</p:dataTable>
 				<br />
 			
+		<p:commandButton id="btnGerarSenha" value="Gerar senha"
+						 ajax="false" immediate="true" actionListener="#{usuarioMb.verificarRespostaSeguranca}" update="dataTable2">
+						 <f:ajax render="dataTable2" /> 
+						 </p:commandButton>
+		<p:commandButton id="btnLogin" value="Sair"
+						action="/login.xhtml"  ajax="false" immediate="true"/>					 	
+						 
+		<br></br>
+			<p:separator /> 
+				
+				<p:dataTable id="dataTable2" var="usuario"
+					
+					value="#{usuarioMb.convidado}"  align="center" visible="#{usuarioMb.respostaCerta}">
+
+					<p:column align="center" width="300" >
+						<f:facet name="header">
+							<h:outputLabel value="Nova senha" />
+						</f:facet>
+						<h:outputLabel style="width : 150px;" value="123098" />
+					</p:column>
+
+				</p:dataTable>
+		<p:commandButton id="btnInserir" value="Salvar"
+						action="#{usuarioMb.salvarNovaSenha}" ajax="false" />				 				
 		</h:form>
+		
+		
 		
 
 	</ui:define>

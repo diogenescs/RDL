@@ -26,6 +26,8 @@ public class UsuarioMb {
 	private String resposta;
 	private String senha;
 	private Usuario convidado;
+	private String respSeguranca;
+	private Boolean respostaCerta = false;
 	
 	public UsuarioMb(){
 		this.usuario = new Usuario();
@@ -91,6 +93,30 @@ public class UsuarioMb {
 
 	public void setConvidado(Usuario convidado) {
 		this.convidado = convidado;
+	}
+	
+	
+
+
+	public String getRespSeguranca() {
+		return respSeguranca;
+	}
+
+
+	public void setRespSeguranca(String respSeguranca) {
+		this.respSeguranca = respSeguranca;
+	}
+	
+	
+
+
+	public Boolean getRespostaCerta() {
+		return respostaCerta;
+	}
+
+
+	public void setRespostaCerta(Boolean respostaCerta) {
+		this.respostaCerta = respostaCerta;
 	}
 
 
@@ -212,6 +238,8 @@ public class UsuarioMb {
 	       
 	}
 	
+	
+	
 	public void adicionarUsuario(ActionEvent e){
 	    
 	    if(this.email == null){
@@ -223,6 +251,21 @@ public class UsuarioMb {
 		        FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), null));
 		        ex.printStackTrace();
 		    }
+	    }  
+	       
+	}
+	
+	public void verificarRespostaSeguranca(ActionEvent e){
+	    
+	    if(this.respSeguranca == null){
+	        FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Informe a resposta de seguranca.", null));
+	        respostaCerta = false;
+	    }else if(!(this.respSeguranca.equalsIgnoreCase(this.usuario.getResposta()))){
+	    	 FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Resposta de seguranca incorreta!", null));
+	    	 respostaCerta = false;
+		}else{
+			 respostaCerta = true;
+		    
 	    }  
 	       
 	}
