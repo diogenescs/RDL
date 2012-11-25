@@ -5,6 +5,11 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
+	<style type="text/css">  
+    .ui-widget {  
+        font-size: 12px !important;  
+    }  
+</style>
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<link type="text/css" rel="stylesheet" href="css/style.css" />	
 	<script type="text/javascript">
@@ -23,17 +28,18 @@
 	<h:form style="width:40%; background-color:white; color: green;  margin-left:30%; margin-top:15%; height: 100%;">
 	<h:outputLabel style="font-weight: bold; font-size: 15pt; color:green; margin-left:35%; " value="RDL Contas - Organizando sua vida" />
 	<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" globalOnly="false"/> 
-	<p:fieldset legend="Login" style="font-size:150%; border-width: medium; border-color: green ; ">
+	<p:fieldset style="font-size:150%; border-width: medium; border-color: green ; ">
 		<p:panelGrid columns="2" style="font-size:80%;">
 			<p:outputLabel style="font-size:80%;" for="txtLogin" value="Usuario"/>
 			<p:inputText id="txtLogin" value="#{loginMb.login}"/>
 			<p:outputLabel style="font-size:80%;" for="txtSenha" value="Senha" />
 			<p:password  id="txtSenha" value="#{loginMb.senha}"/>
 		</p:panelGrid>
-		<p:commandButton action="#{loginMb.login}" value="Logar"/>	
-		<p:commandButton action="#{usuarioMb.novo}" value="Novo usuario"/>	
+		<br/>
+		<p:commandButton action="#{loginMb.login}" value="Logar" style="background-color: green;color: white"/>	
+		<p:commandButton action="#{usuarioMb.novo}" value="Novo usuario" style="background-color: green; float: right; color: white"/>	
 	
-		 <p:commandButton  action="/nova_senha.xhtml" value="Esqueceu a senha?"/>	 	
+		 <p:commandButton action="/nova_senha.xhtml" value="Esqueceu a senha?" style="background-color: green; float: right;color: white"/>	 	
 	</p:fieldset>
 	</h:form>
 
