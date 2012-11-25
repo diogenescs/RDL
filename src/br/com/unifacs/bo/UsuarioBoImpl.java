@@ -2,10 +2,14 @@ package br.com.unifacs.bo;
 
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.NotificacaoDao;
 import br.com.unifacs.dao.UsuarioDao;
 import br.com.unifacs.model.Notificacao;
+import br.com.unifacs.model.Projeto;
 import br.com.unifacs.model.Usuario;
 
 public class UsuarioBoImpl implements UsuarioBo{
@@ -94,4 +98,16 @@ public class UsuarioBoImpl implements UsuarioBo{
 			throw new BoException(e, "Erro ao Logar");
 		}
 	}
+
+	public Usuario obterUsuaorioNaoPermitido(Projeto p, String email) {
+		try {
+			Usuario a = dao.query("SELECT up FROM Usuario up WHERE up.email = ?1 AND up NOT IN (SELECT pp.usuario FROM UsuarioProjeto pp WHERE pp.projeto = ?2)", email,p).get(0);
+			return a;
+		} catch (DaoException e) {
+			FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro ao salvar", e.getMessage()));
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 }

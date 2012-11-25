@@ -7,6 +7,7 @@ import org.hibernate.exception.ConstraintViolationException;
 import br.com.unifacs.dao.DaoException;
 import br.com.unifacs.dao.ProjetoDao;
 import br.com.unifacs.model.Projeto;
+import br.com.unifacs.model.Usuario;
 
 public class ProjetoBoImpl implements ProjetoBo {
 
@@ -62,6 +63,15 @@ public class ProjetoBoImpl implements ProjetoBo {
 
 	public Projeto obter(Integer id) {
 		return dao.obter(id);
+	}
+
+	public List<Projeto> obterTodos(Usuario u) {
+		try {
+			return dao.query("SELECT p FROM Projeto p WHERE p.owner = ?1",u);
+		} catch (DaoException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

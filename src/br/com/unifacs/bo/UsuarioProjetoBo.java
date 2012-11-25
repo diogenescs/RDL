@@ -13,4 +13,5 @@ public interface UsuarioProjetoBo {
 	List<UsuarioProjeto> obterTodos();
 	UsuarioProjeto obterUsuarioProjeto(Usuario u, Projeto p);
 	List<Projeto> obterTodos(Usuario u);
+	List<UsuarioProjeto> obterTodosPorUsuario(Usuario u);
 }
