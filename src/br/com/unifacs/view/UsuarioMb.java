@@ -270,5 +270,30 @@ public class UsuarioMb {
 	       
 	}
 	
+	public String redefinirSenha(){
+		if(this.convidado.getResposta().equals(this.resposta)){
+			if(this.senha == null || this.senha.equals("")){
+				FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Forneça a nova senha", null));
+				return null;	
+			}
+			
+			this.convidado.setSenha(this.senha);
+			try{
+				bo.salvar(this.convidado);
+				this.email = null;
+				this.senha = null;
+				this.resposta = null;
+				return "novoLogin";
+			}
+			catch(BoException ex){
+		        FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), null));
+		        ex.printStackTrace();
+		        return null;
+			}
+		}
+		FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, "Reposta Errada.", null));
+		return null;
+	}	
+	
 	
 }
