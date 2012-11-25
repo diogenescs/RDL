@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import br.com.unifacs.bo.BoException;
 import br.com.unifacs.bo.UsuarioBoImpl;
 import br.com.unifacs.bo.UsuarioBo;
+import br.com.unifacs.model.Contato;
 import br.com.unifacs.model.Usuario;
 import br.com.unifacs.utils.RdlUtils;
 
@@ -118,6 +119,10 @@ public class UsuarioMb {
 	public String novo(){
 		this.usuario = new Usuario();
 		return "editarUsuario";
+	}
+	
+	public void insert(ActionEvent actionEvent){
+		this.usuario = new Usuario();
 	}
 	
 	public String editar(){ 
