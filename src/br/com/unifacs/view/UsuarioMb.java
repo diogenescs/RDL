@@ -230,6 +230,8 @@ public class UsuarioMb {
 	    }else{
 		    try {
 		        this.convidado = bo.BuscarUsuario(this.email);
+		        if (this.convidado == null)
+		        	FacesContext.getCurrentInstance().addMessage("Atenção", new FacesMessage(FacesMessage.SEVERITY_WARN,"Nenhum usuário foi encontrado.", null));
 		    } catch (BoException ex) {
 		        FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR, ex.getMessage(), null));
 		        ex.printStackTrace();
@@ -283,6 +285,7 @@ public class UsuarioMb {
 				this.email = null;
 				this.senha = null;
 				this.resposta = null;
+				convidado = null;
 				return "novoLogin";
 			}
 			catch(BoException ex){

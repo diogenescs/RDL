@@ -98,7 +98,11 @@ public class UsuarioBoImpl implements UsuarioBo{
 	
 	public Usuario BuscarUsuario(String email) throws BoException {
 		try {
-			return dao.query("SELECT u FROM Usuario u WHERE u.email = ?1",email).get(0);
+			List<Usuario> a = dao.query("SELECT u FROM Usuario u WHERE u.email = ?1",email);
+			if(a.size() > 0)
+				return a.get(0);
+			else
+				return null;
 		} catch (DaoException e) {
 			// TODO Auto-generated catch block
 			throw new BoException(e, "Erro ao Logar");
