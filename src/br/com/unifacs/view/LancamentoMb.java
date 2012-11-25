@@ -42,6 +42,7 @@ public class LancamentoMb {
 		bo = new LancamentoBoImpl();
 		setLancamento(new Lancamento());
 		this.setLancamentos(this.bo.obterTodos(RdlUtils.getUsuarioLogado(),RdlUtils.getProjetoAtual()));
+		//this.setLancamentos(this.bo.obterTodosPorProjeto(RdlUtils.getProjetoAtual()));
 		historicoBo = new HistoricoBoImpl();
 	}
 	

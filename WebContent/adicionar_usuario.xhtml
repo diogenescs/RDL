@@ -21,7 +21,9 @@
 		
 		<h:form  style="width : 60%; margin-left: 10px; margin-top:60 px;" >
 	
-			<p:panelGrid columns="2">
+			<p:panelGrid columns="4">
+			
+			<h:outputLabel value="Escolha o projeto" for="projeto"/>
 								<p:selectOneMenu value="#{usuarioProjeto.projetoSelecionadoId}"
 						id="textProjet" style="width:250px" required="true"  requiredMessage="Nenhum projeto selecionado.">
 						<f:selectItem itemLabel="Selecione" itemValue="" />
@@ -29,15 +31,17 @@
 							itemLabel="#{projeto.descricao}" itemValue="#{projeto.id}"/>
 					</p:selectOneMenu>
 					
-				<p:commandButton value="Buscar" id="buscar2" actionListener="#{usuarioProjeto.atualizar}" update="dataTable">
+				<p:commandButton value="Ok" id="buscar2" actionListener="#{usuarioProjeto.atualizar}" update="dataTable">
 					<f:ajax render="dataTable" /> 
 				</p:commandButton>	
 					
 			</p:panelGrid>
-
+				<br></br>
+			<p:separator />
+	<br></br>
 			<h:panelGrid columns="5">
-				<h:outputLabel value="Email" for="email"/>
-				<p:inputText id="email" value="#{usuarioProjeto.emailPesquisa}"/>
+				<h:outputLabel value="Email do usuario a adicionar" for="email"/>
+				<p:inputText style="width : 250px;" id="email" value="#{usuarioProjeto.emailPesquisa}"/>
 				
 				<p:commandButton value="Buscar" id="buscar" actionListener="#{usuarioProjeto.buscarUsuario}" update="@all">
 					<f:ajax render="@all" /> 
@@ -56,8 +60,8 @@
 			
 			<p:fieldset id="resultado">
 				<h:panelGrid columns="2" id="presult">
-					<h:outputText value="#{usuarioProjeto.usuarioConvidado.nome}"/>
-					<p:commandButton id="btn" value="Adicioonar" actionListener="#{usuarioProjeto.salvar}" update="dataTable"/>	
+					<p:commandButton id="btn" value="+" actionListener="#{usuarioProjeto.salvar}" update="dataTable" style="background-color: green; color: white"/>
+					<h:outputText value="#{usuarioProjeto.usuarioConvidado.nome}"/>	
 				</h:panelGrid>
 			</p:fieldset>				
 			
@@ -67,17 +71,17 @@
 					emptyMessage="Nenhum registro encontrado"
 					value="#{usuarioProjeto.usuariosProjetos}"  align="center">
 
-					<p:column align="center" width="60" >
+					<p:column align="center" width="200" >
 						<f:facet name="header">
-							<h:outputLabel value="Nome" />
+							<h:outputLabel value="Nome" style="float:left;" />
 						</f:facet>
-						<h:outputLabel  value="#{usr.usuario.nome}" />
+						<h:outputLabel  value="#{usr.usuario.nome}" style="width : 200px;"/>
 					</p:column>
-					<p:column align="center" width="100" >
+					<p:column align="center" width="200" >
 						<f:facet name="header">
-							<h:outputLabel value="Bloqueado" />
+							<h:outputLabel value="Email" style="float:left;" />
 						</f:facet>
-						<h:outputLabel style="width : 250px;"  value="#{usr.block}" />
+						<h:outputLabel style="width : 250px;"  value="#{usr.usuario.email}" />
 					</p:column>
 
 				</p:dataTable>

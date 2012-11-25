@@ -80,6 +80,19 @@ public class LancamentoBoImpl implements LancamentoBo,Serializable {
 		
 		return null;
 	}
+	
+	public List<Lancamento> obterTodosPorProjeto(Projeto p){
+		List<UsuarioProjeto> up = new  UsuarioProjetoBoImpl().obterUsuarioProjetoPorProjeto(p);
+		try {
+			return dao.query("SELECT p FROM Lancamento p WHERE p.usuarioProjeto = ?1", up);
+		} catch (DaoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
 
 
 	public Lancamento obter(Integer id) {

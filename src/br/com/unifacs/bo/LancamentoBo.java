@@ -18,4 +18,5 @@ public interface LancamentoBo {
 	List<Lancamento> obterContasAReceber(Date dataInicial, Date dataFinal) throws BoException;
 	Lancamento obter(Integer id);
 	List<Lancamento> obterPgtosEfetuados(Date dataInicial, Date dataFinal) throws BoException;
+	List<Lancamento> obterTodosPorProjeto(Projeto p);
 }
