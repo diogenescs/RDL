@@ -106,4 +106,14 @@ public class UsuarioProjetoBoImpl implements UsuarioProjetoBo {
 		}
 	}
 
+	public List<UsuarioProjeto> obterTodosPorProjeto(Projeto u) {
+		try {
+			List<UsuarioProjeto> a = dao.query("SELECT up FROM UsuarioProjeto up WHERE up.projeto = ?1", u);
+			return a;
+		} catch (DaoException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 }

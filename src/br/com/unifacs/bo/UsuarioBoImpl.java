@@ -107,10 +107,12 @@ public class UsuarioBoImpl implements UsuarioBo{
 
 	public Usuario obterUsuaorioNaoPermitido(Projeto p, String email) {
 		try {
-			Usuario a = dao.query("SELECT up FROM Usuario up WHERE up.email = ?1 AND up NOT IN (SELECT pp.usuario FROM UsuarioProjeto pp WHERE pp.projeto = ?2)", email,p).get(0);
-			return a;
+			List<Usuario> a = dao.query("SELECT up FROM Usuario up WHERE up.email = ?1 AND up NOT IN (SELECT pp.usuario FROM UsuarioProjeto pp WHERE pp.projeto = ?2)", email,p);
+			if(a.size() == 0)
+				return null;
+			else
+				return a.get(0);
 		} catch (DaoException e) {
-			FacesContext.getCurrentInstance().addMessage("Erro", new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro ao salvar", e.getMessage()));
 			e.printStackTrace();
 			return null;
 		}

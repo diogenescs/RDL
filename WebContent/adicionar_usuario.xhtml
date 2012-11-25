@@ -17,38 +17,35 @@
     	<p:graphicImage value="/images/ajax-loader.gif" />  
 	</p:dialog>   	
 		<br></br>
+		
+		
 		<h:form  style="width : 60%; margin-left: 10px; margin-top:60 px;" >
 	
-	
-					<p:selectOneMenu value="#{usuarioProjeto.projetoSelecionadoId}"
-						id="textProjet" style="width:250px" required="true" requiredMessage="Nenhum projeto selecionado.">
+			<p:panelGrid columns="2">
+								<p:selectOneMenu value="#{usuarioProjeto.projetoSelecionadoId}"
+						id="textProjet" style="width:250px" required="true"  requiredMessage="Nenhum projeto selecionado.">
 						<f:selectItem itemLabel="Selecione" itemValue="" />
 						<f:selectItems value="#{usuarioProjeto.projetos}" var="projeto"
-							itemLabel="#{projeto.descricao}" itemValue="#{projeto.id}" />
+							itemLabel="#{projeto.descricao}" itemValue="#{projeto.id}"/>
 					</p:selectOneMenu>
-	
-	
-			<p:messages showDetail="false" autoUpdate="true"
-					closable="true"/>
+					
+				<p:commandButton value="Buscar" id="buscar2" actionListener="#{usuarioProjeto.atualizar}" update="dataTable">
+					<f:ajax render="dataTable" /> 
+				</p:commandButton>	
+					
+			</p:panelGrid>
+
 			<h:panelGrid columns="5">
 				<h:outputLabel value="Email" for="email"/>
-				<p:inputText id="email" value="#{usuarioProjeto.emailPesquisa}" required="true" requiredMessage="Email é campo obrigatório"/>
+				<p:inputText id="email" value="#{usuarioProjeto.emailPesquisa}"/>
 				
-				<p:commandButton value="Buscar" actionListener="#{usuarioProjeto.buscarUsuario}" update="resultado">
-					<f:ajax render="resultado" /> 
+				<p:commandButton value="Buscar" id="buscar" actionListener="#{usuarioProjeto.buscarUsuario}" update="@all">
+					<f:ajax render="@all" /> 
 				</p:commandButton>				
 			
 			</h:panelGrid>
 			
 	
-	
-	
-			<p:outputPanel id="resultado">
-				<h:panelGrid columns="2">
-					<h:outputText value="#{usuarioProjeto.usuarioConvidado.nome}"/>
-					<p:commandButton value="Adicioonar" actionListener="#{usuarioProjeto.salvar}" update="dataTable"/>	
-				</h:panelGrid>
-			</p:outputPanel>	
 	
 	
 	
@@ -57,34 +54,30 @@
 			<p:separator />
 			<h:outputLabel align="center" style="font-weight: bold; font-size: 15pt; color:green" value="Adicionar usuario" />
 			
+			<p:fieldset id="resultado">
+				<h:panelGrid columns="2" id="presult">
+					<h:outputText value="#{usuarioProjeto.usuarioConvidado.nome}"/>
+					<p:commandButton id="btn" value="Adicioonar" actionListener="#{usuarioProjeto.salvar}" update="dataTable"/>	
+				</h:panelGrid>
+			</p:fieldset>				
+			
 				<p:separator />
  
-				<p:dataTable id="dataTable" var="usuario"
+				<p:dataTable id="dataTable" var="usr"
 					emptyMessage="Nenhum registro encontrado"
-					value="#{usuarioMb.usuario}"  align="center">
+					value="#{usuarioProjeto.usuariosProjetos}"  align="center">
 
 					<p:column align="center" width="60" >
 						<f:facet name="header">
 							<h:outputLabel value="Nome" />
 						</f:facet>
-						<h:outputLabel  value="#{usuario.nome}" />
+						<h:outputLabel  value="#{usr.usuario.nome}" />
 					</p:column>
 					<p:column align="center" width="100" >
 						<f:facet name="header">
-							<h:outputLabel value="Email" />
+							<h:outputLabel value="Bloqueado" />
 						</f:facet>
-						<h:outputLabel style="width : 250px;"  value="#{usuario.email}" />
-					</p:column>
-					<p:column align="center" width="300" >
-					<f:facet name="header">
-							<h:outputLabel value="Projeto" />
-					</f:facet>
-					</p:column>
-					<p:column align="center" width="60">
-						<f:facet name="header">
-							<h:outputLabel value="Adicionar" />
-						</f:facet>
-						<p:selectBooleanCheckbox id="btnVisualizar" value="#{usuario.email}" />
+						<h:outputLabel style="width : 250px;"  value="#{usr.block}" />
 					</p:column>
 
 				</p:dataTable>
