@@ -9,6 +9,7 @@
 <ui:composition template="/template/template_default.xhtml">
 	<link type="text/css" rel="stylesheet" href="css/default.css" />
 	<ui:define name="corpo"> 
+	
 	<p:ajaxStatus onstart="statusDialog.show();" onsuccess="statusDialog.hide();"/>  
               
 	<p:dialog modal="true" widgetVar="statusDialog" header="Status"   
