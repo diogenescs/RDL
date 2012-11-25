@@ -83,7 +83,13 @@ public class UsuarioBoImpl implements UsuarioBo{
 	
 	public Usuario Logar(String login, String senha) throws BoException {
 		try {
-			return dao.query("SELECT u FROM Usuario u WHERE u.login = ?1 and u.senha = ?2",login,senha).get(0);
+			List<Usuario> usrs = dao.query("SELECT u FROM Usuario u WHERE u.login = ?1 and u.senha = ?2",login,senha);
+			if (!usrs.isEmpty()){
+				Usuario usr = usrs.get(0);
+				return usr;
+			}else{
+				return null;
+			}	
 		} catch (DaoException e) {
 			// TODO Auto-generated catch block
 			throw new BoException(e, "Erro ao Logar");
